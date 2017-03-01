@@ -15,6 +15,7 @@ export function* RequestExample() {
     } else {
       yield put({ type: 'REQUEST_EXAMPLE_ERROR', error: 'Network error' });
     }
+
   }
 }
 
