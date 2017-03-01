@@ -1,5 +1,21 @@
 # generator-react-native
 
+## Installation
+
+This generator uses Yeoman, please install it first.
+
+```
+npm install -g yo
+```
+
+This is not available on `npm` _yet_. So for now, clone the project down and inside the folder run.
+
+```
+npm link
+```
+
+You can then run the following commands.
+
 ## Commands
 
 First, please create yourself a new React Native project with `react-native init MyApp && cd MyApp` before running any of the generator commands.
