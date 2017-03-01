@@ -1,0 +1,14 @@
+{
+  "name": "generator-react-native",
+  "version": "0.1.0",
+  "description": "Brings structure to your React Native apps",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.1.0"
+  }
+}
