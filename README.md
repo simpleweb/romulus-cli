@@ -50,6 +50,14 @@ yo react-native:component MyComponent
 yo react-native:component MyComponent --stateful
 ```
 
+### `reducer`
+
+An easy way to scaffold a reducer. It creates the reducer itself an example way to keep organise your associated actions.
+
+```
+yo react-native:reducer MyReducer
+```
+
 ## Manual Notes
 
 ### After `react-native:base`
