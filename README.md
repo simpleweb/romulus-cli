@@ -1,5 +1,17 @@
 # generator-react-native
 
+These generators should be run on _existing_ React Native projects.
+
+## Starting a new project?
+
+First setup a barebones React Native project, make sure it's the latest version too.
+
+```
+react-native init MyApp && cd MyApp
+```
+
+The next logical step is to install this generator (instructions below) and run the `base` command.
+
 ## Installation
 
 This generator uses Yeoman, please install it first.
