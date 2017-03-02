@@ -12,6 +12,10 @@ react-native init MyApp && cd MyApp
 
 The next logical step is to install this generator (instructions below) and run the `base` command.
 
+## What does all this stuff do?!
+
+So... there's no documentation just yet, but there are some [resources](#resources) on some of the more complex topics.
+
 ## Installation
 
 This generator uses Yeoman, please install it first.
