@@ -16,12 +16,23 @@ module.exports = class extends Generator {
         message: 'Which version of Node do you want to use?',
         default: '6.9.5',
       },
+      {
+        type: 'confirm',
+        name: 'createGit',
+        message: 'Create a local git repo?',
+        default: true,
+      },
     ]).then((answers) => {
       this.nodeVersion = answers.nodeVersion;
+      this.createGit = answers.createGit;
     });
   }
 
   writing() {
+    if (this.createGit) {
+      this.composeWith(require.resolve('generator-git-init'));
+    }
+
     // write node verison
     this.fs.copyTpl(
       this.templatePath('.nvmrc'),

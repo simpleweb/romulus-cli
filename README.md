@@ -11,6 +11,7 @@ npm install -g yo
 This is not available on `npm` _yet_. So for now, clone the project down and inside the folder run.
 
 ```
+npm install
 npm link
 ```
 
