@@ -48,6 +48,7 @@ Base will generate you a new project start point. It includes the following,
 * Redux store that is persisted and restored automatically
 * Redux logger
 * Launch screen that waits for the store to be restored from the cache
+* Prevents Redux actions from being dispatched before the cache is restored
 * Environment configuration variables
 * Sagas (to handle async tasks like HTTP requests)
 * Initial setup for deep linking
@@ -57,6 +58,7 @@ Base will generate you a new project start point. It includes the following,
 * Automatic versioning of iOS and Android versions based on the `package.json` version.
 * Pattern to manage Flow types across the app
 * `log` helper to output coloured logs to the debug console
+* Logs that get excluded when in production
 * Generic app icon that can be processed through a separate generator to handle all your iOS and Android icons
 
 Please note, follow the "Manual Notes" below after running this command. Hopefully in the future these can be automated.
