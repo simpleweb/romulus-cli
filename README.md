@@ -37,10 +37,10 @@ First, please create yourself a new React Native project with `react-native init
 
 Base will generate you a new project start point. It includes the following,
 * Router (using `react-native-router-flux`)
-* Launch screen
 * Redux setup
 * Redux store that is persisted and restored automatically
 * Redux logger
+* Launch screen that waits for the store to be restored from the cache
 * Environment configuration variables
 * Sagas (to handle async tasks like HTTP requests)
 * Initial setup for deep linking
