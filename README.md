@@ -34,6 +34,7 @@ Base will generate you a new project start point. It includes the following,
 * Handy `fetch` wrapper that will log what requests are being made
 * Pattern to manage components
 * Environment display, stops you running your app in development mode when building for release
+* Automatic versioning of iOS and Android versions based on the `package.json` version.
 
 Please note, follow the "Manual Notes" below after running this command. Hopefully in the future these can be automated.
 
@@ -62,6 +63,17 @@ yo react-native:reducer MyReducer
 
 ### After `react-native:base`
 
+Add these scripts to your `package.json`, don't overwrite the "start" script that will already exist though.
+
+```
+"scripts": {
+  "version": "./bin/version-ios.sh",
+  "test": "jest --verbose",
+  "coverage": "jest --coverage",
+  "test:watch": "npm test -- --watch"
+},
+```
+
 Add the following to the `[ignore]` section in the `.flowconfig`.
 
 ```
@@ -80,3 +92,7 @@ Add the following to your `.gitignore`.
 .env.live
 .env.production
 ```
+
+Follow the Android version of these instructions to add automatic build numbers.
+
+[https://medium.com/@andr3wjack/versioning-react-native-apps-407469707661#.quhgn05gf](https://medium.com/@andr3wjack/versioning-react-native-apps-407469707661#.quhgn05gf)

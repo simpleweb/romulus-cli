@@ -137,21 +137,28 @@ module.exports = class extends Generator {
       this.templatePath('.babelrc'),
       this.destinationPath('.babelrc')
     );
+
+    //  copy shell scripts
+    this.fs.copyTpl(
+      this.templatePath('bin'),
+      this.destinationPath('bin'),
+      { name: this.name }
+    );
   }
 
   install() {
-    this.npmInstall([
-      'axios',
-      'react-native-dotenv',
-      'react-native-router-flux',
-      'react-redux',
-      'redux',
-      'redux-action-buffer',
-      'redux-logger',
-      'redux-persist',
-      'redux-saga',
-    ], {
-      'save': true
-    });
+    // this.npmInstall([
+    //   'axios',
+    //   'react-native-dotenv',
+    //   'react-native-router-flux',
+    //   'react-redux',
+    //   'redux',
+    //   'redux-action-buffer',
+    //   'redux-logger',
+    //   'redux-persist',
+    //   'redux-saga',
+    // ], {
+    //   'save': true
+    // });
   }
 };
