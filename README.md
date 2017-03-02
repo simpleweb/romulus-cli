@@ -60,6 +60,11 @@ Base will generate you a new project start point. It includes the following,
 * `log` helper to output coloured logs to the debug console
 * Logs that get excluded when in production
 * Generic app icon that can be processed through a separate generator to handle all your iOS and Android icons
+* Simple Styleguide setup
+* Example Button component
+* Style variables
+* Platform specific style variables
+* Layout component example to DRY up scene layouts
 
 Please note, follow the "Manual Notes" below after running this command. Hopefully in the future these can be automated.
 

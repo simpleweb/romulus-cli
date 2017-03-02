@@ -12,6 +12,7 @@ const Routes = Actions.create(
       <Scene key="main">
         <Scene key="main_index" component={Scenes.Main}/>
       </Scene>
+      <Scene key="styleguide" component={Scenes.Styleguide}/>
     </Scene>
   </Scene>
 );
