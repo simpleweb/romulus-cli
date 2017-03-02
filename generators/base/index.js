@@ -207,4 +207,10 @@ module.exports = class extends Generator {
       'save': true
     });
   }
+
+  end() {
+    this.log('Setup complete!');
+    this.log('Please refer to the post-install notes');
+    this.log('https://github.com/simpleweb/generator-react-native#after-react-nativebase');
+  }
 };
