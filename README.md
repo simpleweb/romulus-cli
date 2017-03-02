@@ -117,3 +117,10 @@ Add the following to your `.gitignore`.
 Follow the Android version of these instructions to add automatic build numbers.
 
 [https://medium.com/@andr3wjack/versioning-react-native-apps-407469707661#.quhgn05gf](https://medium.com/@andr3wjack/versioning-react-native-apps-407469707661#.quhgn05gf)
+
+## Resources
+
+* [Introduction to Sagas](https://redux-saga.github.io/redux-saga/docs/introduction/BeginnerTutorial.html)
+* [A great simple intro to Redux Sagas](https://www.youtube.com/watch?v=msx0Qiu8NxQ&list=PLw7fHewFA6OTyUnLiZ1HQvYdzjp9ARMQw)
+* [Intro to Redux](http://redux.js.org/docs/basics/Reducers.html)
+* [Flow](https://flowtype.org/)
