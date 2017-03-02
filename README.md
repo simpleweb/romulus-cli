@@ -36,6 +36,9 @@ First, please create yourself a new React Native project with `react-native init
 ### `base`
 
 Base will generate you a new project start point. It includes the following,
+* A sensible `README` providing consistent instructions between projects
+* `nvm` setup
+* Can optionally `init` Git for you
 * Router (using `react-native-router-flux`)
 * Redux setup
 * Redux store that is persisted and restored automatically
@@ -44,10 +47,13 @@ Base will generate you a new project start point. It includes the following,
 * Environment configuration variables
 * Sagas (to handle async tasks like HTTP requests)
 * Initial setup for deep linking
-* Handy `fetch` wrapper that will log what requests are being made
-* Pattern to manage components
-* Environment display, stops you running your app in development mode when building for release
+* Handy `fetch` wrapper that will log what requests are being made, providing the base URLs from the environment variables
+* Pattern to manage components and their styles
+* Visual display of your app’s environment while it’s running, this get’s hidden in production
 * Automatic versioning of iOS and Android versions based on the `package.json` version.
+* Pattern to manage Flow types across the app
+* `log` helper to output coloured logs to the debug console
+* Generic app icon that can be processed through a separate generator to handle all your iOS and Android icons
 
 Please note, follow the "Manual Notes" below after running this command. Hopefully in the future these can be automated.
 
