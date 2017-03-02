@@ -173,6 +173,11 @@ module.exports = class extends Generator {
       this.destinationPath('App/Assets')
     );
 
+    this.fs.copy(
+      this.templatePath('App/Types'),
+      this.destinationPath('App/Types')
+    );
+
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),
@@ -188,18 +193,18 @@ module.exports = class extends Generator {
   }
 
   install() {
-    // this.npmInstall([
-    //   'axios',
-    //   'react-native-dotenv',
-    //   'react-native-router-flux',
-    //   'react-redux',
-    //   'redux',
-    //   'redux-action-buffer',
-    //   'redux-logger',
-    //   'redux-persist',
-    //   'redux-saga',
-    // ], {
-    //   'save': true
-    // });
+    this.npmInstall([
+      'axios',
+      'react-native-dotenv',
+      'react-native-router-flux',
+      'react-redux',
+      'redux',
+      'redux-action-buffer',
+      'redux-logger',
+      'redux-persist',
+      'redux-saga',
+    ], {
+      'save': true
+    });
   }
 };
