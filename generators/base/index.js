@@ -168,6 +168,11 @@ module.exports = class extends Generator {
       this.destinationPath('.babelrc')
     );
 
+    this.fs.copy(
+      this.templatePath('App/Assets'),
+      this.destinationPath('App/Assets')
+    );
+
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),
