@@ -138,6 +138,12 @@ module.exports = class extends Generator {
       this.destinationPath('.babelrc')
     );
 
+    this.fs.copyTpl(
+      this.templatePath('README.md'),
+      this.destinationPath('README.md'),
+      { name: this.name, nameLower: this.name.toLowerCase() }
+    );
+
     //  copy shell scripts
     this.fs.copyTpl(
       this.templatePath('bin'),
