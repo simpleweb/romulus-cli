@@ -69,7 +69,7 @@ module.exports = class extends Generator {
 
     // copy scenes
     this.fs.copyTpl(
-      this.templatePath('App/Scenes/*.js'),
+      this.templatePath('App/Scenes'),
       this.destinationPath('App/Scenes'),
       { name: this.name }
     );
