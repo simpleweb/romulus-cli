@@ -64,6 +64,8 @@ yo react-native:reducer MyReducer
 
 ### After `react-native:base`
 
+The default `react-native init` now comes with tvOS targets... These add un-needed cruft to the project. Best plan is to open the XCode project, remove the tvOS targets and then delete the files in the project themselves.
+
 Add these scripts to your `package.json`, don't overwrite the "start" script that will already exist though.
 
 ```
