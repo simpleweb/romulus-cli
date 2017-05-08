@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import <%= component %>Styles from './styles';
+import { View, Text } from './styles';
 
 type State = {
 };
@@ -20,8 +19,6 @@ class <%= component %> extends Component {
   }
 
   render(): React$Element<any> {
-    const Styles = <%= component %>Styles(this.props);
-
     return (
       <View>
         <Text><%= component %></Text>
