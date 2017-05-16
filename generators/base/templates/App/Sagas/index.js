@@ -1,4 +1,4 @@
-import { all, fork } from 'redux-saga';
+import { all, fork } from 'redux-saga/effects';
 import RequestExample from '<%= name %>/App/Sagas/RequestExample';
 
 export default function* rootSaga() {
