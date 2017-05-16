@@ -10,9 +10,11 @@ To make life easier, your shell configuration can [automatically switch Node ver
 
 ### Setup your environment
 
-This project utilities a "dotenv" file. Please duplicate the `.env.example` file and fill out your local environment variables.
+This project utilises a "dotenv" file. Please duplicate the `.env.example` file to `.env.development` and fill out your local environment variables.
 
-Production/staging/edge credentials will be store in the wiki and separate env files can be created for these, e.g. `.env.<enviroment>`.
+It’s also worth creating an `.env` file which will take further precedence over the `.env.development` but you don’t have to use it. The React Native packager can throw an error if either of these files don’t exist.
+
+When building in release mode, `.env.production` will be used. For now, if you want to produce a "staging" or "edge" build, the corresponding credentials will need to be in `.env.production`.
 
 If you're having trouble with the environment variables not updating, please [refer to `react-native-dotenv`’s troubleshooting guide](https://github.com/zetachang/react-native-dotenv#troubleshooting).
 
@@ -40,10 +42,10 @@ After this is installed, please download the "<%= name %> - iOS Distribution" pr
 
 ### Install dependencies
 
-Install JavaScript dependencies with `npm`.
+Install JavaScript dependencies with `yarn`.
 
 ```
-$ npm install
+$ yarn install
 ```
 
 ### Start the development server
@@ -51,7 +53,7 @@ $ npm install
 React Native uses a development server to bundle up your code, you'll need this running before launching the app in a simulator.
 
 ```
-$ npm run start
+$ yarn run start
 ```
 
 ### Running the app using React Native CLI
@@ -76,9 +78,9 @@ The iOS version (may) use Pods, and requires to be run via it's Xcode Workspace.
 This project uses [Jest](https://facebook.github.io/jest/) for testing. You can run the tests once, have Jest continually watch for changes or ask it to produce a coverage report.
 
 ```
-$ npm run test
-$ npm run test:watch
-$ npm run coverage
+$ yarn run test
+$ yarn run test:watch
+$ yarn run coverage
 ```
 
 With Jest, tests can live anywhere within the codebase, the majority however live in the `__tests__` folder at the root of the project. Any folder with the same name or files ending in `.test.js` will also be included when running Jest.
@@ -107,6 +109,22 @@ $ yo rn-toolbox:assets --icon App/Assets/AppIcon.png
 
 ## Release and deployment
 
+### Building for testing
+
+Testing builds should be configured to point towards staging and released using Fabric.
+
+To configure the build for staging, please place staging configuration into `.env.production`. While this is confusing, unfortunately the plugin we are using to populate the environment looks for this file when the app is built in release mode, rather than being environment specific.
+
+#### iOS
+
+For iOS, you will need to produce a release build using the `<%= name %> - iOS Development` provisioning profile. Please make sure everyone’s UUID in the profile you wish to test with. Please refer to [this guide](https://docs.fabric.io/apple/beta/beta-walkthrough.html) for releasing on Fabric.
+
+#### Android
+
+For Android, simply build the project using the instructions below and then follow the [Beta Process Walkthrough](https://docs.fabric.io/android/beta/beta-walkthrough.html) guide.
+
+You will need to make sure Crashlytics is installed in Android Studio, [follow these instructions](https://www.fabric.io/downloads/android) if you don’t have it setup.
+
 ### Versioning
 
 When producing a new build you will need to bump the version number. This is handled more or less automatically through the version in the `package.json`.
@@ -114,7 +132,7 @@ When producing a new build you will need to bump the version number. This is han
 For iOS you need to run the following command which automatically updates the XCode project with the version inside the `package.json`. It also increments the build number.
 
 ```
-$ npm run version
+$ yarn run version
 ```
 
 Android’s version is dynamically generated using it’s Gradle files.
@@ -123,7 +141,9 @@ If there's ever any issues with this flow, please [refer to this article](https:
 
 ### iOS
 
-For now, please come speak to Ben. 😃
+In XCode build to the "Generic iOS Device" and then archive the build. Building (as opposed to running) will use the "Signing (Release)" profile, the provisioning profile for this must be "<%= name %> - iOS Distribution".
+
+Once archived simply open the Organizer in XCode and upload the build.
 
 ### Android
 
@@ -138,3 +158,7 @@ $ ./gradlew assembleRelease
 ```
 
 This should leave you with a signed APK located in `android/app/build/outputs/apk/app-release.apk`.
+
+### Post-release
+
+After each build, please create a commit along the lines of "Release 0.1.0" and push it to Github. Following that, [create a release](https://github.com/simpleweb/<%= name %>/releases) and named "v0.1.0", include any release notes and attach both iOS and Android binaries (zipped).
