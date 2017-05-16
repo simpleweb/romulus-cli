@@ -1,6 +1,5 @@
 // @flow
 import { applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
 import { ActionConst } from 'react-native-router-flux';
 import Buffer from '<%= name %>/App/Store/Middleware/Buffer';
 import Saga from '<%= name %>/App/Store/Middleware/Saga';

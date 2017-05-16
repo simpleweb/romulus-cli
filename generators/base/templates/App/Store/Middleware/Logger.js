@@ -1,5 +1,5 @@
 // @flow
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import { ActionConst } from 'react-native-router-flux';
 
 const blacklist = [

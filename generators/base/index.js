@@ -193,7 +193,7 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.npmInstall([
+    this.yarnInstall([
       'axios',
       'react-native-dotenv',
       'react-native-router-flux',
@@ -203,8 +203,12 @@ module.exports = class extends Generator {
       'redux-logger',
       'redux-persist',
       'redux-saga',
+    ]);
+
+    this.yarnInstall([
+      'flow-bin@',
     ], {
-      'save': true
+      'dev': true
     });
   }
 

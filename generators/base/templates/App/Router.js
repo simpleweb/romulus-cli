@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Linking } from 'react-native';
-import { Scene, Actions, Router } from 'react-native-router-flux';
+import { Scene, Actions, Router, ActionConst } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import Scenes from '<%= name %>/App/Scenes';
 
@@ -46,7 +46,7 @@ const getInitialURL = async () => {
 const root = async () => {
   const url : string|null = await getInitialURL();
 
-  Actions.main({ animation: 'fade' });
+  Actions.main({ type: ActionConst.RESET });
 
   if (url) {
     handleURL({ url });
