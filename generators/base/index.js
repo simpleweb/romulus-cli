@@ -203,8 +203,12 @@ module.exports = class extends Generator {
       'redux-logger',
       'redux-persist',
       'redux-saga',
+    ]);
+
+    this.yarnInstall([
+      'flow-bin@',
     ], {
-      'save': true
+      'dev': true
     });
   }
 
