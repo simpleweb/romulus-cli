@@ -1,9 +1,13 @@
 // @flow
 import { combineReducers } from 'redux';
-import App from '<%= name %>/App/Reducers/App';
+<% reducers.forEach(function(reducer) { -%>
+import <%= reducer %> from '<%= name %>/App/Reducers/<%= reducer %>';
+<% }); -%>
 
 const reducers = combineReducers({
-  app: App,
+<% reducers.forEach(function(reducer) { -%>
+  <%- reducer.toLowerCase() %>: <%= reducer %>,
+<% }); -%>
 });
 
 export default reducers;
