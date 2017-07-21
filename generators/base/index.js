@@ -196,7 +196,7 @@ module.exports = class extends Generator {
     this.yarnInstall([
       'axios',
       'react-native-dotenv',
-      'react-native-router-flux',
+      'react-native-router-flux@3.41.0',
       'react-redux',
       'redux',
       'redux-action-buffer',
