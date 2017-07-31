@@ -275,7 +275,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    return;
     this.yarnInstall([
       'axios',
       'react-native-dotenv',
