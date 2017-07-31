@@ -43,7 +43,7 @@ Base will generate you a new project start point. It includes the following,
 * A sensible `README` providing consistent instructions between projects
 * `nvm` setup
 * Can optionally `init` Git for you
-* Router (using `react-native-router-flux`)
+* Router (using `react-native-router-flux` or `react-navigation`)
 * Redux setup
 * Redux store that is persisted and restored automatically
 * Redux logger

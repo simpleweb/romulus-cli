@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import API from '<%= name %>/App/Services/API';
 
-export function* RequestExample() {
+const RequestExample = function*() {
   try {
 
     const url = 'https://reqres.in/api/users';
@@ -19,6 +19,8 @@ export function* RequestExample() {
   }
 }
 
-export default function* watchRequestExample() {
+const watchRequestExample = function*() {
   yield takeEvery('REQUEST_EXAMPLE', RequestExample);
 }
+
+export default watchRequestExample;
