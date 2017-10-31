@@ -12,6 +12,9 @@ import Scenes from '<%= name %>/App/Scenes';
 const RootNavigator = StackNavigator({
   Launch: {
     screen: Scenes.Launch,
+    navigationOptions: {
+      header: null
+    }
   },
   Main: {
     screen: Scenes.Main,
