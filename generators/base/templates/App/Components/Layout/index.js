@@ -8,6 +8,17 @@ type Props = {
   style?: any,
 };
 
+function Full(props: Props): React$Element<any> {
+  const { children, style } = props;
+  const Styles = LayoutStyles(props);
+
+  return (
+    <View style={[Styles.Full, style]}>
+      {children}
+    </View>
+  );
+}
+
 function Center(props: Props): React$Element<any> {
   const { children, style } = props;
   const Styles = LayoutStyles(props);
@@ -42,6 +53,7 @@ function Padded(props: Props): React$Element<any> {
 }
 
 const Layout: Object = {
+  Full,
   Center,
   Scroll,
   Padded,
