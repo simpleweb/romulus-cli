@@ -50,14 +50,8 @@ module.exports = class extends Generator {
 
     // create entry points for Android and iOS
     this.fs.copyTpl(
-      this.templatePath('index.ios.js'),
-      this.destinationPath('index.ios.js'),
-      { name: this.name }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('index.android.js'),
-      this.destinationPath('index.android.js'),
+      this.templatePath('index.js'),
+      this.destinationPath('index.js'),
       { name: this.name }
     );
 
