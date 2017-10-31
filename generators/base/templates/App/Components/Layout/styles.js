@@ -2,6 +2,17 @@
 import { StyleSheet } from 'react-native';
 import variables from '<%= name %>/App/Styles/Variables';
 
+const Full = (props: Object): Object => {
+  const marginTop = props.header ? variables.headerHeight : 0;
+  const marginBottom = props.footer ? variables.footerHeight : 0;
+
+  return {
+    flex: 1,
+    marginTop,
+    marginBottom,
+  };
+};
+
 const Center = (props: Object): Object => {
   return {
     flex: 1,
