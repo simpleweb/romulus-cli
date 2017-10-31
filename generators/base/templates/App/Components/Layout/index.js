@@ -53,6 +53,7 @@ function Padded(props: Props): React$Element<any> {
 }
 
 const Layout: Object = {
+  Full,
   Center,
   Scroll,
   Padded,
