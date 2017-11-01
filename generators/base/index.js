@@ -282,6 +282,7 @@ module.exports = class extends Generator {
       'redux-logger',
       'redux-persist',
       'redux-saga',
+      'styled-components',
     ]);
 
     this.yarnInstall([
