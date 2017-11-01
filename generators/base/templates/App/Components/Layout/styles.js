@@ -20,5 +20,5 @@ export const ScrollView = styled.ScrollView`
 `;
 
 export const PaddedView = styled.View`
-  padding: ${variables.spacing},
+  padding: ${variables.spacing};
 `;
