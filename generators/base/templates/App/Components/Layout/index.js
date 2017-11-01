@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import { View, ScrollView } from 'react-native';
-import LayoutStyles from './styles';
+
+import { FullView, CenterView, ScrollView, PaddedView } from './styles';
 
 type Props = {
   children: React$Element<any>,
@@ -10,32 +10,29 @@ type Props = {
 
 function Full(props: Props): React$Element<any> {
   const { children, style } = props;
-  const Styles = LayoutStyles(props);
 
   return (
-    <View style={[Styles.Full, style]}>
+    <FullView style={ style }>
       {children}
-    </View>
+    </FullView>
   );
 }
 
 function Center(props: Props): React$Element<any> {
   const { children, style } = props;
-  const Styles = LayoutStyles(props);
 
   return (
-    <View style={[Styles.Center, style]}>
+    <CenterView style={ style }>
       {children}
-    </View>
+    </CenterView>
   );
 }
 
 function Scroll(props: Props): React$Element<any> {
   const { children, style } = props;
-  const Styles = LayoutStyles(props);
 
   return (
-    <ScrollView style={[Styles.Scroll, style]}>
+    <ScrollView style={ style }>
       {children}
     </ScrollView>
   );
@@ -43,12 +40,11 @@ function Scroll(props: Props): React$Element<any> {
 
 function Padded(props: Props): React$Element<any> {
   const { children, style } = props;
-  const Styles = LayoutStyles(props);
 
   return (
-    <View style={[Styles.Padded, style]}>
+    <PaddedView style={ style }>
       {children}
-    </View>
+    </PaddedView>
   );
 }
 

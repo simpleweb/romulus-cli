@@ -1,48 +1,24 @@
 // @flow
-import { StyleSheet } from 'react-native';
+import styled, { css } from 'styled-components/native';
 import variables from '<%= name %>/App/Styles/Variables';
 
-const Full = (props: Object): Object => {
-  const marginTop = props.header ? variables.headerHeight : 0;
-  const marginBottom = props.footer ? variables.footerHeight : 0;
+export const FullView = styled.View`
+  flex: 1;
+  margin-top: ${props => props.header ? variables.headerHeight : 0};
+  margin-bottom: ${props => props.footer ? variables.footerHeight : 0};
+`;
 
-  return {
-    flex: 1,
-    marginTop,
-    marginBottom,
-  };
-};
+export const CenterView = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
 
-const Center = (props: Object): Object => {
-  return {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  };
-};
+export const ScrollView = styled.ScrollView`
+  margin-top: ${props => props.header ? variables.headerHeight : 0};
+  margin-bottom: ${props => props.footer ? variables.footerHeight : 0};
+`;
 
-const Scroll = (props: Object): Object => {
-  const marginTop = props.header ? variables.headerHeight : 0;
-  const marginBottom = props.footer ? variables.footerHeight : 0;
-
-  return {
-    marginTop,
-    marginBottom,
-  };
-};
-
-const Padded = (props: Object): Object => {
-  return {
-    padding: variables.spacing,
-  };
-};
-
-const styles = (props: Object): Object => ({
-  Center: Center(props),
-  Scroll: Scroll(props),
-  Padded: Padded(props),
-});
-
-export default (props: Object): Object => {
-  return StyleSheet.create(styles(props));
-};
+export const PaddedView = styled.View`
+  padding: ${variables.spacing},
+`;
