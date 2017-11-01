@@ -1,22 +1,13 @@
 // @flow
 import React from 'react';
-import { Text as RNText } from 'react-native';
-import TextStyles from './styles';
+import { Text as StyledText } from './styles';
 
 type Props = {
-  children: React$Element<any>,
-  style?: any,
+  children?: string,
 };
 
 function Text(props: Props): React$Element<any> {
-  const { children, style, ...other } = props;
-  const Styles = TextStyles(props);
-
-  return (
-    <RNText style={[ Styles.Default, style ]} {...other}>
-      { children }
-    </RNText>
-  );
+  return <StyledText {...props}/>;
 }
 
 export default Text;

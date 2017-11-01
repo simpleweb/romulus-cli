@@ -1,47 +1,37 @@
 // @flow
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 import variables from '<%= name %>/App/Styles/Variables';
 
-const Environment = (props: Object): Object => {
-  const backgroundColor = ((env) => {
-    switch(env) {
-      case 'staging':
-        return 'orange';
-      case 'edge':
-        return 'purple';
-      case 'production':
-        return 'red';
-      default:
-        return 'green';
-    }
-  })(props.env);
+import RNText from '<%= name %>/App/Components/Text';
 
-  return {
-    width: 16,
-    height: 18,
-    backgroundColor,
-    position: 'absolute',
-    right: 5,
-    bottom: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-  };
-};
+export const Badge = styled.View`
+  width: 16px;
+  height: 18px;
+  background-color: ${props => envCheck(props.env)};
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4;
+`;
 
-const Text = (props: Object): Object => {
-  return {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: variables.colors.white,
-  };
-};
+export const Text = styled(RNText)`
+  font-size: 12;
+  font-family: 'System';
+  font-weight: bold;
+  color: ${variables.colors.white};
+`;
 
-const styles = (props: Object): Object => ({
-  Environment: Environment(props),
-  Text: Text(props),
-});
-
-export default (props: Object): Object => {
-  return StyleSheet.create(styles(props));
+const envCheck = (env) => {
+  switch(env) {
+    case 'staging':
+      return 'orange';
+    case 'edge':
+      return 'purple';
+    case 'production':
+      return 'red';
+    default:
+      return 'green';
+  }
 };
