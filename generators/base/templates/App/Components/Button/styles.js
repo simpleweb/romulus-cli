@@ -1,27 +1,16 @@
 // @flow
-import { StyleSheet } from 'react-native';
+import styled, { css } from 'styled-components/native';
 import variables from '<%= name %>/App/Styles/Variables';
 
-const Button = (props: Object): Object => {
-  return {
-    padding: 12,
-    backgroundColor: variables.colors.grey,
-    borderRadius: 3,
-  };
-};
+import RNText from '<%= name %>/App/Components/Text';
 
-const Text = (props: Object): Object => {
-  return {
-    color: variables.colors.white,
-    textAlign: 'center',
-  };
-};
+export const Container = styled.View`
+  padding: 12px;
+  background-color: ${variables.colors.grey};
+  border-radius: 3px;
+`;
 
-const styles = (props: Object): Object => ({
-  Button: Button(props),
-  Text: Text(props),
-});
-
-export default (props: Object): Object => {
-  return StyleSheet.create(styles(props));
-};
+export const Text = styled(RNText)`
+  color: ${variables.colors.white};
+  text-align: center;
+`;
