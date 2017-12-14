@@ -5,7 +5,7 @@ export default {
   ...dimensions,
   spacing: 16,
   fonts: {
-    family: 'system font',
+    family: 'System',
   },
   colors: {
     white: '#FFFFFF',
