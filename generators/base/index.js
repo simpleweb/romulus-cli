@@ -106,19 +106,11 @@ module.exports = class extends Generator {
     );
 
     // copy store
-    if (this.router === 'react-navigation') {
-      this.fs.copyTpl(
-        this.templatePath('App/Store/index.react-navigation.js'),
-        this.destinationPath('App/Store/index.js'),
-        { name: this.name }
-      );
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('App/Store/index.js'),
-        this.destinationPath('App/Store/index.js'),
-        { name: this.name }
-      );
-    }
+    this.fs.copyTpl(
+      this.templatePath('App/Store/index.js'),
+      this.destinationPath('App/Store/index.js'),
+      { name: this.name }
+    );
 
     // copy store middleware
     this.fs.copyTpl(
@@ -278,7 +270,7 @@ module.exports = class extends Generator {
       this.router,
       'react-redux',
       'redux',
-      'redux-action-buffer',
+      'redux-action-buffer@git+https://github.com/rt2zz/redux-action-buffer.git',
       'redux-logger',
       'redux-persist',
       'redux-saga',

@@ -1,6 +1,6 @@
 // @flow
 import { RootNavigator } from '<%= name %>/App/Router';
-import { REHYDRATE } from 'redux-persist/constants';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 
 type State = any;
 

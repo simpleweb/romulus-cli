@@ -1,10 +1,18 @@
 // @flow
-import { combineReducers } from 'redux';
+import { persistCombineReducers } from 'redux-persist';
+import { ENV, STORAGE_PREFIX } from '<%= name %>/App/Config';
+import storage from 'redux-persist/src/storage';
 <% reducers.forEach(function(reducer) { -%>
 import <%= reducer %> from '<%= name %>/App/Reducers/<%= reducer %>';
 <% }); -%>
 
-const reducers = combineReducers({
+const config = {
+  key: STORAGE_PREFIX,
+  debug: ENV == 'development',
+  storage,
+}
+
+const reducers = persistCombineReducers(config, {
 <% reducers.forEach(function(reducer) { -%>
   <%- reducer.toLowerCase() %>: <%= reducer %>,
 <% }); -%>
