@@ -11,6 +11,7 @@ import App from '<%= name %>/App/Components/App';
 const { persistor, store } = configureStore()
 
 export default class <%= name %> extends Component {
+
   componentDidMount() {
     Router.addDeepLinkListener();
   }
@@ -26,17 +27,17 @@ export default class <%= name %> extends Component {
 
   render(): React$Element<any> {
     return (
-    <App>
-      <Provider store={store}>
-        <PersistGate
-          loading={null}
-          onBeforeLift={this._onBeforeLift}
-          persistor={persistor}
-        >
-          <RouterWithRedux scenes={Routes}/>
-        </PersistGate>
-      </Provider>
-    </App>
+      <App>
+        <Provider store={store}>
+          <PersistGate
+            loading={null}
+            onBeforeLift={this._onBeforeLift}
+            persistor={persistor}
+          >
+            <RouterWithRedux scenes={Routes}/>
+          </PersistGate>
+        </Provider>
+      </App>
     );
   }
 }

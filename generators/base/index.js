@@ -215,6 +215,7 @@ module.exports = class extends Generator {
       {
         env: 'development',
         api_url: 'http://localhost:3000',
+        storage_prefix: 'development',
       }
     );
     this.fs.copyTpl(
@@ -223,6 +224,7 @@ module.exports = class extends Generator {
       {
         env: 'development',
         api_url: 'http://localhost:3000',
+        storage_prefix: 'development',
       }
     );
     this.fs.copyTpl(
@@ -231,6 +233,7 @@ module.exports = class extends Generator {
       {
         env: 'production',
         api_url: 'http://localhost:3000',
+        storage_prefix: 'production',
       }
     );
 
