@@ -54,10 +54,10 @@ const getInitialURL = async () => {
   });
 };
 
-const root = async (dispatch) => {
+const root = async (store) => {
   const url : string|null = await getInitialURL();
 
-  dispatch(
+  store.dispatch(
     NavigationActions.reset({
       index: 0,
       actions: [
