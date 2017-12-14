@@ -1,33 +1,18 @@
 // @flow
 import { createStore, compose } from 'redux';
-import { persistStore, autoRehydrate } from 'redux-persist';
-import { AsyncStorage } from 'react-native';
-import { ActionConst } from 'react-native-router-flux';
+import { persistStore } from 'redux-persist';
 import Reducers from '<%= name %>/App/Reducers';
 import Middleware from '<%= name %>/App/Store/Middleware';
-import { runSagaMiddleware } from '<%= name %>/App/Store/Middleware/Saga';
 
-const Store = createStore(
+const store = createStore(
   Reducers,
-  compose(
-    Middleware,
-    autoRehydrate()
-  )
+  compose(Middleware)
 );
 
-const restoreCachedStore = (callback: Function) => {
-  persistStore(Store, {
-    storage: AsyncStorage,
-    blacklist: [
-      ...Object.keys(ActionConst).map(key => ActionConst[key]),
-    ],
-  }, () => {
-    runSagaMiddleware();
-    if (callback) {
-      callback();
-    }
-  });
+const configureStore = () => {
+  let persistor = persistStore(store);
+  return { persistor, store };
 }
 
-export default Store;
-export { restoreCachedStore };
+export default store;
+export { configureStore };
