@@ -273,7 +273,7 @@ module.exports = class extends Generator {
       this.router,
       'react-redux',
       'redux',
-      'redux-action-buffer@git+https://github.com/rt2zz/redux-action-buffer.git',
+      'redux-action-buffer',
       'redux-logger',
       'redux-persist',
       'redux-saga',
