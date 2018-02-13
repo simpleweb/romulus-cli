@@ -118,11 +118,20 @@ module.exports = class extends Generator {
       this.destinationPath('App/Store/Middleware/Buffer.js'),
       { name: this.name }
     );
-    this.fs.copyTpl(
-      this.templatePath('App/Store/Middleware/index.js'),
-      this.destinationPath('App/Store/Middleware/index.js'),
-      { name: this.name }
-    );
+    if (this.router === 'react-navigation') {
+      this.fs.copyTpl(
+        this.templatePath('App/Store/Middleware/index.react-navigation.js'),
+        this.destinationPath('App/Store/Middleware/index.js'),
+        { name: this.name }
+      );
+    } else {
+      this.fs.copyTpl(
+        this.templatePath('App/Store/Middleware/index.js'),
+        this.destinationPath('App/Store/Middleware/index.js'),
+        { name: this.name }
+      );
+    }
+
     this.fs.copyTpl(
       this.templatePath('App/Store/Middleware/Saga.js'),
       this.destinationPath('App/Store/Middleware/Saga.js'),
@@ -271,6 +280,7 @@ module.exports = class extends Generator {
       'axios',
       'react-native-dotenv',
       this.router,
+      ...(this.router === 'react-navigation' ? ['react-navigation-redux-helpers'] : []),
       'react-redux',
       'redux',
       'redux-action-buffer',
