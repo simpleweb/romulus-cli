@@ -7,6 +7,10 @@ import {
   NavigationActions,
   addNavigationHelpers
 } from 'react-navigation';
+import {
+  createReactNavigationReduxMiddleware,
+  createReduxBoundAddListener
+} from 'react-navigation-redux-helpers';
 import Scenes from '<%= name %>/App/Scenes';
 
 const RootNavigator = StackNavigator({
