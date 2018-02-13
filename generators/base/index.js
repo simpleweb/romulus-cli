@@ -280,7 +280,7 @@ module.exports = class extends Generator {
       'axios',
       'react-native-dotenv',
       this.router,
-      ...(this.router === 'react-navigation' ? ['react-navigation-redux-helpers'] : ['']),
+      ...(this.router === 'react-navigation' ? ['react-navigation-redux-helpers'] : []),
       'react-redux',
       'redux',
       'redux-action-buffer',
