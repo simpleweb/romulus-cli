@@ -13,13 +13,15 @@ import {
 } from 'react-navigation-redux-helpers';
 import Scenes from '<%= name %>/App/Scenes';
 
+const key = "root";
+
 // Note: createReactNavigationReduxMiddleware must be run before createReduxBoundAddListener
 export const RouterMiddleware = createReactNavigationReduxMiddleware(
-  "root",
+  key,
   state => state.nav,
 );
 
-const addListener = createReduxBoundAddListener("root");
+const addListener = createReduxBoundAddListener(key);
 
 const RootNavigator = StackNavigator({
   Launch: {
