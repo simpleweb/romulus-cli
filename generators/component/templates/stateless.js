@@ -1,16 +1,13 @@
 // @flow
-import React from 'react';
-import { View, Text } from './styles';
+import React from "react";
+import { View, Text } from "./styles";
 
-type Props = {
-};
+type Props = {};
 
-function <%= component %>(props: Props): React$Element<any> {
-  return (
-    <View>
-      <Text><%= component %></Text>
-    </View>
-  );
-}
+const <%= component %> = (props: Props): React$Element<any> => (
+  <View>
+    <Text><%= component %></Text>
+  </View>
+);
 
 export default <%= component %>;
