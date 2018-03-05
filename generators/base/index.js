@@ -48,6 +48,11 @@ module.exports = class extends Generator {
       { verison: this.nodeVersion }
     );
 
+    this.fs.copy(
+      this.templatePath('package.json'),
+      this.destinationPath('package.json')
+    );
+
     // create entry points for Android and iOS
     this.fs.copyTpl(
       this.templatePath('index.js'),
@@ -292,6 +297,7 @@ module.exports = class extends Generator {
 
     this.yarnInstall([
       'flow-bin@',
+      'prettier',
     ], {
       'dev': true
     });

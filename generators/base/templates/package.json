@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "prettier": "prettier --write './App/**/*.js'"
+  }
+}
