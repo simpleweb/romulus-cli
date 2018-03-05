@@ -1,11 +1,6 @@
 // @flow
-import styled from 'styled-components/native';
-import variables from '<%= name %>/App/Styles/Variables';
+import styled from "styled-components/native";
 
-export const View = styled.View`
+export const View = styled.View``;
 
-`;
-
-export const Text = styled.Text`
-
-`;
+export const Text = styled.Text``;
