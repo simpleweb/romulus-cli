@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { Text } from 'react-native';
 import Layout from '<%= name %>/App/Components/Layout';
 import Button from '<%= name %>/App/Components/Button';
@@ -24,13 +24,13 @@ function Styleguide(props: Props): React$Element<any> {
         <Button onPress={requestExample}>Request Example</Button>
 
         <Heading>Map props example</Heading>
-        <Text>Is app installed? {`${installed}`}</Text>
+        <Text>Is app installed? {installed ? "Yes" : "No"}</Text>
       </Layout.Padded>
     </Layout.Scroll>
   );
 }
 
-function Heading(props: { children?: React$Element<any> }): React$Element<any> {
+function Heading(props: { children: React.Node }): React.Node {
   const { children } = props;
   return (
     <Text style={{ fontWeight: 'bold', marginTop: 30, marginBottom: 10 }}>

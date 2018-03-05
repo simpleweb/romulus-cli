@@ -10,7 +10,7 @@ import App from '<%= name %>/App/Components/App';
 
 const { persistor, store } = configureStore()
 
-export default class <%= name %> extends Component {
+export default class <%= name %> extends Component<{}> {
 
   componentDidMount() {
     Router.addDeepLinkListener();

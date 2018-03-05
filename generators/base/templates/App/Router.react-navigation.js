@@ -2,6 +2,7 @@
 import React from 'react';
 import { Linking } from 'react-native';
 import { connect } from 'react-redux';
+import type { Store as ReduxStore } from 'redux';
 import {
   StackNavigator,
   NavigationActions,
@@ -69,7 +70,7 @@ const getInitialURL = async () => {
   });
 };
 
-const root = async (store) => {
+const root = async (store: ReduxStore) => {
   const url : string|null = await getInitialURL();
 
   store.dispatch(
