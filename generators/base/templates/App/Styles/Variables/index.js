@@ -1,8 +1,11 @@
 // @flow
-import dimensions from './dimensions';
+import { Platform } from 'react-native';
+
+const headerHeight = Platform.OS === 'ios' ? 65 : 54;
 
 export default {
-  ...dimensions,
+  headerHeight,
+  footerHeight: 50,
   spacing: 16,
   fonts: {
     family: 'System',

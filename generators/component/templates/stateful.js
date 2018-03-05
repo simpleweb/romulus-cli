@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * from React from 'react';
 import { View, Text } from './styles';
 
 type State = {
@@ -8,7 +8,7 @@ type State = {
 type Props = {
 };
 
-class <%= component %> extends Component {
+class <%= component %> extends React.Component {
   state: State;
   props: Props;
 
@@ -18,7 +18,7 @@ class <%= component %> extends Component {
     this.state = {};
   }
 
-  render(): React$Element<any> {
+  render(): React.Node {
     return (
       <View>
         <Text><%= component %></Text>

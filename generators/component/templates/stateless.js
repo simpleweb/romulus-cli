@@ -1,10 +1,10 @@
 // @flow
-import React from "react";
+import * as React from 'react';
 import { View, Text } from "./styles";
 
 type Props = {};
 
-const <%= component %> = (props: Props): React$Element<any> => (
+const <%= component %> = (props: Props): React.Node => (
   <View>
     <Text><%= component %></Text>
   </View>

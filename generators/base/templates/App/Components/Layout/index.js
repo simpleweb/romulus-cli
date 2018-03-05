@@ -1,14 +1,14 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 
 import { FullView, CenterView, ScrollView, PaddedView } from './styles';
 
 type Props = {
-  children: React$Element<any>,
+  children: React.Node,
   style?: any,
 };
 
-function Full(props: Props): React$Element<any> {
+function Full(props: Props): React.Node {
   const { children, style } = props;
 
   return (
@@ -18,7 +18,7 @@ function Full(props: Props): React$Element<any> {
   );
 }
 
-function Center(props: Props): React$Element<any> {
+function Center(props: Props): React.Node {
   const { children, style } = props;
 
   return (
@@ -28,7 +28,7 @@ function Center(props: Props): React$Element<any> {
   );
 }
 
-function Scroll(props: Props): React$Element<any> {
+function Scroll(props: Props): React.Node {
   const { children, style } = props;
 
   return (
@@ -38,7 +38,7 @@ function Scroll(props: Props): React$Element<any> {
   );
 }
 
-function Padded(props: Props): React$Element<any> {
+function Padded(props: Props): React.Node {
   const { children, style } = props;
 
   return (

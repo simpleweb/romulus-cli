@@ -1,15 +1,15 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { TouchableOpacity } from 'react-native';
 
 import { Container, Text } from './styles';
 
 type Props = {
   onPress: Function,
-  children?: React$Element<any>,
+  children: React.Node,
 };
 
-function Button(props: Props): React$Element<any> {
+function Button(props: Props): React.Node {
   const { onPress, children } = props;
 
   return (

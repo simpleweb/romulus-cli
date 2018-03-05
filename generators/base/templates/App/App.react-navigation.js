@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import Router, { RouterWithRedux } from '<%= name %>/App/Router';
@@ -9,7 +9,7 @@ import App from '<%= name %>/App/Components/App';
 
 const { persistor, store } = configureStore()
 
-export default class <%= name %> extends Component {
+export default class <%= name %> extends React.Component<{}> {
 
   componentDidMount() {
     Router.addDeepLinkListener();
@@ -24,7 +24,7 @@ export default class <%= name %> extends Component {
     Router.root(store);
   }
 
-  render(): React$Element<any> {
+  render(): React.Node {
     return (
       <App>
         <Provider store={store}>

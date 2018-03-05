@@ -1,14 +1,16 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { Text } from 'react-native';
 <% if (router === 'react-native-router-flux@3.41.0') { -%>
 import { Actions } from 'react-native-router-flux';
+<% } else { -%>
+import { type NavigationState } from 'react-navigation';
 <% } -%>
 import Layout from '<%= name %>/App/Components/Layout';
 import Button from '<%= name %>/App/Components/Button';
 
 <% if (router === 'react-native-router-flux@3.41.0') { -%>
-function Main(): React$Element<any> {
+function Main(): React.Node {
   return (
     <Layout.Center>
       <Text>Main</Text>
@@ -17,7 +19,11 @@ function Main(): React$Element<any> {
   );
 }
 <% } else { -%>
-function Main({ navigation }): React$Element<any> {
+type Props = {
+  navigation: NavigationState,
+};
+
+function Main({ navigation }: Props): React.Node {
   return (
     <Layout.Center>
       <Text>Main</Text>
