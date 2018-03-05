@@ -48,6 +48,11 @@ module.exports = class extends Generator {
       { verison: this.nodeVersion }
     );
 
+    this.fs.copy(
+      this.templatePath('package.json'),
+      this.destinationPath('package.json')
+    );
+
     // create entry points for Android and iOS
     this.fs.copyTpl(
       this.templatePath('index.js'),
@@ -292,12 +297,15 @@ module.exports = class extends Generator {
 
     this.yarnInstall([
       'flow-bin@',
+      'prettier',
+      'https://github.com/simpleweb/configs.git',
     ], {
       'dev': true
     });
   }
 
   end() {
+    this.spawnCommandSync('yarn', ['run', 'prettier']);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
     this.log('https://github.com/simpleweb/generator-react-native#after-react-nativebase');
