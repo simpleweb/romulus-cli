@@ -9,7 +9,7 @@ type Props = {
   children: React.Node,
 };
 
-function Button(props: Props): React$Element<any> {
+function Button(props: Props): React.Node {
   const { onPress, children } = props;
 
   return (

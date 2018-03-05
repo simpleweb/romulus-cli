@@ -1,12 +1,12 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { Text as StyledText } from './styles';
 
 type Props = {
-  children?: string,
+  children: React.Node,
 };
 
-function Text(props: Props): React$Element<any> {
+function Text(props: Props): React.Node {
   return <StyledText {...props}/>;
 }
 

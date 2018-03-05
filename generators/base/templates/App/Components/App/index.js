@@ -1,14 +1,14 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { View } from 'react-native';
 import { ENV } from '<%= name %>/App/Config';
 import Environment from '<%= name %>/App/Components/Utilities/Environment';
 
 type Props = {
-  children?: React$Element<any>,
+  children: React.Node,
 };
 
-function App(props: Props): React$Element<any> {
+function App(props: Props): React.Node {
   const { children } = props;
 
   return (
