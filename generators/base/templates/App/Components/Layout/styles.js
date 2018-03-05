@@ -1,5 +1,5 @@
 // @flow
-import styled, { css } from 'styled-components/native';
+import styled, { css } from 'styled-components';
 import variables from '<%= name %>/App/Styles/Variables';
 
 export const FullView = styled.View`

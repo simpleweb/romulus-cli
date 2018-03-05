@@ -1,5 +1,5 @@
 // @flow
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import variables from '<%= name %>/App/Styles/Variables';
 
 export const Text = styled.Text`
