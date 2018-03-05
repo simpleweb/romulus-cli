@@ -298,6 +298,7 @@ module.exports = class extends Generator {
     this.yarnInstall([
       'flow-bin@',
       'prettier',
+      'https://github.com/simpleweb/configs.git',
     ], {
       'dev': true
     });

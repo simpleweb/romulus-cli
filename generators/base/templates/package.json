@@ -1,6 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "prettier": "prettier --write './App/**/*.js'"
+    "prettier": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'"
   }
 }
