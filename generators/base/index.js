@@ -1,3 +1,6 @@
+const writePkg = require('write-pkg');
+const readPkg = require('read-pkg');
+const deepExtend = require('deep-extend');
 var Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
@@ -46,11 +49,6 @@ module.exports = class extends Generator {
       this.templatePath('.nvmrc'),
       this.destinationPath('.nvmrc'),
       { verison: this.nodeVersion }
-    );
-
-    this.fs.copy(
-      this.templatePath('package.json'),
-      this.destinationPath('package.json')
     );
 
     // create entry points for Android and iOS
@@ -278,6 +276,11 @@ module.exports = class extends Generator {
       this.destinationPath('bin'),
       { name: this.name }
     );
+
+    // merge the two package json files
+    const templatePackage = readPkg.sync(this.templatePath('package.json'));
+    const currentPackage = readPkg.sync();
+    writePkg.sync(deepExtend(templatePackage, currentPackage));
   }
 
   install() {
