@@ -9,7 +9,7 @@ type Props = {
   installed: bool,
 };
 
-function Styleguide(props: Props): React$Element<any> {
+function Styleguide(props: Props): React.Node {
   const { installed, requestExample } = props;
 
   return (

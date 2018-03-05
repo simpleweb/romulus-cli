@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import Router, { RouterWithRedux } from '<%= name %>/App/Router';
@@ -24,7 +24,7 @@ export default class <%= name %> extends Component<{}> {
     Router.root(store);
   }
 
-  render(): React$Element<any> {
+  render(): React.Node {
     return (
       <App>
         <Provider store={store}>
