@@ -1,5 +1,5 @@
 // @flow
-import * as React, { Component } from 'react';
+import * as React from 'react';
 import { Actions } from 'react-native-router-flux';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/src/integration/react';
@@ -10,7 +10,7 @@ import App from '<%= name %>/App/Components/App';
 
 const { persistor, store } = configureStore()
 
-export default class <%= name %> extends Component<{}> {
+export default class <%= name %> extends React.Component<{}> {
 
   componentDidMount() {
     Router.addDeepLinkListener();
