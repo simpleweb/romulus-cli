@@ -15,9 +15,8 @@ module.exports = class extends Generator {
     return this.prompt([
       {
         type: 'input',
-        name: 'nodeVersion',
-        message: 'Which version of Node do you want to use?',
-        default: '6.9.5',
+        name: 'flowVerison',
+        message: 'Which version of Flow should be used? (should match verison in .flowconfig)',
       },
       {
         type: 'confirm',
@@ -36,6 +35,7 @@ module.exports = class extends Generator {
       this.nodeVersion = answers.nodeVersion;
       this.createGit = answers.createGit;
       this.router = answers.router;
+      this.flowVerison = answers.flowVerison;
     });
   }
 
@@ -43,13 +43,6 @@ module.exports = class extends Generator {
     if (this.createGit) {
       this.composeWith(require.resolve('generator-git-init'));
     }
-
-    // write node verison
-    this.fs.copyTpl(
-      this.templatePath('.nvmrc'),
-      this.destinationPath('.nvmrc'),
-      { verison: this.nodeVersion }
-    );
 
     // create entry points for Android and iOS
     this.fs.copyTpl(
@@ -299,7 +292,7 @@ module.exports = class extends Generator {
     ]);
 
     this.yarnInstall([
-      'flow-bin@',
+      'flow-bin@' + this.flowVerison,
       'prettier',
       'https://github.com/simpleweb/configs.git',
     ], {
