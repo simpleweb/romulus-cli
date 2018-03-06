@@ -1,15 +1,14 @@
 // @flow
 import { APP_INSTALLED } from '<%= name %>/App/Actions/App';
+import type { AppInstalled } from '<%= name %>/App/Actions/App';
 
 type State = {
-  installed: bool,
+  +installed: bool,
 };
 
-type Action = {
-  type: string,
-};
+type Action = AppInstalled;
 
-const initialState = {
+const initialState: State = {
   installed: false,
 };
 
@@ -22,6 +21,7 @@ const reducer = (state: State = initialState, action: Action): State => {
       };
 
     default:
+      (action: empty);
       return state;
   }
 };
