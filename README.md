@@ -39,7 +39,13 @@ This is the main command you’ll use with the generator, you’ll typically run
 once over a new React Native application to get you setup and provide some
 structure.
 
-The outline of the application looks is described below.
+The outline of the application looks as described below; while it does provide
+structure it also sets up various libraries to handle things like HTTP requests,
+managing your applications state and long running async’ tasks.
+
+The full list of features are described in more detail below but they do assume
+an opinion with which technologies you may want to work with. However, nothing
+is set in stone and most parts can be easily reworked.
 
 ```
 App/
