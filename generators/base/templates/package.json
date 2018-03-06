@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "prettier": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'",
+    "updateignore": "./bin/gitignore.sh",
     "version": "./bin/version-ios.sh",
     "test": "jest --verbose",
     "coverage": "jest --coverage",
