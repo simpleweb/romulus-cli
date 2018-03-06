@@ -95,25 +95,6 @@ yo react-native:reducer MyReducer
 
 The default `react-native init` now comes with tvOS targets... These add un-needed cruft to the project. Best plan is to open the XCode project, remove the tvOS targets and then delete the files in the project themselves.
 
-Add these scripts to your `package.json`, don't overwrite the "start" script that will already exist though.
-
-```
-"scripts": {
-  "version": "./bin/version-ios.sh",
-  "test": "jest --verbose",
-  "coverage": "jest --coverage",
-  "test:watch": "npm test -- --watch"
-},
-```
-
-Add the following to the `[ignore]` section in the `.flowconfig`.
-
-```
-; Ignore libraries we don’t want checking
-.*/node_modules/react-native-experimental-navigation/.*
-.*/node_modules/react-static-container/.*
-```
-
 Add the following to your `.gitignore`.
 
 ```

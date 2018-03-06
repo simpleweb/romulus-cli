@@ -1,6 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "prettier": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'"
+    "prettier": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'",
+    "version": "./bin/version-ios.sh",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage",
+    "test:watch": "npm test -- --watch"
   }
 }
