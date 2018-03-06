@@ -22,32 +22,85 @@ more akin to what you might find with `rails new`.
 yo react-native:base
 ```
 
-## What does all this stuff do?!
-
-So... there's no documentation just yet, but there are some [resources](#resources) on some of the more complex topics.
-
 ## Installation
 
-This generator uses Yeoman, please install it first.
+This generator uses [Yeoman](http://yeoman.io/), install along with the
+generator.
 
 ```
-npm install -g yo
+npm install -g yo generator-react-native
 ```
-
-This is not available on `npm` _yet_. So for now, clone the project down and inside the folder run.
-
-```
-npm install
-npm link
-```
-
-You can then run the following commands.
 
 ## Commands
 
-First, please create yourself a new React Native project with `react-native init MyApp && cd MyApp` before running any of the generator commands.
+### `yo react-native:base`
 
-### `base`
+This is the main command you’ll use with the generator, you’ll typically run it
+once over a new React Native application to get you setup and provide some
+structure.
+
+The outline of the application looks is described below.
+
+```
+App/
+├── Actions/
+│   ├── App.js
+│   └── index.js
+├── Assets/
+│   └── AppIcon.png
+├── Components/
+│   ├── App/
+│   │   └── index.js
+│   ├── Button/
+│   │   ├── index.js
+│   │   └── styles.js
+│   ├── Layout/
+│   │   ├── index.js
+│   │   └── styles.js
+│   ├── Text/
+│   │   ├── index.js
+│   │   └── styles.js
+│   └── Utilities/
+│       └── Environment/
+│           ├── index.js
+│           └── styles.js
+├── Config/
+│   └── index.js
+├── Helpers/
+│   └── Log.js
+├── Reducers/
+│   ├── App.js
+│   ├── index.js
+│   └── Nav.js
+├── Sagas/
+│   ├── index.js
+│   └── RequestExample.js
+├── Scenes/
+│   ├── Styleguide/
+│   │   ├── Container.js
+│   │   └── index.js
+│   ├── index.js
+│   ├── Launch.js
+│   └── Main.js
+├── Services/
+│   └── API/
+│       ├── index.js
+│       └── logging.js
+├── Store/
+│   ├── Middleware/
+│   │   ├── Buffer.js
+│   │   ├── index.js
+│   │   ├── Logger.js
+│   │   └── Saga.js
+│   └── index.js
+├── Styles/
+│   └── Variables/
+│       └── index.js
+├── Types/
+│   └── index.js
+├── App.js
+└── Router.js
+```
 
 Base will generate you a new project start point. It includes the following,
 * A sensible `README` providing consistent instructions between projects
@@ -77,10 +130,6 @@ Base will generate you a new project start point. It includes the following,
 * Layout component example to DRY up scene layouts
 
 Please note, follow the "Manual Notes" below after running this command. Hopefully in the future these can be automated.
-
-```
-yo react-native:base
-```
 
 ### `component`
 
