@@ -1,8 +1,8 @@
 # ⚛️ generator-react-native
 
-The aim of of this generator is to provide structure and a set of patterns to
-eliminate the time you would spend bootstrapping your own. While this comes with
-some opinion, there’s no overarching framework on top of React Native; it’s
+The aim of of this generator is to **provide structure** and a **set of patterns**
+to eliminate the time you would spend bootstrapping your own. While this comes
+with some opinion, there’s no overarching framework on top of React Native; it’s
 purely a collection of commonly used modules and some sensible architecture to
 get you or your team off the ground.
 
