@@ -89,6 +89,15 @@ An easy way to scaffold a reducer. It creates the reducer itself and a way to ke
 yo react-native:reducer MyReducer
 ```
 
+### `scene`
+
+An easy way to scaffold a scene. Creates a new scene that is connected to the
+Redux store following the container pattern.
+
+```
+yo react-native:scene MyScene
+```
+
 ## Manual Notes
 
 ### After `react-native:base`
