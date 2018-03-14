@@ -1,9 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Actions } from 'react-native-router-flux';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/src/integration/react';
-import Router, { Routes, RouterWithRedux } from '<%= name %>/App/Router';
+import { PersistGate } from 'redux-persist/lib/integration/react'
+import Router, { RouterWithRedux } from '<%= name %>/App/Router';
 import { configureStore } from '<%= name %>/App/Store';
 import { runSagaMiddleware } from '<%= name %>/App/Store/Middleware/Saga';
 import App from '<%= name %>/App/Components/App';
@@ -34,7 +33,7 @@ export default class <%= name %> extends React.Component<{}> {
             onBeforeLift={this._onBeforeLift}
             persistor={persistor}
           >
-            <RouterWithRedux scenes={Routes}/>
+            <RouterWithRedux />
           </PersistGate>
         </Provider>
       </App>

@@ -24,17 +24,9 @@ module.exports = class extends Generator {
         message: 'Create a local git repo?',
         default: true,
       },
-      {
-        type: 'list',
-        name: 'router',
-        message: 'Which router would you like to use?',
-        default: 'react-native-router-flux@3.41.0',
-        choices: ['react-native-router-flux@3.41.0', 'react-navigation'],
-      },
     ]).then((answers) => {
       this.nodeVersion = answers.nodeVersion;
       this.createGit = answers.createGit;
-      this.router = answers.router;
       this.flowVerison = answers.flowVerison;
     });
   }
@@ -55,34 +47,18 @@ module.exports = class extends Generator {
     this.fs.delete('App.js');
 
     // copy root app file that the entry points use
-    if (this.router === 'react-navigation') {
-      this.fs.copyTpl(
-        this.templatePath('App/App.react-navigation.js'),
-        this.destinationPath(`App/${this.name}.js`),
-        { name: this.name }
-      );
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('App/App.js'),
-        this.destinationPath(`App/${this.name}.js`),
-        { name: this.name }
-      );
-    }
+    this.fs.copyTpl(
+      this.templatePath('App/App.js'),
+      this.destinationPath(`App/${this.name}.js`),
+      { name: this.name }
+    );
 
     // copy router
-    if (this.router === 'react-navigation') {
-      this.fs.copyTpl(
-        this.templatePath('App/Router.react-navigation.js'),
-        this.destinationPath('App/Router.js'),
-        { name: this.name }
-      );
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('App/Router.js'),
-        this.destinationPath('App/Router.js'),
-        { name: this.name }
-      );
-    }
+    this.fs.copyTpl(
+      this.templatePath('App/Router.js'),
+      this.destinationPath('App/Router.js'),
+      { name: this.name }
+    );
 
     // copy scenes
     this.fs.copyTpl(
@@ -90,7 +66,6 @@ module.exports = class extends Generator {
       this.destinationPath('App/Scenes'),
       {
         name: this.name,
-        router: this.router,
       }
     );
 
@@ -114,38 +89,24 @@ module.exports = class extends Generator {
       this.destinationPath('App/Store/Middleware/Buffer.js'),
       { name: this.name }
     );
-    if (this.router === 'react-navigation') {
-      this.fs.copyTpl(
-        this.templatePath('App/Store/Middleware/index.react-navigation.js'),
-        this.destinationPath('App/Store/Middleware/index.js'),
-        { name: this.name }
-      );
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('App/Store/Middleware/index.js'),
-        this.destinationPath('App/Store/Middleware/index.js'),
-        { name: this.name }
-      );
-    }
+    
+    this.fs.copyTpl(
+      this.templatePath('App/Store/Middleware/index.js'),
+      this.destinationPath('App/Store/Middleware/index.js'),
+      { name: this.name }
+    );
 
     this.fs.copyTpl(
       this.templatePath('App/Store/Middleware/Saga.js'),
       this.destinationPath('App/Store/Middleware/Saga.js'),
       { name: this.name }
     );
-    if (this.router === 'react-navigation') {
-      this.fs.copyTpl(
-        this.templatePath('App/Store/Middleware/Logger.react-navigation.js'),
-        this.destinationPath('App/Store/Middleware/Logger.js'),
-        { name: this.name }
-      );
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('App/Store/Middleware/Logger.js'),
-        this.destinationPath('App/Store/Middleware/Logger.js'),
-        { name: this.name }
-      );
-    }
+
+    this.fs.copyTpl(
+      this.templatePath('App/Store/Middleware/Logger.js'),
+      this.destinationPath('App/Store/Middleware/Logger.js'),
+      { name: this.name }
+    );
 
     // copy reducers
     this.fs.copyTpl(
@@ -159,17 +120,15 @@ module.exports = class extends Generator {
       this.destinationPath('App/Reducers/index.js'),
       {
         name: this.name,
-        reducers: (this.router === 'react-navigation') ? ['App', 'Nav'] : ['App'],
+        reducers: ['App', 'Nav'],
       }
     );
 
-    if (this.router === 'react-navigation') {
-      this.fs.copyTpl(
-        this.templatePath('App/Reducers/Nav.js'),
-        this.destinationPath('App/Reducers/Nav.js'),
-        { name: this.name }
-      );
-    }
+    this.fs.copyTpl(
+      this.templatePath('App/Reducers/Nav.js'),
+      this.destinationPath('App/Reducers/Nav.js'),
+      { name: this.name }
+    );
 
     // copy actions
     this.fs.copyTpl(
@@ -280,8 +239,8 @@ module.exports = class extends Generator {
     this.yarnInstall([
       'axios',
       'react-native-dotenv',
-      this.router,
-      ...(this.router === 'react-navigation' ? ['react-navigation-redux-helpers'] : []),
+      'react-navigation',
+      'react-navigation-redux-helpers',
       'react-redux',
       'redux',
       'redux-action-buffer',
