@@ -1,9 +1,14 @@
 // @flow
 import { createLogger } from 'redux-logger';
-import { ActionConst } from 'react-native-router-flux';
+import { NavigationActions } from 'react-navigation';
 
 const blacklist = [
-  ...Object.keys(ActionConst).map(key => ActionConst[key]),
+  NavigationActions.BACK,
+  NavigationActions.INIT,
+  NavigationActions.NAVIGATE,
+  NavigationActions.RESET,
+  NavigationActions.SET_PARAMS,
+  NavigationActions.URI,
 ];
 
 const Logger = createLogger({

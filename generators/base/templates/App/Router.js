@@ -1,23 +1,50 @@
 // @flow
 import React from 'react';
 import { Linking } from 'react-native';
-import { Scene, Actions, Router, ActionConst } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import type { Store as ReduxStore } from 'redux';
+import {
+  StackNavigator,
+  NavigationActions,
+  addNavigationHelpers
+} from 'react-navigation';
+import {
+  createReactNavigationReduxMiddleware,
+  createReduxBoundAddListener
+} from 'react-navigation-redux-helpers';
 import Scenes from '<%= name %>/App/Scenes';
 
-const Routes = Actions.create(
-  <Scene key="modal">
-    <Scene key="root">
-      <Scene key="launch" component={Scenes.Launch}/>
-      <Scene key="main">
-        <Scene key="main_index" component={Scenes.Main}/>
-      </Scene>
-      <Scene key="styleguide" component={Scenes.Styleguide}/>
-    </Scene>
-  </Scene>
+const key = "root";
+
+// Note: createReactNavigationReduxMiddleware must be run before createReduxBoundAddListener
+export const RouterMiddleware = createReactNavigationReduxMiddleware(
+  key,
+  state => state.nav,
 );
 
-const RouterWithRedux = connect()(Router);
+const addListener = createReduxBoundAddListener(key);
+
+const RootNavigator = StackNavigator({
+  Launch: {
+    screen: Scenes.Launch,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Main: {
+    screen: Scenes.Main,
+  },
+  Styleguide: {
+    screen: Scenes.Styleguide,
+  },
+});
+
+const Router = ({ dispatch, nav: state }) => {
+  const navigation = addNavigationHelpers({ dispatch, state, addListener });
+  return <RootNavigator navigation={ navigation }/>
+};
+
+const RouterWithRedux = connect(({ nav }) => ({ nav }))(Router);
 
 const handleURL = ({ url }: { url: string }) => {
   console.log('handleURL', url)
@@ -43,10 +70,17 @@ const getInitialURL = async () => {
   });
 };
 
-const root = async () => {
+const root = async (store: ReduxStore) => {
   const url : string|null = await getInitialURL();
 
-  Actions.main({ type: ActionConst.RESET });
+  store.dispatch(
+    NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Main' }),
+      ],
+    })
+  );
 
   if (url) {
     handleURL({ url });
@@ -58,4 +92,4 @@ export default {
   removeDeepLinkListener,
   root,
 };
-export { Routes, RouterWithRedux };
+export { RootNavigator, RouterWithRedux };
