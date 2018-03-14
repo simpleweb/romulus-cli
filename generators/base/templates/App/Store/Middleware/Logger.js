@@ -9,6 +9,7 @@ const blacklist = [
   NavigationActions.RESET,
   NavigationActions.SET_PARAMS,
   NavigationActions.URI,
+  NavigationActions.COMPLETE_TRANSITION,
 ];
 
 const Logger = createLogger({
