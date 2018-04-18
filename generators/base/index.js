@@ -262,6 +262,7 @@ module.exports = class extends Generator {
       'eslint-config-xo',
       'eslint-plugin-react',
       'eslint-plugin-react-native',
+      'eslint-plugin-flowtype',
       'jest',
       'https://github.com/simpleweb/configs.git#0.0.2',
     ], {
