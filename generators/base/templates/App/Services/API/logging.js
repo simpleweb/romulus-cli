@@ -1,5 +1,5 @@
 // @flow
-import { log, success, warn, error } from '<%= name %>/App/Helpers/Log';
+import { success, warn, error } from '<%= name %>/App/Helpers/Log';
 
 const logRequest = (config: Object) => {
   warn(

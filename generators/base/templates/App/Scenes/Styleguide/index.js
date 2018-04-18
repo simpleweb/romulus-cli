@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, Alert } from 'react-native';
 import Layout from '<%= name %>/App/Components/Layout';
 import Button from '<%= name %>/App/Components/Button';
 
@@ -18,7 +18,7 @@ function Styleguide(props: Props): React.Node {
         <Text>Styleguide</Text>
 
         <Heading>Button</Heading>
-        <Button onPress={() => alert('Button pressed')}>Button</Button>
+        <Button onPress={() => Alert.alert('Button pressed')}>Button</Button>
 
         <Heading>Request Example (check console)</Heading>
         <Button onPress={requestExample}>Request Example</Button>

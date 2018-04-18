@@ -6,7 +6,7 @@ import { RouterMiddleware } from '<%= name %>/App/Router';
 
 const middlewares = [Buffer, Saga, RouterMiddleware];
 
-if (process.env['NODE_ENV'] = 'development') {
+if (process.env['NODE_ENV'] === 'development') {
   const Logger = require('./Logger.js');
   middlewares.push(Logger);
 }

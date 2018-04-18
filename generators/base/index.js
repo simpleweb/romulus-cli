@@ -89,7 +89,7 @@ module.exports = class extends Generator {
       this.destinationPath('App/Store/Middleware/Buffer.js'),
       { name: this.name }
     );
-    
+
     this.fs.copyTpl(
       this.templatePath('App/Store/Middleware/index.js'),
       this.destinationPath('App/Store/Middleware/index.js'),
@@ -252,15 +252,26 @@ module.exports = class extends Generator {
 
     this.yarnInstall([
       'flow-bin@' + this.flowVerison,
+      'eslint',
+      'babel-eslint',
       'prettier',
-      'https://github.com/simpleweb/configs.git',
+      'husky',
+      'lint-staged',
+      'eslint-config-prettier',
+      'eslint-plugin-prettier',
+      'eslint-config-xo',
+      'eslint-plugin-react',
+      'eslint-plugin-react-native',
+      'eslint-plugin-flowtype',
+      'jest',
+      'https://github.com/simpleweb/configs.git#0.0.2',
     ], {
       'dev': true
     });
   }
 
   end() {
-    this.spawnCommandSync('yarn', ['run', 'prettier']);
+    this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');

@@ -8,7 +8,7 @@ import <%= reducer %> from '<%= name %>/App/Reducers/<%= reducer %>';
 
 const config = {
   key: STORAGE_PREFIX,
-  debug: ENV == 'development',
+  debug: ENV === 'development',
   storage,
 }
 

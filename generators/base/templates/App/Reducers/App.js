@@ -21,7 +21,6 @@ const reducer = (state: State = initialState, action: Action): State => {
       };
 
     default:
-      (action: empty);
       return state;
   }
 };
