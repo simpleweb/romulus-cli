@@ -4,6 +4,19 @@ import variables from '<%= name %>/App/Styles/Variables';
 
 import RNText from '<%= name %>/App/Components/Text';
 
+const envCheck = env => {
+  switch (env) {
+    case "staging":
+      return "orange";
+    case "edge":
+      return "purple";
+    case "production":
+      return "red";
+    default:
+      return "green";
+  }
+};
+
 export const Badge = styled.View`
   width: 16px;
   height: 18px;
@@ -22,16 +35,3 @@ export const Text = styled(RNText)`
   font-weight: bold;
   color: ${variables.colors.white};
 `;
-
-const envCheck = (env) => {
-  switch(env) {
-    case 'staging':
-      return 'orange';
-    case 'edge':
-      return 'purple';
-    case 'production':
-      return 'red';
-    default:
-      return 'green';
-  }
-};

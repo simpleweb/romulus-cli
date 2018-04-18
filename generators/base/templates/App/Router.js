@@ -4,10 +4,12 @@ import { Linking } from 'react-native';
 import { connect } from 'react-redux';
 import type { Store as ReduxStore } from 'redux';
 import {
-  StackNavigator,
+  StackNavigator as createStackNavigator,
   NavigationActions,
-  addNavigationHelpers
-} from 'react-navigation';
+  addNavigationHelpers,
+  type NavigationDispatch,
+  type NavigationState
+} from "react-navigation";
 import {
   createReactNavigationReduxMiddleware,
   createReduxBoundAddListener
@@ -24,7 +26,7 @@ export const RouterMiddleware = createReactNavigationReduxMiddleware(
 
 const addListener = createReduxBoundAddListener(key);
 
-const RootNavigator = StackNavigator({
+const RootNavigator = createStackNavigator({
   Launch: {
     screen: Scenes.Launch,
     navigationOptions: {
@@ -39,9 +41,12 @@ const RootNavigator = StackNavigator({
   },
 });
 
-const Router = ({ dispatch, nav: state }) => {
+const Router = ({ dispatch, nav: state }: {
+  dispatch: NavigationDispatch,
+  nav: NavigationState
+}) => {
   const navigation = addNavigationHelpers({ dispatch, state, addListener });
-  return <RootNavigator navigation={ navigation }/>
+  return <RootNavigator navigation={navigation} />;
 };
 
 const RouterWithRedux = connect(({ nav }) => ({ nav }))(Router);
