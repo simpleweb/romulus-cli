@@ -1,11 +1,25 @@
 {
   "private": true,
   "scripts": {
-    "prettier": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'",
+    "pretty": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'",
     "updateignore": "./bin/gitignore.sh",
     "version": "./bin/version-ios.sh",
     "test": "jest --verbose",
     "coverage": "jest --coverage",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "pretest": "eslint .",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js}": ["eslint --fix", "git add"],
+    "*.{js}": ["yarn run pretty", "git add"]
+  },
+  "eslintConfig": {
+    "extends": ["xo", "prettier"],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "plugins": ["prettier"]
   }
 }

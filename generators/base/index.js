@@ -89,7 +89,7 @@ module.exports = class extends Generator {
       this.destinationPath('App/Store/Middleware/Buffer.js'),
       { name: this.name }
     );
-    
+
     this.fs.copyTpl(
       this.templatePath('App/Store/Middleware/index.js'),
       this.destinationPath('App/Store/Middleware/index.js'),
@@ -252,7 +252,14 @@ module.exports = class extends Generator {
 
     this.yarnInstall([
       'flow-bin@' + this.flowVerison,
+      'eslint',
       'prettier',
+      'husky',
+      'lint-staged',
+      'eslint-config-prettier',
+      'eslint-plugin-prettier',
+      'eslint-config-xo',
+      'jest',
       'https://github.com/simpleweb/configs.git',
     ], {
       'dev': true
