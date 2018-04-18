@@ -12,13 +12,5 @@
   },
   "lint-staged": {
     "App/**/*.js": ["yarn run pretty", "eslint --fix", "git add"]
-  },
-  "eslintConfig": {
-    "extends": ["xo", "prettier"],
-    "env": {
-      "jest": true,
-      "node": true
-    },
-    "plugins": ["prettier"]
   }
 }

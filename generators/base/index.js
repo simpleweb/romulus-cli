@@ -253,12 +253,15 @@ module.exports = class extends Generator {
     this.yarnInstall([
       'flow-bin@' + this.flowVerison,
       'eslint',
+      'babel-eslint',
       'prettier',
       'husky',
       'lint-staged',
       'eslint-config-prettier',
       'eslint-plugin-prettier',
       'eslint-config-xo',
+      'eslint-plugin-react',
+      'eslint-plugin-react-native',
       'jest',
       'https://github.com/simpleweb/configs.git#0.0.1',
     ], {
