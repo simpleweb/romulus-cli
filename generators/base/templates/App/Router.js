@@ -71,7 +71,10 @@ const getInitialURL = async () => {
       } else {
         resolve(null);
       }
-    }).catch(err => resolve(null));
+    }).catch(err => {
+      console.error('An error occured', err);
+      resolve(null)
+    });
   });
 };
 
