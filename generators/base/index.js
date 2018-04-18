@@ -263,14 +263,14 @@ module.exports = class extends Generator {
       'eslint-plugin-react',
       'eslint-plugin-react-native',
       'jest',
-      'https://github.com/simpleweb/configs.git#0.0.1',
+      'https://github.com/simpleweb/configs.git#0.0.2',
     ], {
       'dev': true
     });
   }
 
   end() {
-    this.spawnCommandSync('yarn', ['run', 'prettier']);
+    this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
