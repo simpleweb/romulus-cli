@@ -260,7 +260,7 @@ module.exports = class extends Generator {
       'eslint-plugin-prettier',
       'eslint-config-xo',
       'jest',
-      'https://github.com/simpleweb/configs.git',
+      'https://github.com/simpleweb/configs.git#0.1',
     ], {
       'dev': true
     });

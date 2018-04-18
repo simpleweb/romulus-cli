@@ -11,8 +11,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js}": ["eslint --fix", "git add"],
-    "*.{js}": ["yarn run pretty", "git add"]
+    "App/**/*.js": ["yarn run pretty", "eslint --fix", "git add"]
   },
   "eslintConfig": {
     "extends": ["xo", "prettier"],
