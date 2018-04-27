@@ -1,5 +1,5 @@
 // @flow
-import * from React from 'react';
+import * as React from 'react';
 import { View, Text } from './styles';
 
 type State = {
