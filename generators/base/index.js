@@ -120,14 +120,8 @@ module.exports = class extends Generator {
       this.destinationPath('App/Reducers/index.js'),
       {
         name: this.name,
-        reducers: ['App', 'Nav'],
+        reducers: ['App'],
       }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('App/Reducers/Nav.js'),
-      this.destinationPath('App/Reducers/Nav.js'),
-      { name: this.name }
     );
 
     // copy actions
