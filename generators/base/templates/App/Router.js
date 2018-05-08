@@ -1,35 +1,17 @@
 // @flow
 import React from 'react';
-import { Linking } from 'react-native';
-import {
-  createStackNavigator,
-  createSwitchNavigator
-} from "react-navigation";
+import { createStackNavigator } from "react-navigation";
 import Scenes from '<%= name %>/App/Scenes';
 
-const Root = createStackNavigator({
-  Launch: {
-    screen: Scenes.Launch,
-    navigationOptions: {
-      header: null
-    }
-  },
+const RootNavigator = createStackNavigator({
   Main: {
     screen: Scenes.Main,
   },
   Styleguide: {
     screen: Scenes.Styleguide,
   },
+},{
+  initialRouteName: 'Main',
 });
-
-const RootNavigator = createSwitchNavigator(
-  {
-    Launch: Scenes.Launch,
-    Main: Scenes.Main,
-  },
-  {
-    initialRouteName: 'Launch',
-  }
-);
 
 export default RootNavigator;

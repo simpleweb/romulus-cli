@@ -13,7 +13,6 @@ export default class <%= name %> extends React.Component<{}> {
 
   _onBeforeLift = () => {
     runSagaMiddleware();
-    Router.root();
   }
 
   render(): React.Node {
