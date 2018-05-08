@@ -6,7 +6,7 @@ import type { Store as ReduxStore } from 'redux';
 import {
   StackNavigator as createStackNavigator,
   NavigationActions,
-  addNavigationHelpers,
+  StackActions,
   type NavigationDispatch,
   type NavigationState
 } from "react-navigation";
@@ -45,8 +45,7 @@ const Router = ({ dispatch, nav: state }: {
   dispatch: NavigationDispatch,
   nav: NavigationState
 }) => {
-  const navigation = addNavigationHelpers({ dispatch, state, addListener });
-  return <RootNavigator navigation={navigation} />;
+  return <RootNavigator navigation={{ dispatch, state, addListener }} />;
 };
 
 const RouterWithRedux = connect(({ nav }) => ({ nav }))(Router);
@@ -82,7 +81,7 @@ const root = async (store: ReduxStore) => {
   const url : string|null = await getInitialURL();
 
   store.dispatch(
-    NavigationActions.reset({
+    StackActions.reset({
       index: 0,
       actions: [
         NavigationActions.navigate({ routeName: 'Main' }),
