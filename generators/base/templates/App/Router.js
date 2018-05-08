@@ -27,13 +27,6 @@ const RootNavigator = createStackNavigator({
   },
 });
 
-const Router = ({ dispatch, nav: state }: {
-  dispatch: NavigationDispatch,
-  nav: NavigationState
-}) => {
-  return <RootNavigator navigation={{ dispatch, state }} />;
-};
-
 const handleURL = ({ url }: { url: string }) => {
   console.log('handleURL', url)
 };
@@ -83,4 +76,4 @@ export default {
   removeDeepLinkListener,
   root,
 };
-export { RootNavigator, RouterWithRedux };
+export { RootNavigator };
