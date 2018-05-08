@@ -34,8 +34,6 @@ const Router = ({ dispatch, nav: state }: {
   return <RootNavigator navigation={{ dispatch, state }} />;
 };
 
-const RouterWithRedux = connect(({ nav }) => ({ nav }))(Router);
-
 const handleURL = ({ url }: { url: string }) => {
   console.log('handleURL', url)
 };
