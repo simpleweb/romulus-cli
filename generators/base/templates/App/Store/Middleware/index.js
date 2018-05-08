@@ -2,9 +2,8 @@
 import { applyMiddleware } from 'redux';
 import Buffer from '<%= name %>/App/Store/Middleware/Buffer';
 import Saga from '<%= name %>/App/Store/Middleware/Saga';
-import { RouterMiddleware } from '<%= name %>/App/Router';
 
-const middlewares = [Buffer, Saga, RouterMiddleware];
+const middlewares = [Buffer, Saga];
 
 if (process.env['NODE_ENV'] === 'development') {
   const Logger = require('./Logger.js');
