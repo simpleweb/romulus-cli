@@ -1,5 +1,27 @@
 # <%= name %>
 
+* [Installation](#installation)
+  * [Setup your environment](#setup-your-environment)
+  * [Setup iOS certificates](#setup-ios-certificates)
+    * [Development](#development)
+    * [Production](#production)
+  * [Install dependencies](#install-dependencies)
+  * [Start the development server](#start-the-development-server)
+  * [Running the app using React Native CLI](#running-the-app-using-react-native-cli)
+* [Tests](#tests)
+* [Flow](#flow)
+* [Deep Linking](#deep-linking)
+* [App Icons](#app-icons)
+* [Release and deployment](#release-and-deployment)
+  * [Building for testing](#building-for-testing)
+    * [iOS](#ios)
+    * [Android](#android)
+  * [Versioning](#versioning)
+  * [iOS](#ios-1)
+  * [Post-release](#post-release)
+
+<hr/>
+
 ## Installation
 
 Before installation, please make sure you are using the correct Node version. This project uses `nvm` to manage Node versions, please run `nvm use` to set your Node version to match the required version in the `.nvmrc` file.
@@ -94,6 +116,10 @@ It’s worth running the update command every so often to keep things in check.
 ```
 $ flow-typed update
 ```
+
+## Deep Linking
+
+To get Deep Linking working, it requires a few additional steps for iOS and Android. The steps can be found on the [react navigation docs](https://reactnavigation.org/docs/en/deep-linking.html).
 
 ## App Icons
 
