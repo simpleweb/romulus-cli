@@ -234,7 +234,6 @@ module.exports = class extends Generator {
       'axios',
       'react-native-dotenv',
       'react-navigation',
-      'react-navigation-redux-helpers',
       'react-redux',
       'redux',
       'redux-action-buffer',

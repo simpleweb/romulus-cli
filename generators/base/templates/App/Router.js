@@ -10,21 +10,7 @@ import {
   type NavigationDispatch,
   type NavigationState
 } from "react-navigation";
-import {
-  createReactNavigationReduxMiddleware,
-  createReduxBoundAddListener
-} from 'react-navigation-redux-helpers';
 import Scenes from '<%= name %>/App/Scenes';
-
-const key = "root";
-
-// Note: createReactNavigationReduxMiddleware must be run before createReduxBoundAddListener
-export const RouterMiddleware = createReactNavigationReduxMiddleware(
-  key,
-  state => state.nav,
-);
-
-const addListener = createReduxBoundAddListener(key);
 
 const RootNavigator = createStackNavigator({
   Launch: {
@@ -45,7 +31,7 @@ const Router = ({ dispatch, nav: state }: {
   dispatch: NavigationDispatch,
   nav: NavigationState
 }) => {
-  return <RootNavigator navigation={{ dispatch, state, addListener }} />;
+  return <RootNavigator navigation={{ dispatch, state }} />;
 };
 
 const RouterWithRedux = connect(({ nav }) => ({ nav }))(Router);
