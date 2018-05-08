@@ -1,15 +1,9 @@
 // @flow
 import { createLogger } from 'redux-logger';
-import { NavigationActions } from 'react-navigation';
 
 const blacklist = [
-  NavigationActions.BACK,
-  NavigationActions.INIT,
-  NavigationActions.NAVIGATE,
-  NavigationActions.RESET,
-  NavigationActions.SET_PARAMS,
-  NavigationActions.URI,
-  NavigationActions.COMPLETE_TRANSITION,
+  // If you wish to remove actions from the
+  // logger, they should be added here
 ];
 
 const Logger = createLogger({
