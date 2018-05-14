@@ -233,7 +233,7 @@ module.exports = class extends Generator {
     this.yarnInstall([
       'axios',
       'react-native-dotenv',
-      'react-navigation',
+      'react-navigation@1.5.11',
       'react-redux',
       'redux',
       'redux-action-buffer',
