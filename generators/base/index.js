@@ -241,6 +241,7 @@ module.exports = class extends Generator {
       'redux-persist',
       'redux-saga',
       'styled-components',
+      'react-native-i18n',
     ]);
 
     this.yarnInstall([
