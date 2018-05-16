@@ -1,4 +1,4 @@
 export default {
-  main: `Principal`
+  main: `Principal`,
   styleguide: `Guía de estilo`
 }

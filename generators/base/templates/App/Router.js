@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { createStackNavigator } from "react-navigation";
+import { StackNavigator as createStackNavigator } from "react-navigation";
 import Scenes from '<%= name %>/App/Scenes';
 
 const RootNavigator = createStackNavigator({
