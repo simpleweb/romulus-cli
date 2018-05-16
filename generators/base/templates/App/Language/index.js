@@ -19,7 +19,7 @@ export const country = locale.slice(3, 5);
 
 const languages = { de, en, es };
 
-let exportLanguage = language.indexOf('zh') === 0 ? languages[locale] : languages[language]
+let exportLanguage = languages[locale];
 
 if (exportLanguage === undefined) {
   exportLanguage = languages.en
