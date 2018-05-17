@@ -1,5 +1,5 @@
 // @flow
-import styled from "styled-components/native";
+import styled from "styled-components";
 
 export const View = styled.View``;
 
