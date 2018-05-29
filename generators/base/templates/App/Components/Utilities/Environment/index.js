@@ -14,7 +14,7 @@ function Environment(props: Props): React.Node {
   }
 
   return (
-    <Badge>
+    <Badge env={env}>
       <Text>{env.charAt(0).toUpperCase()}</Text>
     </Badge>
   );
