@@ -1,22 +1,13 @@
 // @flow
-import * as React from 'react';
-import { View, Text } from './styles';
+import * as React from "react";
+import { View, Text } from "./styles";
 
-type State = {
-};
+type State = {};
 
-type Props = {
-};
+type Props = {};
 
-class <%= component %> extends React.Component {
-  state: State;
-  props: Props;
-
-  constructor(props: Object) {
-    super(props);
-
-    this.state = {};
-  }
+class <%= component %> extends React.Component<Props, State> {
+  state = {};
 
   render(): React.Node {
     return (
