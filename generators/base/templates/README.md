@@ -24,11 +24,7 @@
 
 ## Installation
 
-Before installation, please make sure you are using the correct Node version. This project uses `nvm` to manage Node versions, please run `nvm use` to set your Node version to match the required version in the `.nvmrc` file.
-
-If you do not have `nvm` installed, please install it via the [official installation instructions](https://github.com/creationix/nvm#installation), **not** Homebrew.
-
-To make life easier, your shell configuration can [automatically switch Node versions for you](https://github.com/creationix/nvm#zsh).
+Before installation, please make sure you have the latest version of [Yarn](https://yarnpkg.com/lang/en/) installed.
 
 ### Setup your environment
 
@@ -83,7 +79,7 @@ $ yarn run start
 You can use the [React Native CLI](https://www.npmjs.com/package/react-native-cli) to easily run the app onto the iOS and Android simulators.
 
 ```
-$ npm install -g react-native-cli
+$ yarn global add react-native-cli
 ```
 
 Once installed you can then run the app onto each platform’s respective simulator.
