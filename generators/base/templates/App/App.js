@@ -10,7 +10,7 @@ import App from '<%= name %>/App/Components/App';
 
 const { persistor, store } = configureStore();
 
-const prefix = Platform.OS == 'android' ? '<%= name %>://<%= name %>/' : '<%= name %>://';
+const prefix = Platform.OS === 'android' ? '<%= name %>://<%= name %>/' : '<%= name %>://';
 
 export default class <%= name %> extends React.Component<{}> {
 

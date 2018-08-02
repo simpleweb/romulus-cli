@@ -1,5 +1,4 @@
 // @flow
-import React from 'react';
 import { StackNavigator as createStackNavigator } from "react-navigation";
 import Scenes from '<%= name %>/App/Scenes';
 
