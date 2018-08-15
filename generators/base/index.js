@@ -274,6 +274,7 @@ module.exports = class extends Generator {
     this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
     this.spawnCommandSync('react-native', ['link', 'react-native-config']);
+    this.spawnCommandSync('yarn', ['run', 'react-native-config']);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
     this.log('https://github.com/simpleweb/generator-react-native#after-react-nativebase');
