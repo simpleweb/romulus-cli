@@ -1,16 +1,8 @@
 // @flow
-import {
-  ENV as ENV_ENV,
-  API_URL as ENV_API_URL,
-  STORAGE_PREFIX as ENV_STORAGE_PREFIX,
-} from 'react-native-dotenv';
+import Config from "react-native-config";
 
-export const ENV = ENV_ENV;
-export const API_URL = ENV_API_URL;
-export const STORAGE_PREFIX = ENV_STORAGE_PREFIX;
+export const ENV = Config.ENV;
+export const API_URL = Config.API_URL;
+export const STORAGE_PREFIX = Config.STORAGE_PREFIX;
 
-export default {
-  ENV,
-  API_URL,
-  STORAGE_PREFIX,
-};
+export default Config;
