@@ -185,11 +185,11 @@ module.exports = class extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath('.env'),
-      this.destinationPath('.env.development'),
+      this.destinationPath('.env.staging'),
       {
-        env: 'development',
+        env: 'staging',
         api_url: 'http://localhost:3000',
-        storage_prefix: 'development',
+        storage_prefix: 'staging',
       }
     );
     this.fs.copyTpl(
