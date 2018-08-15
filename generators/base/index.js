@@ -274,8 +274,9 @@ module.exports = class extends Generator {
     this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
     this.spawnCommandSync('react-native', ['link', 'react-native-config']);
-    this.spawnCommandSync('yarn', ['run', 'react-native-config']);
-    this.log('Creating iOS Schemes', this.name);
+    this.log('Creating Android environments');
+    this.spawnCommandSync('python', ['./bin/react-native-config.py', this.name]);
+    this.log('Creating iOS Schemes');
     this.spawnCommandSync('python', ['./bin/create-schemes.py', this.name]);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
