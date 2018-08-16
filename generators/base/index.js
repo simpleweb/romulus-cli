@@ -241,6 +241,7 @@ module.exports = class extends Generator {
       'axios',
       'react-native-config',
       'react-navigation@1.5.11',
+      'react-native-iphone-x-helper',
       'react-redux',
       'redux',
       'redux-action-buffer',
