@@ -131,13 +131,6 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    // copy language
-    this.fs.copyTpl(
-      this.templatePath('App/Language'),
-      this.destinationPath('App/Language'),
-      { name: this.name }
-    );
-
     // copy sagas
     this.fs.copyTpl(
       this.templatePath('App/Sagas'),

@@ -5,8 +5,6 @@ import { type NavigationState } from 'react-navigation';
 import Layout from '<%= name %>/App/Components/Layout';
 import Button from '<%= name %>/App/Components/Button';
 
-import language from '<%= name %>/App/Language';
-
 type Props = {
   navigation: NavigationState,
 };
@@ -14,9 +12,9 @@ type Props = {
 function Main({ navigation }: Props): React.Node {
   return (
     <Layout.Center>
-      <Text>{ language.main }</Text>
+      <Text>Main</Text>
       <Button onPress={() => navigation.navigate("Styleguide")}>
-        { language.styleguide }
+        Styleguide
       </Button>
     </Layout.Center>
   );
