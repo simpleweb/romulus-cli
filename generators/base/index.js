@@ -131,13 +131,6 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    // copy language
-    this.fs.copyTpl(
-      this.templatePath('App/Language'),
-      this.destinationPath('App/Language'),
-      { name: this.name }
-    );
-
     // copy sagas
     this.fs.copyTpl(
       this.templatePath('App/Sagas'),
@@ -242,6 +235,7 @@ module.exports = class extends Generator {
       'react-native-config',
       'react-navigation@1.5.11',
       'react-native-iphone-x-helper',
+      'react-native-i18n',
       'react-redux',
       'redux',
       'redux-action-buffer',
@@ -274,11 +268,11 @@ module.exports = class extends Generator {
   end() {
     this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
-    this.spawnCommandSync('react-native', ['link', 'react-native-config']);
     this.log('Creating Android environments');
     this.spawnCommandSync('python', ['./bin/react-native-config.py', this.name]);
     this.log('Creating iOS Schemes');
     this.spawnCommandSync('python', ['./bin/create-schemes.py', this.name]);
+    this.spawnCommandSync('react-native', ['link']);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
     this.log('https://github.com/simpleweb/generator-react-native#after-react-nativebase');
