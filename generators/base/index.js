@@ -185,11 +185,11 @@ module.exports = class extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath('.env'),
-      this.destinationPath('.env.development'),
+      this.destinationPath('.env.staging'),
       {
-        env: 'development',
+        env: 'staging',
         api_url: 'http://localhost:3000',
-        storage_prefix: 'development',
+        storage_prefix: 'staging',
       }
     );
     this.fs.copyTpl(
@@ -239,7 +239,7 @@ module.exports = class extends Generator {
   install() {
     this.yarnInstall([
       'axios',
-      'react-native-dotenv',
+      'react-native-config',
       'react-navigation@1.5.11',
       'react-redux',
       'redux',
@@ -273,6 +273,11 @@ module.exports = class extends Generator {
   end() {
     this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
+    this.spawnCommandSync('react-native', ['link', 'react-native-config']);
+    this.log('Creating Android environments');
+    this.spawnCommandSync('python', ['./bin/react-native-config.py', this.name]);
+    this.log('Creating iOS Schemes');
+    this.spawnCommandSync('python', ['./bin/create-schemes.py', this.name]);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
     this.log('https://github.com/simpleweb/generator-react-native#after-react-nativebase');

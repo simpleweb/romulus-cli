@@ -26,16 +26,6 @@
 
 Before installation, please make sure you have the latest version of [Yarn](https://yarnpkg.com/lang/en/) installed.
 
-### Setup your environment
-
-This project utilises a "dotenv" file. Please duplicate the `.env.example` file to `.env.development` and fill out your local environment variables.
-
-It’s also worth creating an `.env` file which will take further precedence over the `.env.development` but you don’t have to use it. The React Native packager can throw an error if either of these files don’t exist.
-
-When building in release mode, `.env.production` will be used. For now, if you want to produce a "staging" or "edge" build, the corresponding credentials will need to be in `.env.production`.
-
-If you're having trouble with the environment variables not updating, please [refer to `react-native-dotenv`’s troubleshooting guide](https://github.com/zetachang/react-native-dotenv#troubleshooting).
-
 ### Setup iOS certificates
 
 Please note,
