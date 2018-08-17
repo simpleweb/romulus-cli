@@ -10,7 +10,7 @@ const store = createStore(
 );
 
 const configureStore = () => {
-  let persistor = persistStore(store);
+  const persistor = persistStore(store);
   return { persistor, store };
 }
 
