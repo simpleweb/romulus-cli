@@ -4,7 +4,7 @@
     "pretty": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'",
     "lint": "eslint --config ./node_modules/@simpleweb/configs/react-native/.eslintrc --fix './App/**/*.js'",
     "updateignore": "./bin/gitignore.sh",
-    "version": "./bin/version-ios.sh",
+    "bump": "./bin/bump-ios.sh",
     "test": "jest --verbose",
     "coverage": "jest --coverage",
     "test:watch": "npm test -- --watch",
