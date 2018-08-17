@@ -1,6 +1,5 @@
 // @flow
-import { <%= reducerConst %>_EXAMPLE } from "<%= name %>/App/Actions/<%= reducer %>";
-import type { <%= reducer %>Example } from "<%= name %>/App/Actions/<%= reducer %>";
+import { <%= reducerConst %>_EXAMPLE, type <%= reducer %>Example } from "<%= name %>/App/Actions/<%= reducer %>";
 
 type State = {
   +value: boolean,
