@@ -1,6 +1,5 @@
 // @flow
-import { APP_INSTALLED } from '<%= name %>/App/Actions/App';
-import type { AppInstalled } from '<%= name %>/App/Actions/App';
+import { APP_INSTALLED, type AppInstalled } from '<%= name %>/App/Actions/App';
 
 type State = {
   +installed: bool,

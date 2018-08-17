@@ -9,34 +9,27 @@ type Props = {
   installed: bool,
 };
 
-function Styleguide(props: Props): React.Node {
-  const { installed, requestExample } = props;
+const Styleguide = ({ installed, requestExample }: Props): React.Node => (
+  <Layout.Scroll header>
+    <Layout.Padded>
+      <Text>Styleguide</Text>
 
-  return (
-    <Layout.Scroll header>
-      <Layout.Padded>
-        <Text>Styleguide</Text>
+      <Heading>Button</Heading>
+      <Button onPress={() => Alert.alert('Button pressed')}>Button</Button>
 
-        <Heading>Button</Heading>
-        <Button onPress={() => Alert.alert('Button pressed')}>Button</Button>
+      <Heading>Request Example (check console)</Heading>
+      <Button onPress={requestExample}>Request Example</Button>
 
-        <Heading>Request Example (check console)</Heading>
-        <Button onPress={requestExample}>Request Example</Button>
+      <Heading>Map props example</Heading>
+      <Text>Is app installed? {installed ? "Yes" : "No"}</Text>
+    </Layout.Padded>
+  </Layout.Scroll>
+);
 
-        <Heading>Map props example</Heading>
-        <Text>Is app installed? {installed ? "Yes" : "No"}</Text>
-      </Layout.Padded>
-    </Layout.Scroll>
-  );
-}
-
-function Heading(props: { children: React.Node }): React.Node {
-  const { children } = props;
-  return (
-    <Text style={{ fontWeight: 'bold', marginTop: 30, marginBottom: 10 }}>
-      {children}
-    </Text>
-  );
-}
+const Heading = ({ children }: { children: React.Node }): React.Node => (
+  <Text style={{ fontWeight: 'bold', marginTop: 30, marginBottom: 10 }}>
+    {children}
+  </Text>
+);
 
 export default Styleguide;

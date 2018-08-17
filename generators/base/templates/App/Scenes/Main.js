@@ -12,23 +12,21 @@ type Props = {
   navigation: NavigationState,
 };
 
-function Main({ navigation }: Props): React.Node {
-  return (
-    <Layout.Center>
+const Main = ({ navigation }: Props): React.Node => (
+  <Layout.Center>
+    <% if (i18nSupport) { -%>
+    <Text>{t("scenes.main.title")}</Text>
+    <% } else { -%>
+    <Text>Welcome to the React Native Generator!</Text>
+    <% } -%>
+    <Button onPress={() => navigation.navigate("Styleguide")}>
       <% if (i18nSupport) { -%>
-      <Text>{t("scenes.main.title")}</Text>
+      {t("scenes.main.styleguide_button")}
       <% } else { -%>
-      <Text>Welcome to the React Native Generator!</Text>
+      View the Styleguide
       <% } -%>
-      <Button onPress={() => navigation.navigate("Styleguide")}>
-        <% if (i18nSupport) { -%>
-        {t("scenes.main.styleguide_button")}
-        <% } else { -%>
-        View the Styleguide
-        <% } -%>
-      </Button>
-    </Layout.Center>
-  );
-}
+    </Button>
+  </Layout.Center>
+);
 
 export default Main;
