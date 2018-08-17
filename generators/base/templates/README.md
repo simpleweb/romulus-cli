@@ -144,7 +144,7 @@ When producing a new build you will need to bump the version number. This is han
 For iOS you need to run the following command which automatically updates the XCode project with the version inside the `package.json`. It also increments the build number.
 
 ```
-$ yarn run version
+$ yarn run bump
 ```
 
 Android’s version is dynamically generated using it’s Gradle files.
