@@ -24,10 +24,17 @@ module.exports = class extends Generator {
         message: 'Create a local git repo?',
         default: true,
       },
+      {
+        type: 'confirm',
+        name: 'i18nSupport',
+        message: 'Do you want i18n support?',
+        default: true,
+      },
     ]).then((answers) => {
       this.nodeVersion = answers.nodeVersion;
       this.createGit = answers.createGit;
       this.flowVerison = answers.flowVerison;
+      this.i18nSupport = answers.i18nSupport;
     });
   }
 
@@ -66,6 +73,7 @@ module.exports = class extends Generator {
       this.destinationPath('App/Scenes'),
       {
         name: this.name,
+        i18nSupport: this.i18nSupport,
       }
     );
 
@@ -147,8 +155,8 @@ module.exports = class extends Generator {
 
     // copy helpers
     this.fs.copyTpl(
-      this.templatePath('App/Helpers'),
-      this.destinationPath('App/Helpers'),
+      this.templatePath('App/Helpers/Log.js'),
+      this.destinationPath('App/Helpers/Log.js'),
       { name: this.name }
     );
 
@@ -161,10 +169,24 @@ module.exports = class extends Generator {
 
     // copy config
     this.fs.copyTpl(
-      this.templatePath('App/Config'),
-      this.destinationPath('App/Config'),
+      this.templatePath('App/Config/index.js'),
+      this.destinationPath('App/Config/index.js'),
       { name: this.name }
     );
+
+    if (this.i18nSupport) {
+      this.fs.copyTpl(
+        this.templatePath('App/Helpers/Translations.js'),
+        this.destinationPath('App/Helpers/Translations.js'),
+        { name: this.name }
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('App/Config/Locales'),
+        this.destinationPath('App/Config/Locales'),
+        { name: this.name }
+      );
+    }
 
     // copy default .env
     this.fs.copyTpl(
@@ -235,7 +257,7 @@ module.exports = class extends Generator {
       'react-native-config',
       'react-navigation@1.5.11',
       'react-native-iphone-x-helper',
-      'react-native-i18n',
+      ...(this.i18nSupport ? ['react-native-i18n'] : []),
       'react-redux',
       'redux',
       'redux-action-buffer',
