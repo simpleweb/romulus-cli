@@ -1,5 +1,7 @@
 # Commands
 
+Please note, these commands rely on the original structure created by `react-native:base`.
+
 ## `component`
 
 The `component` command lets you scaffold new stateless and stateful components
