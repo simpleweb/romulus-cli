@@ -108,32 +108,36 @@ App/
 └── Router.js
 ```
 
-Base will generate you a new project start point. It includes the following,
+`base` will generate you a new project starting point, including the following:
 * A sensible `README` providing consistent instructions between projects
-* `nvm` setup
 * Can optionally `init` Git for you
-* Router (using `react-native-router-flux` or `react-navigation`)
+* Router using `react-navigation`
 * Redux setup
-* Redux store that is persisted and restored automatically
-* Redux logger
-* Launch screen that waits for the store to be restored from the cache
-* Prevents Redux actions from being dispatched before the cache is restored
-* Environment configuration variables
-* Sagas (to handle async tasks like HTTP requests)
+  * Store is persisted using `redux-persist`
+  * Helpful state changes logged in the debugger using `redux-logger`
+  * Actions are prevent from being dispatched before the cache is restored
+* UI niceities
+  * CSS-in-JS support for `styled-components`
+  * Start to a styleguide to list your components
+  * Example Button component
+  * Layout component example to DRY up scene layouts
+  * Pattern to organise components and their styles
+* Helpful utilities
+  * `log` helper to output coloured logs to the debug console
+  * Visual display of your app’s environment while it’s running, this gets hidden
+  in production
+* Optional support for different locales using `react-native-i18n`
+* Environment variables available in JavaScript, Objective C and Java using
+`react-native-config`
+* Sagas (to handle async tasks like HTTP requests) using `redux-saga`
 * Initial setup for deep linking
-* Handy `fetch` wrapper that will log what requests are being made, providing the base URLs from the environment variables
-* Pattern to manage components and their styles
-* Visual display of your app’s environment while it’s running, this get’s hidden in production
-* Automatic versioning of iOS and Android versions based on the `package.json` version.
+* Requests are setup to be handled with `axios` with clear logging in the
+debugger provided
+* Automatic versioning of iOS and Android versions based on the `package.json`
+version
 * Pattern to manage Flow types across the app
-* `log` helper to output coloured logs to the debug console
-* Logs that get excluded when in production
-* Generic app icon that can be processed through a separate generator to handle all your iOS and Android icons
-* Simple Styleguide setup
-* Example Button component
-* Style variables
-* Platform specific style variables
-* Layout component example to DRY up scene layouts
+* Generic app icon that can be processed through a separate generator to handle
+all your iOS and Android icons
 
 Please note, follow the "Manual Notes" below after running this command. Hopefully in the future these can be automated.
 
