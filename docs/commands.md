@@ -2,7 +2,8 @@
 
 ## `component`
 
-An easy way to scaffold stateless and stateful components.
+The `component` command lets you scaffold new stateless and stateful components
+with a consistent structure and style.
 
 ```
 yo react-native:component MyComponent
@@ -31,7 +32,7 @@ const MyComponent = (props: Props): React.Node => (
 export default MyComponent;
 ```
 
-Or if you pass the `--stateful` flag a stateful component will be generated.
+Or if you pass the `--stateful` flag, a stateful component will be generated.
 
 ```js
 // @flow
@@ -57,7 +58,7 @@ class MyComponent extends React.Component<Props, State> {
 export default MyComponent;
 ```
 
-Either stateless or stateful components get the following accompanying styles.
+Either stateless or stateful components get the same accompanying styles.
 
 ```js
 // @flow
