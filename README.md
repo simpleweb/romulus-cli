@@ -71,13 +71,15 @@ App/
 │           ├── index.js
 │           └── styles.js
 ├── Config/
+│   ├── Locales/
+│   │   └── en.json
 │   └── index.js
 ├── Helpers/
+│   ├── Translations.js
 │   └── Log.js
 ├── Reducers/
 │   ├── App.js
-│   ├── index.js
-│   └── Nav.js
+│   └── index.js
 ├── Sagas/
 │   ├── index.js
 │   └── RequestExample.js
@@ -86,7 +88,6 @@ App/
 │   │   ├── Container.js
 │   │   └── index.js
 │   ├── index.js
-│   ├── Launch.js
 │   └── Main.js
 ├── Services/
 │   └── API/
