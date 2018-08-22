@@ -71,7 +71,7 @@ export const Text = styled.Text``;
 
 ## `reducer`
 
-An easy way to scaffold a reducer. It creates the reducer itself and a way to keep organise your associated actions.
+Creates a reducer and associated actions.
 
 ```
 yo react-native:reducer MyReducer
@@ -80,6 +80,12 @@ yo react-native:reducer MyReducer
 This will generate two files:
 * `App/Reducers/MyReducer.js`
 * `App/Actions/MyReducer.js`
+
+You will have to then add your reducer manually into the
+`persistCombineReducers` function in `App/Reducers/index.js`.
+
+> It’s also good practice to export all of your actions into the main action
+creator in `App/Actions/index.js`
 
 The reducer itself will come with some example state and some good examples for
 how to add Flow types to your reducers.
