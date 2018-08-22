@@ -15,3 +15,4 @@ grabs some we can clearly see the problem.
 - Are you using a Mac or PC?
 - Which version is your OS?
 - Which version of Node are you using?
+- Which version of XCode or Android Studio are you using (if applicable)?
