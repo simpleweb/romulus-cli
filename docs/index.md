@@ -1,0 +1,3 @@
+# Documentation
+
+* [Commands](commands.md)
