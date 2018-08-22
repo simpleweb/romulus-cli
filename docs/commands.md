@@ -144,3 +144,53 @@ Redux store following the container pattern.
 ```
 yo react-native:scene MyScene
 ```
+
+This will generate two files:
+* `App/Scenes/MyScene/index.js`
+* `App/Scenes/MyScene/Container.js`
+
+You will have to then import this scene into `App/Scenes/index.js`.
+
+The `index.js` contains a presentational view of the scene.
+
+```js
+// @flow
+import * as React from "react";
+import Layout from "MyApp/App/Components/Layout";
+import Text from "MyApp/App/Components/Text";
+
+type Props = {};
+
+const MyScene = (props: Props): React.Node => (
+  <Layout.Center>
+    <Text>MyScene</Text>
+  </Layout.Center>
+);
+
+export default MyScene;
+```
+
+The `Container.js` typically will connect the Redux store and provide data to
+the presentational component.
+
+```js
+// @flow
+import * as React from "react";
+import { connect } from "react-redux";
+import MyScene from "MyApp/App/Scenes/MyScene";
+
+class MySceneContainer extends React.Component<{}> {
+  render(): React.Node {
+    return <MyScene />;
+  }
+}
+
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MySceneContainer);
+```
