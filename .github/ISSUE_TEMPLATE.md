@@ -8,3 +8,10 @@ grabs some we can clearly see the problem.
 1. ...
 2. ...
 3. ...
+
+## Device details
+
+- What version of the generator are you using?
+- Are you using a Mac or PC?
+- Which version is your OS?
+- Which version of Node are you using?
