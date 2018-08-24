@@ -20,6 +20,7 @@ program.version(package.version);
 // CLI commands
 program
   .command("init")
+  .alias("base")
   .description("Initialises a new React Native project")
   .action(() => {
     env.run("react-native:base");
