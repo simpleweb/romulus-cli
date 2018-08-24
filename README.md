@@ -31,21 +31,46 @@ generator.
 npm install -g yo generator-react-native
 ```
 
-## Commands
+```
+yarn global add yo generator-react-native
+```
 
-### `yo react-native:base`
+## Feature overview
 
-This is the main command you’ll use with the generator, you’ll typically run it
-once over a new React Native application to get you setup and provide some
-structure.
+- A sensible `README` providing consistent instructions between projects
+- Can optionally `init` Git for you
+- Router using `react-navigation`
+- Redux setup
+  - Store is persisted using `redux-persist`
+  - Helpful state changes logged in the debugger using `redux-logger`
+  - Actions are prevent from being dispatched before the cache is restored
+- UI niceities
+  - CSS-in-JS support for `styled-components`
+  - Start to a styleguide to list your components
+  - Example Button component
+  - Layout component example to DRY up scene layouts
+  - Pattern to organise components and their styles
+- Helpful utilities
+  - `log` helper to output coloured logs to the debug console
+  - Visual display of your app’s environment while it’s running, this gets hidden
+    in production
+- Optional support for different locales using `react-native-i18n`
+- Environment variables available in JavaScript, Objective C and Java using
+  `react-native-config`
+- Sagas (to handle async tasks like HTTP requests) using `redux-saga`
+- Initial setup for deep linking
+- Requests are setup to be handled with `axios` with clear logging in the
+  debugger provided
+- Automatic versioning of iOS and Android versions based on the `package.json`
+  version
+- Pattern to manage Flow types across the app
+- Generic app icon that can be processed through a separate generator to handle
+  all your iOS and Android icons
 
-The outline of the application looks as described below; while it does provide
-structure it also sets up various libraries to handle things like HTTP requests,
-managing your applications state and long running async’ tasks.
+### Application structure
 
-The full list of features are described in more detail below but they do assume
-an opinion with which technologies you may want to work with. However, nothing
-is set in stone and most parts can be easily reworked.
+After running the `base` command, on top of the features above your application
+will then receive this structure.
 
 ```
 App/
@@ -109,64 +134,9 @@ App/
 └── Router.js
 ```
 
-`base` will generate you a new project starting point, including the following:
-* A sensible `README` providing consistent instructions between projects
-* Can optionally `init` Git for you
-* Router using `react-navigation`
-* Redux setup
-  * Store is persisted using `redux-persist`
-  * Helpful state changes logged in the debugger using `redux-logger`
-  * Actions are prevent from being dispatched before the cache is restored
-* UI niceities
-  * CSS-in-JS support for `styled-components`
-  * Start to a styleguide to list your components
-  * Example Button component
-  * Layout component example to DRY up scene layouts
-  * Pattern to organise components and their styles
-* Helpful utilities
-  * `log` helper to output coloured logs to the debug console
-  * Visual display of your app’s environment while it’s running, this gets hidden
-  in production
-* Optional support for different locales using `react-native-i18n`
-* Environment variables available in JavaScript, Objective C and Java using
-`react-native-config`
-* Sagas (to handle async tasks like HTTP requests) using `redux-saga`
-* Initial setup for deep linking
-* Requests are setup to be handled with `axios` with clear logging in the
-debugger provided
-* Automatic versioning of iOS and Android versions based on the `package.json`
-version
-* Pattern to manage Flow types across the app
-* Generic app icon that can be processed through a separate generator to handle
-all your iOS and Android icons
+## Documentation
 
-Please note, follow the "Manual Notes" below after running this command. Hopefully in the future these can be automated.
-
-### `component`
-
-An easy way to scaffold stateless and stateful components.
-
-```
-yo react-native:component MyComponent
-yo react-native:component MyComponent --stateful
-```
-
-### `reducer`
-
-An easy way to scaffold a reducer. It creates the reducer itself and a way to keep organise your associated actions.
-
-```
-yo react-native:reducer MyReducer
-```
-
-### `scene`
-
-An easy way to scaffold a scene. Creates a new scene that is connected to the
-Redux store following the container pattern.
-
-```
-yo react-native:scene MyScene
-```
+- [Commands](docs/commands.md)
 
 ## Manual Notes
 
@@ -180,7 +150,7 @@ Follow the Android version of these instructions to add automatic build numbers.
 
 ## Resources
 
-* [Introduction to Sagas](https://redux-saga.github.io/redux-saga/docs/introduction/BeginnerTutorial.html)
-* [A great simple intro to Redux Sagas](https://www.youtube.com/watch?v=msx0Qiu8NxQ&list=PLw7fHewFA6OTyUnLiZ1HQvYdzjp9ARMQw)
-* [Intro to Redux](http://redux.js.org/docs/basics/Reducers.html)
-* [Flow](https://flowtype.org/)
+- [Introduction to Sagas](https://redux-saga.github.io/redux-saga/docs/introduction/BeginnerTutorial.html)
+- [A great simple intro to Redux Sagas](https://www.youtube.com/watch?v=msx0Qiu8NxQ&list=PLw7fHewFA6OTyUnLiZ1HQvYdzjp9ARMQw)
+- [Intro to Redux](http://redux.js.org/docs/basics/Reducers.html)
+- [Flow](https://flowtype.org/)
