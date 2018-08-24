@@ -63,4 +63,9 @@ program
     env.run(`react-native:scene ${scene}`);
   });
 
+// output help if no option passed
+if (process.argv.slice(2).length === 0) {
+  program.outputHelp();
+}
+
 program.parse(process.argv);
