@@ -1,14 +1,14 @@
 # Commands
 
-These commands rely on the original structure created by `react-native:base`.
+These commands rely on the original structure created by `genny init`.
 
 ## Component
 
 Creates a new _stateless_ or _stateful_ component.
 
 ```
-yo react-native:component MyComponent
-yo react-native:component MyComponent --stateful
+genny component MyComponent
+genny component MyComponent --stateful
 ```
 
 This will generate two files:
@@ -76,7 +76,7 @@ export const Text = styled.Text``;
 Creates a new reducer and associated actions.
 
 ```
-yo react-native:reducer MyReducer
+genny reducer MyReducer
 ```
 
 This will generate two files:
@@ -148,7 +148,7 @@ Creates a new scene that is connected to the Redux store following the container
 pattern.
 
 ```
-yo react-native:scene MyScene
+genny scene MyScene
 ```
 
 This will generate two files:
