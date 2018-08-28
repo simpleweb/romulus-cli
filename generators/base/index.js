@@ -255,7 +255,7 @@ module.exports = class extends Generator {
     this.yarnInstall([
       'axios',
       'react-native-config',
-      'react-navigation@1.5.11',
+      'react-navigation',
       'react-native-iphone-x-helper',
       ...(this.i18nSupport ? ['react-native-i18n'] : []),
       'react-redux',
