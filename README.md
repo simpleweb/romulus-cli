@@ -6,7 +6,17 @@ with some opinion, there’s no overarching framework on top of React Native; it
 purely a collection of commonly used modules and some sensible architecture to
 get you or your team off the ground.
 
-## How should the generator be used?
+## Installation
+
+```
+npm install -g genny
+```
+
+```
+yarn global add genny
+```
+
+## Getting started
 
 Create a new React Native project using their CLI tool.
 
@@ -20,16 +30,6 @@ more akin to what you might find with `rails new`.
 
 ```
 genny init
-```
-
-## Installation
-
-```
-npm install -g genny
-```
-
-```
-yarn global add genny
 ```
 
 ## Feature overview
@@ -137,7 +137,7 @@ App/
 
 ## Manual Notes
 
-### After `react-native:base`
+### After `genny init`
 
 The default `react-native init` now comes with tvOS targets... These add un-needed cruft to the project. Best plan is to open the XCode project, remove the tvOS targets and then delete the files in the project themselves.
 

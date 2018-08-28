@@ -1,6 +1,6 @@
 # Commands
 
-These commands rely on the original structure created by `react-native:base`.
+These commands rely on the original structure created by `genny init`.
 
 ## Component
 
