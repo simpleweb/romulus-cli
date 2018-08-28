@@ -10,6 +10,13 @@ While this comes with some opinion, there’s no overarching framework on top of
 React Native; it’s purely a collection of commonly used modules and some sensible
 architecture to get you or your team off the ground.
 
+## What does it do?
+- [Features](#features) - adds a set of commonly required features (e.g. Redux setup,
+offline storage, environment variables and more) by taking advantage of great.
+community driven packages  
+- [Structure](#structure) - provides a sensible structure to your applications that helps bring
+consitency within your team or just between your own applications.
+
 ## Installation
 
 ```
@@ -43,7 +50,7 @@ more akin to what you might find with `rails new`.
 genny init
 ```
 
-## Feature overview
+## Features
 
 - A sensible `README` providing consistent instructions between projects
 - Can optionally `init` Git for you
@@ -75,7 +82,7 @@ genny init
 - Generic app icon that can be processed through a separate generator to handle
   all your iOS and Android icons
 
-### Application structure
+### Structure
 
 After running the `base` command, on top of the features above your application
 will then receive this structure.
