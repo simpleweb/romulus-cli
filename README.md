@@ -16,6 +16,8 @@ offline storage, environment variables and more) by taking advantage of great.
 community driven packages  
 - [Structure](#structure) - provides a sensible structure to your applications that helps bring
 consitency within your team or just between your own applications.
+- [Scaffolding](#documentation) - makes it easy to scaffold new components, reducers
+and scenes that follow the same style and structure
 
 ## Installation
 
@@ -151,7 +153,7 @@ App/
 
 ## Documentation
 
-- [Commands](docs/commands.md)
+- [Scaffolding](docs/commands.md)
 
 ## Manual Notes
 
