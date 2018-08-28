@@ -1,10 +1,14 @@
-# ⚛️ generator-react-native
+# ⚛️ genny
 
-The aim of of this generator is to **provide structure** and a **set of patterns**
-to eliminate the time you would spend bootstrapping your own. While this comes
-with some opinion, there’s no overarching framework on top of React Native; it’s
-purely a collection of commonly used modules and some sensible architecture to
-get you or your team off the ground.
+`genny` is a tool designed to **provide structure** and a **set of patterns**
+for React Native applications.
+
+It’s should help eliminate the time you spend bootstrapping each project and
+give you consistency between your application builds.
+
+While this comes with some opinion, there’s no overarching framework on top of
+React Native; it’s purely a collection of commonly used modules and some sensible
+architecture to get you or your team off the ground.
 
 ## Installation
 
