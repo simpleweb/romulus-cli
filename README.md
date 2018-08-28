@@ -20,6 +20,13 @@ npm install -g genny
 yarn global add genny
 ```
 
+Don’t want to install anything? You can run the commands directly using
+`npx` (available with `npm@5.2.0`).
+
+```
+npx genny init
+```
+
 ## Getting started
 
 Create a new React Native project using their CLI tool.
