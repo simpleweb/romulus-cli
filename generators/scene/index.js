@@ -11,27 +11,65 @@ module.exports = class extends Generator {
     this.argument('scene', { type: String, required: true });
   }
 
+  prompting() {
+    return this.prompt([
+      {
+        type: 'list',
+        name: 'type',
+        message: 'How do you want the container to be structured?',
+        choices: ["index.js as component", "index.js as container"],
+      },
+    ]).then((answers) => {
+      this.type = answers.type;
+    });
+  }
+
   writing() {
     var scene = this.options.scene;
 
     // create entry points for Android and iOS
-    this.fs.copyTpl(
-      this.templatePath('index.js'),
-      this.destinationPath(`App/Scenes/${scene}/index.js`),
-      {
-        scene: scene,
-        name: this.name,
-      }
-    );
+    if (this.type === "index.js as component") {
+      this.fs.copyTpl(
+        this.templatePath('index.js'),
+        this.destinationPath(`App/Scenes/${scene}/index.js`),
+        {
+          scene: scene,
+          name: this.name,
+          type: this.type,
+        }
+      );
 
-    this.fs.copyTpl(
-      this.templatePath('Container.js'),
-      this.destinationPath(`App/Scenes/${scene}/Container.js`),
-      {
-        scene: scene,
-        name: this.name,
-      }
-    );
+      this.fs.copyTpl(
+        this.templatePath('Container.js'),
+        this.destinationPath(`App/Scenes/${scene}/Container.js`),
+        {
+          scene: scene,
+          name: this.name,
+          type: this.type,
+        }
+      );
+    } else {
+      this.fs.copyTpl(
+        this.templatePath('index.js'),
+        this.destinationPath(`App/Scenes/${scene}/${scene}.js`),
+        {
+          scene: scene,
+          name: this.name,
+          type: this.type,
+        }
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('Container.js'),
+        this.destinationPath(`App/Scenes/${scene}/index.js`),
+        {
+          scene: scene,
+          name: this.name,
+          type: this.type,
+        }
+      );
+    }
+
   }
 
   end() {
@@ -39,13 +77,25 @@ module.exports = class extends Generator {
 
     this.log('Please make sure to add this to your scenes export.');
     this.log('App/Scenes/index.js');
-    this.log(`
-      import ${scene} from '${this.name}/App/Scenes/${scene}/Container';
 
-      export default {
-        // ...other scenes
-        ${scene}: ${scene},
-      };
-    `);
+    if (this.type === "index.js as component") {
+      this.log(`
+        import ${scene} from "${this.name}/App/Scenes/${scene}/Container";
+
+        export default {
+          // ...other scenes
+          ${scene}: ${scene},
+        };
+      `);
+    } else {
+      this.log(`
+        import ${scene} from "${this.name}/App/Scenes/${scene}";
+
+        export default {
+          // ...other scenes
+          ${scene}: ${scene},
+        };
+      `);
+    }
   }
 };
