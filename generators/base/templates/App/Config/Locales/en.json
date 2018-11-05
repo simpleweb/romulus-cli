@@ -1,5 +1,5 @@
 {
-  "scenes": {
+  "screens": {
     "main": {
       "title": "Welcome to the React Native Generator!",
       "styleguide_button": "View the Styleguide"

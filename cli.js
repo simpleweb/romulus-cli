@@ -12,7 +12,7 @@ env.register(
   "react-native:component"
 );
 env.register(require.resolve("./generators/reducer"), "react-native:reducer");
-env.register(require.resolve("./generators/scene"), "react-native:scene");
+env.register(require.resolve("./generators/screen"), "react-native:screen");
 
 // set the package version
 program.version(package.version);
@@ -54,13 +54,13 @@ program
   });
 
 program
-  .command("scene [name]")
-  .description("Creates a new scene")
-  .action(scene => {
-    if (!scene) {
-      program.help(() => colors.red("Please make sure you pass a scene name"));
+  .command("screen [name]")
+  .description("Creates a new screen")
+  .action(screen => {
+    if (!screen) {
+      program.help(() => colors.red("Please make sure you pass a screen name"));
     }
-    env.run(`react-native:scene ${scene}`);
+    env.run(`react-native:screen ${screen}`);
   });
 
 // output help if no option passed

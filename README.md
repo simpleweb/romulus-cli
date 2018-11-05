@@ -45,7 +45,7 @@ genny init
   - CSS-in-JS support for `styled-components`
   - Start to a styleguide to list your components
   - Example Button component
-  - Layout component example to DRY up scene layouts
+  - Layout component example to DRY up screen layouts
   - Pattern to organise components and their styles
 - Helpful utilities
   - `log` helper to output coloured logs to the debug console
@@ -105,7 +105,7 @@ App/
 ├── Sagas/
 │   ├── index.js
 │   └── RequestExample.js
-├── Scenes/
+├── Screens/
 │   ├── Styleguide/
 │   │   ├── Container.js
 │   │   └── index.js
