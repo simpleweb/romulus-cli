@@ -3,6 +3,8 @@ import * as React from "react";
 import { Platform } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
+import { ThemeProvider } from "styled-components";
+import Theme from "<%= name %>/App/Styles/Theme";
 import Router from "<%= name %>/App/Router";
 import { store, persistor } from "<%= name %>/App/Store";
 import { runSagaMiddleware } from "<%= name %>/App/Store/Middleware/Saga";
@@ -14,17 +16,19 @@ const prefix =
 class <%= name %> extends React.Component<{}> {
   render(): React.Node {
     return (
-      <App>
-        <Provider store={store}>
-          <PersistGate
-            loading={null}
-            onBeforeLift={runSagaMiddleware}
-            persistor={persistor}
-          >
-            <Router uriPrefix={prefix} />
-          </PersistGate>
-        </Provider>
-      </App>
+      <ThemeProvider theme={Theme}>
+        <App>
+          <Provider store={store}>
+            <PersistGate
+              loading={null}
+              onBeforeLift={runSagaMiddleware}
+              persistor={persistor}
+            >
+              <Router uriPrefix={prefix} />
+            </PersistGate>
+          </Provider>
+        </App>
+      </ThemeProvider>
     );
   }
 }

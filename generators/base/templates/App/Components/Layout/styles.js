@@ -1,6 +1,5 @@
 // @flow
 import styled, { css } from "styled-components";
-import variables from "<%= name %>/App/Styles/Variables";
 
 const getAlign = (alignment: string): string => {
   switch (alignment) {
@@ -15,8 +14,8 @@ export const View = styled.View``;
 
 export const FullView = styled.View`
   flex: 1;
-  margin-top: ${props => (props.header ? variables.headerHeight : 0)};
-  margin-bottom: ${props => (props.footer ? variables.footerHeight : 0)};
+  margin-top: ${props => (props.header ? props.theme.headerHeight : 0)};
+  margin-bottom: ${props => (props.footer ? props.theme.footerHeight : 0)};
   ${props =>
     props.align &&
     css`
@@ -35,10 +34,10 @@ export const CenterVerticallyView = styled(FullView)`
 `;
 
 export const ScrollView = styled.ScrollView`
-  margin-top: ${props => (props.header ? variables.headerHeight : 0)};
-  margin-bottom: ${props => (props.footer ? variables.footerHeight : 0)};
+  margin-top: ${props => (props.header ? props.theme.headerHeight : 0)};
+  margin-bottom: ${props => (props.footer ? props.theme.footerHeight : 0)};
 `;
 
 export const PaddedView = styled.View`
-  padding: ${variables.spacing}px;
+  padding: ${props => props.theme.spacing}px;
 `;
