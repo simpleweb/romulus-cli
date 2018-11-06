@@ -5,7 +5,7 @@ import { Container, ButtonText } from "./styles";
 
 type Props = {
   onPress: Function,
-  children: React.Node
+  children: React.Node,
 };
 
 const Button = ({ onPress, children }: Props): React.Node => (
