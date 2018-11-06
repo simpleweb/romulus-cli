@@ -218,11 +218,6 @@ module.exports = class extends Generator {
     );
 
     this.fs.copy(
-      this.templatePath('.babelrc'),
-      this.destinationPath('.babelrc')
-    );
-
-    this.fs.copy(
       this.templatePath('App/Assets'),
       this.destinationPath('App/Assets')
     );
