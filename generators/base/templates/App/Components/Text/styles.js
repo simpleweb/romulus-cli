@@ -1,8 +1,7 @@
 // @flow
-import styled from 'styled-components';
-import variables from '<%= name %>/App/Styles/Variables';
+import styled from "styled-components";
 
 export const Text = styled.Text`
   font-weight: normal;
-  font-family: ${variables.fonts.family}
+  font-family: ${props => props.theme.fonts.family};
 `;

@@ -1,16 +1,14 @@
 // @flow
-import styled from 'styled-components';
-import variables from '<%= name %>/App/Styles/Variables';
-
-import RNText from '<%= name %>/App/Components/Text';
+import styled from "styled-components";
+import Text from "<%= name %>/App/Components/Text";
 
 export const Container = styled.View`
   padding: 12px;
-  background-color: ${variables.colors.grey};
+  background-color: ${props => props.theme.colors.grey};
   border-radius: 3px;
 `;
 
-export const Text = styled(RNText)`
-  color: ${variables.colors.white};
+export const ButtonText = styled(Text)`
+  color: ${props => props.theme.colors.white};
   text-align: center;
 `;
