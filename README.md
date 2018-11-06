@@ -35,7 +35,6 @@ genny init
 ## Feature overview
 
 - A sensible `README` providing consistent instructions between projects
-- Can optionally `init` Git for you
 - Router using `react-navigation`
 - Redux setup
   - Store is persisted using `redux-persist`
@@ -123,8 +122,7 @@ App/
 │   │   └── Saga.js
 │   └── index.js
 ├── Styles/
-│   └── Variables/
-│       └── index.js
+│   └── Theme.js
 ├── Types/
 │   └── index.js
 ├── App.js
