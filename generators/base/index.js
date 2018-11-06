@@ -283,6 +283,8 @@ module.exports = class extends Generator {
   }
 
   end() {
+    this.log('Symlinking prettierrc');
+    this.spawnCommandSync('ln', ['-s', './node_modules/@simpleweb/configs/.prettierrc', '.prettierrc']);
     this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
     this.log('Creating Android environments');
