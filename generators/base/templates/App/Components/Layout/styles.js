@@ -30,7 +30,7 @@ export const CenterView = styled.View`
   align-items: center;
 `;
 
-export const CenterVerticallyView = FullView.extend`
+export const CenterVerticallyView = styled(FullView)`
   justify-content: center;
 `;
 
