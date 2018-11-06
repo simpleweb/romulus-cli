@@ -20,29 +20,18 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
-        name: 'createGit',
-        message: 'Create a local git repo?',
-        default: true,
-      },
-      {
-        type: 'confirm',
         name: 'i18nSupport',
         message: 'Do you want i18n support?',
         default: true,
       },
     ]).then((answers) => {
       this.nodeVersion = answers.nodeVersion;
-      this.createGit = answers.createGit;
       this.flowVerison = answers.flowVerison;
       this.i18nSupport = answers.i18nSupport;
     });
   }
 
   writing() {
-    if (this.createGit) {
-      this.composeWith(require.resolve('generator-git-init'));
-    }
-
     // create entry points for Android and iOS
     this.fs.copyTpl(
       this.templatePath('index.js'),
