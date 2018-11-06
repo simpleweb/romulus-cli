@@ -2,14 +2,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
 <% if (type === "index.js as component") { -%>
-import <%= scene %> from "<%= name %>/App/Scenes/<%= scene %>";
+import <%= screen %> from "<%= name %>/App/Screens/<%= screen %>";
 <% } else { -%>
-import <%= scene %> from "<%= name %>/App/Scenes/<%= scene %>/<%= scene %>";
+import <%= screen %> from "<%= name %>/App/Screens/<%= screen %>/<%= screen %>";
 <% } -%>
 
-class <%= scene %>Container extends React.Component<{}> {
+class <%= screen %>Container extends React.Component<{}> {
   render(): React.Node {
-    return <<%= scene %> />;
+    return <<%= screen %> />;
   }
 }
 
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(<%= scene %>Container);
+)(<%= screen %>Container);

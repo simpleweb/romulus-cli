@@ -67,10 +67,10 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    // copy scenes
+    // copy screens
     this.fs.copyTpl(
-      this.templatePath('App/Scenes'),
-      this.destinationPath('App/Scenes'),
+      this.templatePath('App/Screens'),
+      this.destinationPath('App/Screens'),
       {
         name: this.name,
         i18nSupport: this.i18nSupport,

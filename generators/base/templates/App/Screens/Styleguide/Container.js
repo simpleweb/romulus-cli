@@ -1,6 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
-import Styleguide from '<%= name %>/App/Scenes/Styleguide';
+import Styleguide from '<%= name %>/App/Screens/Styleguide';
 
 const mapStateToProps = (state) => ({
   installed: state.app.installed,

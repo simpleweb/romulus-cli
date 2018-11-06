@@ -5,10 +5,10 @@ import Text from "<%= name %>/App/Components/Text";
 
 type Props = {};
 
-const <%= scene %> = (props: Props): React.Node => (
+const <%= screen %> = (props: Props): React.Node => (
   <Layout.Center>
-    <Text><%= scene %></Text>
+    <Text><%= screen %></Text>
   </Layout.Center>
 );
 
-export default <%= scene %>;
+export default <%= screen %>;
