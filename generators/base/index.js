@@ -230,9 +230,27 @@ module.exports = class extends Generator {
     );
 
     // merge the two package json files
-    const templatePackage = readPkg.sync(this.templatePath('package.json'));
     const currentPackage = readPkg.sync();
-    writePkg.sync(deepExtend(templatePackage, currentPackage));
+
+    writePkg.sync(
+      deepExtend(currentPackage, {
+        "private": true,
+        "scripts": {
+          "pretty": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'",
+          "lint": "eslint --config ./node_modules/@simpleweb/configs/react-native/.eslintrc --fix './App/**/*.js'",
+          "updateignore": "./bin/gitignore.sh",
+          "bump": "./bin/bump-ios.sh",
+          "test": "jest --verbose",
+          "coverage": "jest --coverage",
+          "test:watch": "npm test -- --watch",
+          "pretest": "yarn run lint",
+          "precommit": "lint-staged"
+        },
+        "lint-staged": {
+          "App/**/*.js": ["yarn run pretty", "yarn run lint", "git add"]
+        }
+      })
+    );
   }
 
   install() {
