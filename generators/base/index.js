@@ -243,11 +243,15 @@ module.exports = class extends Generator {
           "test": "jest --verbose",
           "coverage": "jest --coverage",
           "test:watch": "npm test -- --watch",
-          "pretest": "yarn run lint",
-          "precommit": "lint-staged"
+          "pretest": "yarn run lint"
         },
         "lint-staged": {
           "App/**/*.js": ["yarn run pretty", "yarn run lint", "git add"]
+        },
+        "husky": {
+          "hooks": {
+            "pre-commit": "lint-staged"
+          }
         }
       })
     );
