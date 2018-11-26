@@ -1,4 +1,4 @@
-# ⚛️ generator-react-native
+# ⚛️ generator-react-native &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md#sending-a-pull-request)
 
 The aim of of this generator is to **provide structure** and a **set of patterns**
 to eliminate the time you would spend bootstrapping your own. While this comes
