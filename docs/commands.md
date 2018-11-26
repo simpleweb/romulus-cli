@@ -1,14 +1,14 @@
 # Commands
 
-These commands rely on the original structure created by `genny init`.
+These commands rely on the original structure created by `romulus init`.
 
 ## Component
 
 Creates a new _stateless_ or _stateful_ component.
 
 ```
-genny component MyComponent
-genny component MyComponent --stateful
+romulus component MyComponent
+romulus component MyComponent --stateful
 ```
 
 This will generate two files:
@@ -76,7 +76,7 @@ export const Text = styled.Text``;
 Creates a new reducer and associated actions.
 
 ```
-genny reducer MyReducer
+romulus reducer MyReducer
 ```
 
 This will generate two files:
@@ -148,7 +148,7 @@ Creates a new scene that is connected to the Redux store following the container
 pattern.
 
 ```
-genny scene MyScene
+romulus scene MyScene
 ```
 
 This will generate two files:
