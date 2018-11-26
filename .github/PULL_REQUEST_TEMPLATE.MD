@@ -8,7 +8,7 @@ fixes #...”).
 
 ## Checklist
 
-- [ ] Read the contributing guidelines
+- [ ] Read the [contributing](.github/CONTRIBUTING.md) guidelines
 - [ ] Update the `README.md` if you think it’s necessary
 - [ ] Make sure the documentation reflects the changes you’ve made
 

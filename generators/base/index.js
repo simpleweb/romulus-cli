@@ -20,29 +20,18 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
-        name: 'createGit',
-        message: 'Create a local git repo?',
-        default: true,
-      },
-      {
-        type: 'confirm',
         name: 'i18nSupport',
         message: 'Do you want i18n support?',
         default: true,
       },
     ]).then((answers) => {
       this.nodeVersion = answers.nodeVersion;
-      this.createGit = answers.createGit;
       this.flowVerison = answers.flowVerison;
       this.i18nSupport = answers.i18nSupport;
     });
   }
 
   writing() {
-    if (this.createGit) {
-      this.composeWith(require.resolve('generator-git-init'));
-    }
-
     // create entry points for Android and iOS
     this.fs.copyTpl(
       this.templatePath('index.js'),
@@ -67,10 +56,10 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    // copy scenes
+    // copy screens
     this.fs.copyTpl(
-      this.templatePath('App/Scenes'),
-      this.destinationPath('App/Scenes'),
+      this.templatePath('App/Screens'),
+      this.destinationPath('App/Screens'),
       {
         name: this.name,
         i18nSupport: this.i18nSupport,
@@ -218,11 +207,6 @@ module.exports = class extends Generator {
     );
 
     this.fs.copy(
-      this.templatePath('.babelrc'),
-      this.destinationPath('.babelrc')
-    );
-
-    this.fs.copy(
       this.templatePath('App/Assets'),
       this.destinationPath('App/Assets')
     );
@@ -246,9 +230,31 @@ module.exports = class extends Generator {
     );
 
     // merge the two package json files
-    const templatePackage = readPkg.sync(this.templatePath('package.json'));
     const currentPackage = readPkg.sync();
-    writePkg.sync(deepExtend(templatePackage, currentPackage));
+
+    writePkg.sync(
+      deepExtend(currentPackage, {
+        "private": true,
+        "scripts": {
+          "pretty": "prettier --config ./node_modules/@simpleweb/configs/.prettierrc --write './App/**/*.js'",
+          "lint": "eslint --config ./node_modules/@simpleweb/configs/react-native/.eslintrc --fix './App/**/*.js'",
+          "updateignore": "./bin/gitignore.sh",
+          "bump": "./bin/bump-ios.sh",
+          "test": "jest --verbose",
+          "coverage": "jest --coverage",
+          "test:watch": "npm test -- --watch",
+          "pretest": "yarn run lint"
+        },
+        "lint-staged": {
+          "App/**/*.js": ["yarn run pretty", "yarn run lint", "git add"]
+        },
+        "husky": {
+          "hooks": {
+            "pre-commit": "lint-staged"
+          }
+        }
+      })
+    );
   }
 
   install() {
@@ -288,6 +294,8 @@ module.exports = class extends Generator {
   }
 
   end() {
+    this.log('Symlinking prettierrc');
+    this.spawnCommandSync('ln', ['-s', './node_modules/@simpleweb/configs/.prettierrc', '.prettierrc']);
     this.spawnCommandSync('yarn', ['run', 'pretty']);
     this.spawnCommandSync('yarn', ['run', 'updateignore']);
     this.log('Creating Android environments');

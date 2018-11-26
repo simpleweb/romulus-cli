@@ -1,4 +1,4 @@
-# ⚛️ romulus
+# ⚛️ romulus &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md#sending-a-pull-request)
 
 `romulus` is a tool designed to **provide structure** and a **set of patterns**
 for React Native applications.
@@ -55,7 +55,6 @@ romulus init
 ## Features
 
 - A sensible `README` providing consistent instructions between projects
-- Can optionally `init` Git for you
 - Router using `react-navigation`
 - Redux setup
   - Store is persisted using `redux-persist`
@@ -65,7 +64,7 @@ romulus init
   - CSS-in-JS support for `styled-components`
   - Start to a styleguide to list your components
   - Example Button component
-  - Layout component example to DRY up scene layouts
+  - Layout component example to DRY up screen layouts
   - Pattern to organise components and their styles
 - Helpful utilities
   - `log` helper to output coloured logs to the debug console
@@ -125,7 +124,7 @@ App/
 ├── Sagas/
 │   ├── index.js
 │   └── RequestExample.js
-├── Scenes/
+├── Screens/
 │   ├── Styleguide/
 │   │   ├── Container.js
 │   │   └── index.js
@@ -143,8 +142,7 @@ App/
 │   │   └── Saga.js
 │   └── index.js
 ├── Styles/
-│   └── Variables/
-│       └── index.js
+│   └── Theme.js
 ├── Types/
 │   └── index.js
 ├── App.js

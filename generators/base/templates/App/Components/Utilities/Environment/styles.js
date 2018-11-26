@@ -1,8 +1,7 @@
 // @flow
 import styled, { css } from "styled-components";
 import { isIphoneX } from "react-native-iphone-x-helper";
-import variables from "<%= name %>/App/Styles/Variables";
-import RNText from "<%= name %>/App/Components/Text";
+import Text from "<%= name %>/App/Components/Text";
 
 const SAFE_AREA_BOTTOM = 34;
 
@@ -35,9 +34,9 @@ export const Badge = styled.View`
   border-radius: 4;
 `;
 
-export const Text = styled(RNText)`
+export const EnvText = styled(Text)`
   font-size: 12;
   font-family: "System";
   font-weight: bold;
-  color: ${variables.colors.white};
+  color: ${props => props.theme.colors.white};
 `;

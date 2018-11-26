@@ -1,14 +1,14 @@
 // @flow
 import { StackNavigator as createStackNavigator } from "react-navigation";
-import Scenes from '<%= name %>/App/Scenes';
+import Screens from '<%= name %>/App/Screens';
 
 const RootNavigator = createStackNavigator({
   Main: {
-    screen: Scenes.Main,
+    screen: Screens.Main,
     path: 'main',
   },
   Styleguide: {
-    screen: Scenes.Styleguide,
+    screen: Screens.Styleguide,
     path: 'styleguide',
   },
 },{

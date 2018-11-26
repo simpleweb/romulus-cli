@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import { TouchableOpacity } from "react-native";
-import { Container, Text } from "./styles";
+import { Container, ButtonText } from "./styles";
 
 type Props = {
   onPress: Function,
@@ -11,7 +11,7 @@ type Props = {
 const Button = ({ onPress, children }: Props): React.Node => (
   <TouchableOpacity onPress={onPress}>
     <Container>
-      <Text>{children}</Text>
+      <ButtonText>{children}</ButtonText>
     </Container>
   </TouchableOpacity>
 );

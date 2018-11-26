@@ -15,13 +15,13 @@ type Props = {
 const Main = ({ navigation }: Props): React.Node => (
   <Layout.Center>
     <% if (i18nSupport) { -%>
-    <Text>{t("scenes.main.title")}</Text>
+    <Text>{t("screens.main.title")}</Text>
     <% } else { -%>
     <Text>Welcome to the React Native Generator!</Text>
     <% } -%>
     <Button onPress={() => navigation.navigate("Styleguide")}>
       <% if (i18nSupport) { -%>
-      {t("scenes.main.styleguide_button")}
+      {t("screens.main.styleguide_button")}
       <% } else { -%>
       View the Styleguide
       <% } -%>

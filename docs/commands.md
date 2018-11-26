@@ -142,24 +142,24 @@ export const myreducerExample = (): MyReducerExample => ({
 });
 ```
 
-## Scene
+## Screen
 
-Creates a new scene that is connected to the Redux store following the container
+Creates a new screen that is connected to the Redux store following the container
 pattern.
 
 ```
-romulus scene MyScene
+romulus screen MyScreen
 ```
 
 This will generate two files:
 
-- `App/Scenes/MyScene/index.js`
-- `App/Scenes/MyScene/Container.js`
+- `App/Screens/MyScreen/index.js`
+- `App/Screens/MyScreen/Container.js`
 
-You should then import this scene into `App/Scenes/index.js` so it can be easily
+You should then import this screen into `App/Screens/index.js` so it can be easily
 added to the router.
 
-The `index.js` file contains a presentational view of the scene.
+The `index.js` file contains a presentational view of the screen.
 
 ```js
 // @flow
@@ -169,13 +169,13 @@ import Text from "MyApp/App/Components/Text";
 
 type Props = {};
 
-const MyScene = (props: Props): React.Node => (
+const MyScreen = (props: Props): React.Node => (
   <Layout.Center>
-    <Text>MyScene</Text>
+    <Text>MyScreen</Text>
   </Layout.Center>
 );
 
-export default MyScene;
+export default MyScreen;
 ```
 
 The `Container.js` file connects to the Redux store and provides data to the
@@ -185,11 +185,11 @@ presentational component.
 // @flow
 import * as React from "react";
 import { connect } from "react-redux";
-import MyScene from "MyApp/App/Scenes/MyScene";
+import MyScreen from "MyApp/App/Screens/MyScreen";
 
-class MySceneContainer extends React.Component<{}> {
+class MyScreenContainer extends React.Component<{}> {
   render(): React.Node {
-    return <MyScene />;
+    return <MyScreen />;
   }
 }
 
@@ -200,5 +200,5 @@ const mapDispatchToProps = dispatch => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MySceneContainer);
+)(MyScreenContainer);
 ```
