@@ -1,4 +1,4 @@
-# ⚛️ romulus &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md#sending-a-pull-request)
+# ⚛️ romulus-cli &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md#sending-a-pull-request)
 
 `romulus` is a tool designed to **provide structure** and a **set of patterns**
 for React Native applications.
@@ -22,18 +22,18 @@ and scenes that follow the same style and structure
 ## Installation
 
 ```
-npm install -g romulus
+npm install -g romulus-cli
 ```
 
 ```
-yarn global add romulus
+yarn global add romulus-cli
 ```
 
 Don’t want to install anything? You can run the commands directly using
 `npx` (available with `npm@5.2.0`).
 
 ```
-npx romulus init
+npx romulus-cli init
 ```
 
 ## Getting started
