@@ -1,5 +1,5 @@
 {
-  "name": "generator-react-native",
+  "name": "romulus-cli",
   "version": "0.1.0",
   "description": "Brings structure to your React Native apps",
   "files": [
@@ -9,7 +9,7 @@
     "yeoman-generator"
   ],
   "bin": {
-    "genny": "./cli.js"
+    "romulus": "./cli.js"
   },
   "dependencies": {
     "colors": "^1.3.2",
