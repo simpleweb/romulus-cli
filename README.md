@@ -3,7 +3,7 @@
 `romulus` is a tool designed to **provide structure** and a **set of patterns**
 for React Native applications.
 
-It’s should help eliminate the time you spend bootstrapping each project and
+It should help eliminate the time you spend bootstrapping each project and
 give you consistency between your application builds.
 
 While this comes with some opinion, there’s no overarching framework on top of
@@ -12,10 +12,10 @@ architecture to get you or your team off the ground.
 
 ## What does it do?
 - [Features](#features) - adds a set of commonly required features (e.g. Redux setup,
-offline storage, environment variables and more) by taking advantage of great.
+offline storage, environment variables and more) by taking advantage of great
 community driven packages  
-- [Structure](#structure) - provides a sensible structure to your applications that helps bring
-consitency within your team or just between your own applications.
+- [Structure](#structure) - provides a sensible structure for your applications that helps bring
+consistency within your team or just between your own applications
 - [Scaffolding](#documentation) - makes it easy to scaffold new components, reducers
 and scenes that follow the same style and structure
 
@@ -59,7 +59,7 @@ romulus init
 - Redux setup
   - Store is persisted using `redux-persist`
   - Helpful state changes logged in the debugger using `redux-logger`
-  - Actions are prevent from being dispatched before the cache is restored
+  - Actions are prevented from being dispatched before the cache is restored
 - UI niceities
   - CSS-in-JS support for `styled-components`
   - Start to a styleguide to list your components
@@ -75,7 +75,7 @@ romulus init
   `react-native-config`
 - Sagas (to handle async tasks like HTTP requests) using `redux-saga`
 - Initial setup for deep linking
-- Requests are setup to be handled with `axios` with clear logging in the
+- Requests are set up to be handled with `axios` with clear logging in the
   debugger provided
 - Automatic versioning of iOS and Android versions based on the `package.json`
   version
