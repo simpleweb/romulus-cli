@@ -262,6 +262,7 @@ module.exports = class extends Generator {
       'axios',
       'react-native-config',
       'react-navigation',
+      'react-native-gesture-handler',
       'react-native-iphone-x-helper',
       ...(this.i18nSupport ? ['react-native-i18n'] : []),
       'react-redux',
