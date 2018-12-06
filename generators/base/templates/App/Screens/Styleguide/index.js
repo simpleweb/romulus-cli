@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Styleguide = ({ installed, requestExample }: Props): React.Node => (
-  <Layout.Scroll header>
+  <Layout.Scroll>
     <Layout.Padded>
       <Text>Styleguide</Text>
 
