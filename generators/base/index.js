@@ -229,6 +229,13 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
+    //  copy android files
+    this.fs.copyTpl(
+      this.templatePath('android/MainActivity.java'),
+      this.destinationPath(`android/app/src/main/java/com/${this.name.toLowerCase()}/MainActivity.java`),
+      { name: this.name, nameLower: this.name.toLowerCase() }
+    );
+
     // merge the two package json files
     const currentPackage = readPkg.sync();
 
@@ -262,6 +269,7 @@ module.exports = class extends Generator {
       'axios',
       'react-native-config',
       'react-navigation',
+      'react-native-gesture-handler',
       'react-native-iphone-x-helper',
       ...(this.i18nSupport ? ['react-native-i18n'] : []),
       'react-redux',

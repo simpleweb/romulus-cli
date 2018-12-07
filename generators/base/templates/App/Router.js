@@ -1,5 +1,5 @@
 // @flow
-import { StackNavigator as createStackNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 import Screens from '<%= name %>/App/Screens';
 
 const RootNavigator = createStackNavigator({
@@ -15,4 +15,4 @@ const RootNavigator = createStackNavigator({
   initialRouteName: 'Main',
 });
 
-export default RootNavigator;
+export default createAppContainer(RootNavigator);
