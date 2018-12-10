@@ -1,6 +1,6 @@
 {
   "name": "romulus-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Brings structure to your React Native apps",
   "files": [
     "docs",
