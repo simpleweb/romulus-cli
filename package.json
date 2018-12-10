@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "Brings structure to your React Native apps",
   "files": [
-    "generators"
+    "docs",
+    "generators",
+    "cli.js"
   ],
   "keywords": [
+    "react-native",
     "yeoman-generator"
   ],
+  "author": "Simpleweb (https://github.com/simpleweb)",
+  "license": "MIT",
+  "homepage": "https://github.com/simpleweb/romulus-cli",
+  "repository": "github:simpleweb/romulus-cli",
+  "bugs": "https://github.com/simpleweb/romulus-cli/issues",
   "bin": {
     "romulus": "./cli.js"
   },
@@ -29,7 +37,5 @@
   },
   "scripts": {
     "test": "mocha"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "generator-react-native@0.1.0"
+  }
 }
