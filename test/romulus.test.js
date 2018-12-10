@@ -33,7 +33,7 @@ function createProject() {
 
 createProject();
 
-describe('Genny Test', () => {
+describe('Romulus Test', () => {
 
   // No fat arrows here, as we want to override the timeout
   after(function(done) {
