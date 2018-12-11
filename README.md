@@ -19,6 +19,12 @@ consistency within your team or just between your own applications
 - [Scaffolding](#documentation) - makes it easy to scaffold new components, reducers
 and scenes that follow the same style and structure
 
+## Example application
+
+[View the example application](https://github.com/simpleweb/romulus-example) created with Romulus
+to get an idea of what `romulus init` does. The application is ready to be cloned down and ran
+straight away onto a device or simulator.
+
 ## Installation
 
 ```
