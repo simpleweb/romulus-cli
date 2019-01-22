@@ -4,7 +4,7 @@ import { Platform } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { ThemeProvider } from "styled-components";
-import { ENV, NAVIGATION_PERSIST_KEY } from "<%= name %>/App/Config";
+import { NAVIGATION_PERSIST_KEY } from "<%= name %>/App/Config";
 import Theme from "<%= name %>/App/Styles/Theme";
 import Router from "<%= name %>/App/Router";
 import { store, persistor } from "<%= name %>/App/Store";
@@ -12,7 +12,7 @@ import { runSagaMiddleware } from "<%= name %>/App/Store/Middleware/Saga";
 import App from "<%= name %>/App/Components/App";
 
 const navigationPersistenceKey =
-  ENV === "development" ? NAVIGATION_PERSIST_KEY : null;
+  __DEV__ ? NAVIGATION_PERSIST_KEY : null;
 
 const prefix =
   Platform.OS === "android" ? "<%= name %>://<%= name %>/" : "<%= name %>://";
