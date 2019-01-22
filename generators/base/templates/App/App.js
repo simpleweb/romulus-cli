@@ -4,7 +4,7 @@ import { Platform } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { ThemeProvider } from "styled-components";
-import { ENV, NAVIGATION_PERSIST_KEY } from "SharetribeNativeDemo/App/Config";
+import { ENV, NAVIGATION_PERSIST_KEY } from "<%= name %>/App/Config";
 import Theme from "<%= name %>/App/Styles/Theme";
 import Router from "<%= name %>/App/Router";
 import { store, persistor } from "<%= name %>/App/Store";
