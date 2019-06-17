@@ -14,9 +14,6 @@ import App from "<%= name %>/App/Components/App";
 const navigationPersistenceKey =
   __DEV__ ? NAVIGATION_PERSIST_KEY : null;
 
-const prefix =
-  Platform.OS === "android" ? "<%= name %>://<%= name %>/" : "<%= name %>://";
-
 class <%= name %> extends React.Component<{}> {
   render(): React.Node {
     return (
@@ -29,7 +26,7 @@ class <%= name %> extends React.Component<{}> {
               persistor={persistor}
             >
               <Router
-                uriPrefix={prefix}
+                uriPrefix="<%= name %>://"
                 persistenceKey={navigationPersistenceKey}
               />
             </PersistGate>
