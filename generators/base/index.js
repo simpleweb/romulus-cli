@@ -155,11 +155,10 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    // copy styles
+    // copy theme
     this.fs.copyTpl(
-      this.templatePath('App/Styles'),
-      this.destinationPath('App/Styles'),
-      { name: this.name }
+      this.templatePath('App/Theme'),
+      this.destinationPath('App/Theme'),
     );
 
     // copy config
