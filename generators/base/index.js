@@ -14,19 +14,12 @@ module.exports = class extends Generator {
   prompting() {
     return this.prompt([
       {
-        type: 'input',
-        name: 'flowVerison',
-        message: 'Which version of Flow should be used? (should match verison in .flowconfig)',
-      },
-      {
         type: 'confirm',
         name: 'i18nSupport',
         message: 'Do you want i18n support?',
         default: true,
       },
     ]).then((answers) => {
-      this.nodeVersion = answers.nodeVersion;
-      this.flowVerison = answers.flowVerison;
       this.i18nSupport = answers.i18nSupport;
     });
   }
@@ -36,6 +29,13 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('index.js'),
       this.destinationPath('index.js'),
+      { name: this.name }
+    );
+
+    // create entry points for Android and iOS
+    this.fs.copyTpl(
+      this.templatePath('.flowconfig'),
+      this.destinationPath('.flowconfig'),
       { name: this.name }
     );
 
@@ -301,7 +301,7 @@ module.exports = class extends Generator {
     ]);
 
     this.yarnInstall([
-      'flow-bin@' + this.flowVerison,
+      'flow-bin@0.105.1',
       'eslint',
       'babel-eslint',
       'prettier',
