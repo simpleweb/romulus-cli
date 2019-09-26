@@ -271,11 +271,17 @@ module.exports = class extends Generator {
   }
 
   install() {
+    const reactNavigavtion = [
+      'react-navigation',
+      'react-navigation-stack',
+      'react-native-gesture-handler',
+      'react-native-reanimated',
+      'react-native-screens@^1.0.0-alpha.23',
+    ];
+
     this.yarnInstall([
       'axios',
       'https://github.com/luggit/react-native-config#master',
-      'react-navigation',
-      'react-native-gesture-handler',
       'react-native-iphone-x-helper',
       ...(this.i18nSupport ? ['react-native-i18n'] : []),
       'react-redux',
@@ -285,6 +291,7 @@ module.exports = class extends Generator {
       'redux-persist',
       'redux-saga',
       'styled-components',
+      ...reactNavigavtion,
     ]);
 
     this.yarnInstall([

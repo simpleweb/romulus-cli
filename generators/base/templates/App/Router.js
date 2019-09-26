@@ -1,18 +1,22 @@
 // @flow
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Screens from '<%= name %>/App/Screens';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import Screens from "<%= name %>/App/Screens";
 
-const RootNavigator = createStackNavigator({
-  Main: {
-    screen: Screens.Main,
-    path: 'main',
+const RootNavigator = createStackNavigator(
+  {
+    Main: {
+      screen: Screens.Main,
+      path: "main",
+    },
+    Styleguide: {
+      screen: Screens.Styleguide,
+      path: "styleguide",
+    },
   },
-  Styleguide: {
-    screen: Screens.Styleguide,
-    path: 'styleguide',
+  {
+    initialRouteName: "Main",
   },
-},{
-  initialRouteName: 'Main',
-});
+);
 
 export default createAppContainer(RootNavigator);
