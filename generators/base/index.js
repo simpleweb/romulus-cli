@@ -228,6 +228,12 @@ module.exports = class extends Generator {
       { name: this.name, nameLower: this.name.toLowerCase() }
     );
 
+    // copy VS Code settings
+    this.fs.copyTpl(
+      this.templatePath('.vscode'),
+      this.destinationPath('.vscode'),
+    );
+
     //  copy shell scripts
     this.fs.copyTpl(
       this.templatePath('bin'),
