@@ -280,6 +280,7 @@ module.exports = class extends Generator {
     ];
 
     this.yarnInstall([
+      '@react-native-community/async-storage',
       'axios',
       'https://github.com/luggit/react-native-config#master',
       'react-native-iphone-x-helper',

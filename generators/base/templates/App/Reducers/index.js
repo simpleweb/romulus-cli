@@ -1,7 +1,7 @@
 // @flow
 import { persistCombineReducers } from 'redux-persist';
 import { ENV, STORAGE_PREFIX } from '<%= name %>/App/Config';
-import storage from 'redux-persist/src/storage';
+import AsyncStorage from '@react-native-community/async-storage';
 <% reducers.forEach(function(reducer) { -%>
 import <%= reducer %> from '<%= name %>/App/Reducers/<%= reducer %>';
 <% }); -%>
@@ -9,7 +9,7 @@ import <%= reducer %> from '<%= name %>/App/Reducers/<%= reducer %>';
 const config = {
   key: STORAGE_PREFIX,
   debug: ENV === 'development',
-  storage,
+  storage: AsyncStorage,
 }
 
 const reducers = persistCombineReducers(config, {
