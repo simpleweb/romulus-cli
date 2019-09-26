@@ -267,7 +267,7 @@ module.exports = class extends Generator {
   install() {
     this.yarnInstall([
       'axios',
-      'react-native-config',
+      'https://github.com/luggit/react-native-config#master',
       'react-navigation',
       'react-native-gesture-handler',
       'react-native-iphone-x-helper',
