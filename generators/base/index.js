@@ -320,7 +320,6 @@ module.exports = class extends Generator {
     this.spawnCommandSync('python', ['./bin/react-native-config.py', this.name]);
     this.log('Creating iOS Schemes');
     this.spawnCommandSync('python', ['./bin/create-schemes.py', this.name]);
-    this.spawnCommandSync('react-native', ['link']);
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
     this.log('https://github.com/simpleweb/generator-react-native#after-react-nativebase');
