@@ -13,7 +13,7 @@ architecture to get you or your team off the ground.
 ## What does it do?
 - [Features](#features) - adds a set of commonly required features (e.g. Redux setup,
 offline storage, environment variables and more) by taking advantage of great
-community driven packages  
+community driven packages
 - [Structure](#structure) - provides a sensible structure for your applications that helps bring
 consistency within your team or just between your own applications
 - [Scaffolding](#documentation) - makes it easy to scaffold new components, reducers
@@ -131,11 +131,9 @@ App/
 │   ├── index.js
 │   └── RequestExample.js
 ├── Screens/
-│   ├── Styleguide/
-│   │   ├── Container.js
-│   │   └── index.js
 │   ├── index.js
-│   └── Main.js
+│   ├── Main.js
+│   └── Styleguide.js
 ├── Services/
 │   └── API/
 │       ├── index.js
@@ -147,11 +145,11 @@ App/
 │   │   ├── Logger.js
 │   │   └── Saga.js
 │   └── index.js
-├── Styles/
-│   └── Theme.js
+├── Theme/
+│   └── index.js
 ├── Types/
 │   └── index.js
-├── App.js
+├── index.js
 └── Router.js
 ```
 
