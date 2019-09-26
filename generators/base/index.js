@@ -44,8 +44,8 @@ module.exports = class extends Generator {
 
     // copy root app file that the entry points use
     this.fs.copyTpl(
-      this.templatePath('App/App.js'),
-      this.destinationPath(`App/${this.name}.js`),
+      this.templatePath('App/index.js'),
+      this.destinationPath('App/index.js'),
       { name: this.name }
     );
 
