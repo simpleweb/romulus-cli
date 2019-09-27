@@ -235,8 +235,8 @@ module.exports = class extends Generator {
 
     //  copy shell scripts
     this.fs.copyTpl(
-      this.templatePath('bin'),
-      this.destinationPath('bin'),
+      this.templatePath('bin/bump-ios.sh'),
+      this.destinationPath('bin/bump-ios.sh'),
       { name: this.name }
     );
 
@@ -256,7 +256,6 @@ module.exports = class extends Generator {
         "scripts": {
           "pretty": "prettier --config .prettierrc.js --write '**/*.js'",
           "lint": "eslint --config ./node_modules/@simpleweb/configs/react-native/.eslintrc --fix './App/**/*.js'",
-          "updateignore": "./bin/gitignore.sh",
           "bump": "./bin/bump-ios.sh",
           "test": "jest --verbose",
           "coverage": "jest --coverage",
@@ -325,14 +324,30 @@ module.exports = class extends Generator {
     this.spawnCommandSync("pod", ["install"], {
       cwd: this.destinationPath("ios"),
     });
-    
+
     this.log('Running Prettier...');
     this.spawnCommandSync('yarn', ['run', 'pretty']);
-    this.spawnCommandSync('yarn', ['run', 'updateignore']);
+
+    this.log('Update ignore');
+    this.spawnCommandSync('python', [`${this.templatePath('bin')}/git-ignore.py`], {
+      cwd: this.destinationPath(),
+    });
+
     this.log('Creating Android environments');
-    this.spawnCommandSync('python', ['./bin/react-native-config.py', this.name]);
+    this.spawnCommandSync('python', [`${this.templatePath('bin')}/react-native-config.py`], {
+      cwd: this.destinationPath(),
+    });
+
+    this.log('Configuring React Navigation');
+    this.spawnCommandSync('python', [`${this.templatePath('bin')}/react-navigation.py`], {
+      cwd: this.destinationPath(),
+    });
+
     this.log('Creating iOS Schemes');
-    this.spawnCommandSync('python', ['./bin/create-schemes.py', this.name]);
+    this.spawnCommandSync('python', [`${this.templatePath('bin')}/create-schemes.py`, this.name], {
+      cwd: this.destinationPath(),
+    });
+
     this.log('Setup complete!');
     this.log('Please refer to the post-install notes');
     this.log('https://github.com/simpleweb/generator-react-native#after-react-nativebase');
