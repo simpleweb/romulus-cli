@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { type NavigationState } from 'react-navigation';
+import { NavigationScreenProps } from "react-navigation";
 <% if (i18nSupport) { -%>
 import { t } from "<%= name %>/App/Helpers/Translations";
 <% } -%>
@@ -8,9 +8,7 @@ import Layout from '<%= name %>/App/Components/Layout';
 import Button from '<%= name %>/App/Components/Button';
 import Text from '<%= name %>/App/Components/Text';
 
-type Props = {
-  navigation: NavigationState,
-};
+type Props = NavigationScreenProps & {};
 
 const Main = ({ navigation }: Props): React.Node => (
   <Layout.Center>
