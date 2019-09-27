@@ -275,7 +275,7 @@ module.exports = class extends Generator {
   }
 
   install() {
-    const reactNavigavtion = [
+    const reactNavigation = [
       'react-navigation',
       'react-navigation-stack',
       'react-native-gesture-handler',
@@ -296,7 +296,7 @@ module.exports = class extends Generator {
       'redux-persist',
       'redux-saga',
       'styled-components',
-      ...reactNavigavtion,
+      ...reactNavigation,
     ]);
 
     this.yarnInstall([
