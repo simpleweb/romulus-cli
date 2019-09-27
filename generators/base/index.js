@@ -304,7 +304,7 @@ module.exports = class extends Generator {
       'flow-bin@0.105.1',
       'eslint',
       'babel-eslint',
-      'prettier',
+      'prettier@1.18.2',
       'husky',
       'lint-staged',
       'eslint-config-prettier',
