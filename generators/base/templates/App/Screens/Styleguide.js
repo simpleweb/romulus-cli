@@ -2,6 +2,7 @@
 import * as React from "react";
 import { Alert } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
 import Button from "<%= name %>/App/Components/Button";
 import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";
@@ -32,10 +33,10 @@ function Styleguide() {
   );
 }
 
-const Heading = ({ children }: { children: React.Node }): React.Node => (
-  <Text style={{ fontWeight: "bold", marginTop: 30, marginBottom: 10 }}>
-    {children}
-  </Text>
-);
+const Heading = styled(Text)`
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 10px;
+`;
 
 export default Styleguide;
