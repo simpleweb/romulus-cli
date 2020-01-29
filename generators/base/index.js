@@ -293,7 +293,7 @@ module.exports = class extends Generator {
     this.yarnInstall([
       'eslint',
       'babel-eslint',
-      'prettier@1.18.2',
+      'prettier@1.19.1',
       'husky',
       'lint-staged',
       'eslint-config-prettier',
