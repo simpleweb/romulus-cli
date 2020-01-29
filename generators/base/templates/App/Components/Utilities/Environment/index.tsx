@@ -1,13 +1,11 @@
 import React from "react";
 import { Badge, EnvText } from "./styles";
 
-type Props = {
-  env: "development" | "staging" | "edge" | "production" | "live"
-};
+export interface Props {
+  env: "development" | "staging" | "edge" | "production" | "live";
+}
 
-function Environment(props: Props): React.Node {
-  const { env } = props;
-
+const Environment: React.FC<Props> = ({ env }) => {
   if (env === "production") {
     return null;
   }
@@ -17,6 +15,6 @@ function Environment(props: Props): React.Node {
       <EnvText>{env.charAt(0).toUpperCase()}</EnvText>
     </Badge>
   );
-}
+};
 
 export default Environment;
