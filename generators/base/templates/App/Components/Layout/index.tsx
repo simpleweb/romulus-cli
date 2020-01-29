@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {
   View,
   CenterVerticallyView,
@@ -8,56 +8,50 @@ import {
   PaddedView,
 } from "./styles";
 
-type Props = {
-  children: React.Node,
-  style?: any,
-};
+export interface Full {
+  align?: "top" | "bottom";
+  header?: boolean;
+  footer?: boolean;
+}
 
-type FullProps = Props & {
-  align?: "top" | "bottom",
-  header?: boolean,
-  footer?: boolean,
-};
+export interface Scroll {
+  header?: boolean;
+  footer?: boolean;
+}
 
-type ScrollProps = Props & {
-  header?: boolean,
-  footer?: boolean,
-};
+interface LayoutComposition {
+  Full: React.FC<Full>;
+  Center: React.FC;
+  Scroll: React.FC<Scroll>;
+  Padded: React.FC;
+  CenterVertically: React.FC;
+}
 
-type CenterProps = Props & {};
-
-type CenterVerticallyProps = Props & {};
-
-type PaddedProps = Props & {};
-
-const Layout = ({ children, ...rest }: Props): React.Node => (
+const Layout: React.FC & LayoutComposition = ({ children, ...rest }) => (
   <View {...rest}>{children}</View>
 );
 
-Layout.Full = ({ children, ...rest }: FullProps): React.Node => (
+Layout.Full = ({ children, ...rest }) => (
   <FullView {...rest}>{children}</FullView>
 );
 Layout.Full.displayName = "Layout.Full";
 
-Layout.Center = ({ children, ...rest }: CenterProps): React.Node => (
+Layout.Center = ({ children, ...rest }) => (
   <CenterView {...rest}>{children}</CenterView>
 );
 Layout.Center.displayName = "Layout.Center";
 
-Layout.Scroll = ({ children, ...rest }: ScrollProps): React.Node => (
+Layout.Scroll = ({ children, ...rest }) => (
   <ScrollView {...rest}>{children}</ScrollView>
 );
 Layout.Scroll.displayName = "Layout.Scroll";
 
-Layout.Padded = ({ children, ...rest }: PaddedProps): React.Node => (
+Layout.Padded = ({ children, ...rest }) => (
   <PaddedView {...rest}>{children}</PaddedView>
 );
 Layout.Padded.displayName = "Layout.Padded";
 
-Layout.CenterVertically = ({
-  children,
-  ...rest
-}: CenterVerticallyProps): React.Node => (
+Layout.CenterVertically = ({ children, ...rest }) => (
   <CenterVerticallyView {...rest}>{children}</CenterVerticallyView>
 );
 Layout.CenterVertically.displayName = "Layout.CenterVertically";

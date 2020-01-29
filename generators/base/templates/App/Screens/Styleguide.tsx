@@ -1,14 +1,20 @@
-import * as React from "react";
+import React from "react";
 import { Alert } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import Button from "<%= name %>/App/Components/Button";
 import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";
 
-function Styleguide() {
+interface RootState {
+  app: {
+    installed: boolean;
+  };
+}
+
+const Styleguide: React.FC = () => {
   const dispatch = useDispatch();
-  const installed = useSelector(state => state.app.installed);
+  const installed = useSelector((state: RootState) => state.app.installed);
   const requestExample = React.useCallback(
     () => dispatch({ type: "REQUEST_EXAMPLE" }),
     [dispatch],
@@ -30,7 +36,7 @@ function Styleguide() {
       </Layout.Padded>
     </Layout.Scroll>
   );
-}
+};
 
 const Heading = styled(Text)`
   font-weight: bold;

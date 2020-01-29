@@ -1,10 +1,11 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
 import { isIphoneX } from "react-native-iphone-x-helper";
 import Text from "<%= name %>/App/Components/Text";
+import { Props } from "./index";
 
 const SAFE_AREA_BOTTOM = 34;
 
-const envCheck = env => {
+const envCheck = ({ env }: Props) => {
   switch (env) {
     case "staging":
       return "orange";
@@ -17,10 +18,10 @@ const envCheck = env => {
   }
 };
 
-export const Badge = styled.View`
+export const Badge = styled.View<Props>`
   width: 16px;
   height: 18px;
-  background-color: ${props => envCheck(props.env)};
+  background-color: ${props => envCheck({ env: props.env })};
   position: absolute;
   right: 8px;
   bottom: 8px;

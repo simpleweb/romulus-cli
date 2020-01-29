@@ -1,12 +1,9 @@
-import { createLogger } from 'redux-logger';
+import { createLogger } from "redux-logger";
 
-const blacklist = [
-  // If you wish to remove actions from the
-  // logger, they should be added here
-];
+const blacklist: [string?] = [];
 
 const Logger = createLogger({
-  predicate: (getState, action) => !blacklist.includes(action.type)
+  predicate: (getState, action) => !blacklist.includes(action.type),
 });
 
 module.exports = Logger;
