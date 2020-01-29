@@ -231,8 +231,8 @@ module.exports = class extends Generator {
       deepExtend(currentPackage, {
         "private": true,
         "scripts": {
-          "pretty": "prettier --config .prettierrc.js --write '**/*.js'",
-          "lint": "eslint --fix './App/**/*.js'",
+          "pretty": "prettier --config .prettierrc.js --write '**/*.{ts,tsx,js}'",
+          "lint": "eslint --fix './App/**/*.{ts,tsx,js}'",
           "bump": "./bin/bump-ios.sh",
           "test": "jest --verbose",
           "coverage": "jest --coverage",
@@ -240,7 +240,7 @@ module.exports = class extends Generator {
           "pretest": "yarn run lint"
         },
         "lint-staged": {
-          "App/**/*.js": ["yarn run pretty", "yarn run lint", "git add"]
+          "App/**/*.{ts,tsx,js}": ["prettier --config .prettierrc.js --write", "eslint"]
         },
         "husky": {
           "hooks": {
