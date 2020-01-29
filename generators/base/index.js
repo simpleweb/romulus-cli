@@ -32,13 +32,6 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    // create entry points for Android and iOS
-    this.fs.copyTpl(
-      this.templatePath('.flowconfig'),
-      this.destinationPath('.flowconfig'),
-      { name: this.name }
-    );
-
     // copy Prettier config
     this.fs.copyTpl(
       this.templatePath('.prettierrc.js'),
