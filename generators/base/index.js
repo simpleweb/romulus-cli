@@ -240,7 +240,7 @@ module.exports = class extends Generator {
           "pretest": "yarn run lint"
         },
         "lint-staged": {
-          "App/**/*.{ts,tsx,js}": ["prettier --config .prettierrc.js --write", "eslint"]
+          "App/**/*.{ts,tsx,js}": ["prettier --config .prettierrc.js --write", "eslint --plugin tsc --rule 'tsc/config: [2, {configFile: \"./tsconfig.json\"}]'"]
         },
         "husky": {
           "hooks": {
@@ -301,7 +301,7 @@ module.exports = class extends Generator {
       'eslint-config-xo',
       'eslint-plugin-react',
       'eslint-plugin-react-native',
-      'eslint-plugin-flowtype',
+      'eslint-plugin-tsc',
       'jest',
       ...typeScript,
     ], {
