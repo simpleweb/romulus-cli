@@ -195,9 +195,10 @@ module.exports = class extends Generator {
       this.destinationPath('App/Assets')
     );
 
+    // copy TypeScript types
     this.fs.copy(
-      this.templatePath('App/Types'),
-      this.destinationPath('App/Types')
+      this.templatePath('@types'),
+      this.destinationPath('@types')
     );
 
     this.fs.copyTpl(
