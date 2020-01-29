@@ -1,28 +1,25 @@
-import { success, warn, error } from '<%= name %>/App/Helpers/Log';
+import { success, warn, error } from "<%= name %>/App/Helpers/Log";
 
-const logRequest = (config: Object) => {
-  warn(
-    `${config.method.toUpperCase()} ${config.url}`,
-    config
-  );
+interface Request {
+  method: string;
+  url: string;
+}
+
+interface Response {
+  status: number;
+  config: Request;
+}
+
+const logRequest = (config: Request) => {
+  warn(`${config.method.toUpperCase()} ${config.url}`, config);
 };
 
-const logResponse = (response: Object) => {
-  success(
-    `${response.status} ${response.config.url}`,
-    response
-  );
+const logResponse = (response: Response) => {
+  success(`${response.status} ${response.config.url}`, response);
 };
 
-const logError = (response: Object) => {
-  error(
-    `${response.status} ${response.config.url}`,
-    response
-  );
+const logError = (response: Response) => {
+  error(`${response.status} ${response.config.url}`, response);
 };
 
-export {
-  logRequest,
-  logResponse,
-  logError,
-};
+export { logRequest, logResponse, logError };
