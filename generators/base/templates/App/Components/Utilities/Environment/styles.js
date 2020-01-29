@@ -1,4 +1,3 @@
-// @flow
 import styled, { css } from "styled-components";
 import { isIphoneX } from "react-native-iphone-x-helper";
 import Text from "<%= name %>/App/Components/Text";

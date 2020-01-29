@@ -1,4 +1,3 @@
-// @flow
 import { persistCombineReducers } from 'redux-persist';
 import { ENV, STORAGE_PREFIX } from '<%= name %>/App/Config';
 import AsyncStorage from '@react-native-community/async-storage';

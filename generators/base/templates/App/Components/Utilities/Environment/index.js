@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react";
 import { Badge, EnvText } from "./styles";
 

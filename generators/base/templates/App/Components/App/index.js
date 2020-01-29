@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react";
 import { ENV } from "<%= name %>/App/Config";
 import Environment from "<%= name %>/App/Components/Utilities/Environment";

@@ -1,4 +1,3 @@
-// @flow
 import axios from 'axios';
 import { logRequest, logResponse, logError } from './logging';
 import { API_URL } from '<%= name %>/App/Config';

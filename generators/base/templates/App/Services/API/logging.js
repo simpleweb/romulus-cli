@@ -1,4 +1,3 @@
-// @flow
 import { success, warn, error } from '<%= name %>/App/Helpers/Log';
 
 const logRequest = (config: Object) => {

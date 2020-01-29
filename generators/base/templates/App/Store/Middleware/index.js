@@ -1,4 +1,3 @@
-// @flow
 import { applyMiddleware } from 'redux';
 import Buffer from '<%= name %>/App/Store/Middleware/Buffer';
 import Saga from '<%= name %>/App/Store/Middleware/Saga';

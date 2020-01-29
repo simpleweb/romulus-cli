@@ -1,4 +1,3 @@
-// @flow
 import { Platform } from "react-native";
 
 const headerHeight = Platform.OS === "ios" ? 65 : 54;

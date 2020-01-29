@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react';
 import { NavigationScreenProps } from "react-navigation";
 <% if (i18nSupport) { -%>

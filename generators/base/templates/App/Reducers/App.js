@@ -1,4 +1,3 @@
-// @flow
 import { APP_INSTALLED, type AppInstalled } from '<%= name %>/App/Actions/App';
 
 type State = {

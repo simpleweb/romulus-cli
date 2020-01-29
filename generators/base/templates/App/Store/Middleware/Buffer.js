@@ -1,4 +1,3 @@
-// @flow
 import { REHYDRATE, PERSIST } from 'redux-persist/lib/constants';
 import createActionBuffer from 'redux-action-buffer';
 

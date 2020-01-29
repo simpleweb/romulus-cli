@@ -1,4 +1,3 @@
-// @flow
 import { createLogger } from 'redux-logger';
 
 const blacklist = [

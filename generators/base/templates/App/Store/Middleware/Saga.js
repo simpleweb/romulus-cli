@@ -1,4 +1,3 @@
-// @flow
 import createSagaMiddleware from 'redux-saga';
 import RootSaga from '<%= name %>/App/Sagas';
 

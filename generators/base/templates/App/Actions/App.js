@@ -1,4 +1,3 @@
-// @flow
 export const APP_INSTALLED = '<%= name %>/APP_INSTALLED';
 
 export type AppInstalled = {

@@ -1,4 +1,3 @@
-// @flow
 import styled, { css } from "styled-components";
 
 const getAlign = (alignment: string): string => {

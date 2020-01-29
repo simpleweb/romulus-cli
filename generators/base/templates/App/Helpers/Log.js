@@ -1,5 +1,3 @@
-// @flow
-
 const log = (...args: any) => {
   if (console.log) {
     console.log(...args);

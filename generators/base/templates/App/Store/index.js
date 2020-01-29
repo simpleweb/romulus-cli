@@ -1,4 +1,3 @@
-// @flow
 import { createStore, compose } from "redux";
 import { persistStore } from "redux-persist";
 import Reducers from "<%= name %>/App/Reducers";
