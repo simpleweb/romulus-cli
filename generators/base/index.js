@@ -275,6 +275,14 @@ module.exports = class extends Generator {
       ...reactNavigation,
     ]);
 
+    const typeScript = [
+      'typescript',
+      '@types/jest',
+      '@types/react',
+      '@types/react-native',
+      '@types/react-test-renderer',
+    ];
+
     this.yarnInstall([
       'eslint',
       'babel-eslint',
@@ -288,6 +296,7 @@ module.exports = class extends Generator {
       'eslint-plugin-react-native',
       'eslint-plugin-flowtype',
       'jest',
+      ...typeScript,
     ], {
       'dev': true
     });
