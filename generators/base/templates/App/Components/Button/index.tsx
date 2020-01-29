@@ -2,12 +2,11 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Container, ButtonText } from "./styles";
 
-type Props = {
-  onPress: Function,
-  children: React.Node,
-};
+interface Props {
+  onPress: () => any;
+}
 
-const Button = ({ onPress, children }: Props): React.Node => (
+const Button: React.FC<Props> = ({ onPress, children }) => (
   <TouchableOpacity onPress={onPress}>
     <Container>
       <ButtonText>{children}</ButtonText>
