@@ -5,7 +5,7 @@ import Saga from '<%= name %>/App/Store/Middleware/Saga';
 const middlewares = [Buffer, Saga];
 
 if (process.env['NODE_ENV'] === 'development') {
-  const Logger = require('./Logger.js');
+  const Logger = require('./Logger.ts');
   middlewares.push(Logger);
 }
 
