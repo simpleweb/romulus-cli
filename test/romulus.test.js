@@ -7,7 +7,7 @@ const assert = require('yeoman-assert');
 
 // This may need refining to something more sensible
 const CREATE_TIMEOUT = 100000;
-const CLEAN_TIMEOUT = 5000;
+const CLEAN_TIMEOUT = 10000;
 
 const appName = 'SimpleTest';
 const screenIndexComponentName = 'IndexComponent';
