@@ -56,15 +56,15 @@ module.exports = class extends Generator {
 
     // copy root app file that the entry points use
     this.fs.copyTpl(
-      this.templatePath('App/index.js'),
-      this.destinationPath('App/index.js'),
+      this.templatePath('App/index.tsx'),
+      this.destinationPath('App/index.tsx'),
       { name: this.name }
     );
 
     // copy router
     this.fs.copyTpl(
-      this.templatePath('App/Router.js'),
-      this.destinationPath('App/Router.js'),
+      this.templatePath('App/Router.ts'),
+      this.destinationPath('App/Router.ts'),
       { name: this.name }
     );
 
@@ -87,50 +87,23 @@ module.exports = class extends Generator {
 
     // copy store
     this.fs.copyTpl(
-      this.templatePath('App/Store/index.js'),
-      this.destinationPath('App/Store/index.js'),
+      this.templatePath('App/Store/index.ts'),
+      this.destinationPath('App/Store/index.ts'),
       { name: this.name }
     );
 
     // copy store middleware
     this.fs.copyTpl(
-      this.templatePath('App/Store/Middleware/Buffer.js'),
-      this.destinationPath('App/Store/Middleware/Buffer.js'),
-      { name: this.name }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('App/Store/Middleware/index.js'),
-      this.destinationPath('App/Store/Middleware/index.js'),
-      { name: this.name }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('App/Store/Middleware/Saga.js'),
-      this.destinationPath('App/Store/Middleware/Saga.js'),
-      { name: this.name }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('App/Store/Middleware/Logger.js'),
-      this.destinationPath('App/Store/Middleware/Logger.js'),
+      this.templatePath('App/Store/Middleware'),
+      this.destinationPath('App/Store/Middleware'),
       { name: this.name }
     );
 
     // copy reducers
     this.fs.copyTpl(
-      this.templatePath('App/Reducers/App.js'),
-      this.destinationPath('App/Reducers/App.js'),
-      { name: this.name }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('App/Reducers/index.js'),
-      this.destinationPath('App/Reducers/index.js'),
-      {
-        name: this.name,
-        reducers: ['App'],
-      }
+      this.templatePath('App/Reducers'),
+      this.destinationPath('App/Reducers'),
+      { name: this.name, reducers: ['App'] }
     );
 
     // copy actions
@@ -156,28 +129,28 @@ module.exports = class extends Generator {
 
     // copy helpers
     this.fs.copyTpl(
-      this.templatePath('App/Helpers/Log.js'),
-      this.destinationPath('App/Helpers/Log.js'),
+      this.templatePath('App/Helpers/Log.ts'),
+      this.destinationPath('App/Helpers/Log.ts'),
       { name: this.name }
     );
 
     // copy theme
     this.fs.copyTpl(
-      this.templatePath('App/Theme'),
-      this.destinationPath('App/Theme'),
+      this.templatePath('App/Theme.ts'),
+      this.destinationPath('App/Theme.ts'),
     );
 
     // copy config
     this.fs.copyTpl(
-      this.templatePath('App/Config/index.js'),
-      this.destinationPath('App/Config/index.js'),
+      this.templatePath('App/Config/index.ts'),
+      this.destinationPath('App/Config/index.ts'),
       { name: this.name }
     );
 
     if (this.i18nSupport) {
       this.fs.copyTpl(
-        this.templatePath('App/Helpers/Translations.js'),
-        this.destinationPath('App/Helpers/Translations.js'),
+        this.templatePath('App/Helpers/Translations.ts'),
+        this.destinationPath('App/Helpers/Translations.ts'),
         { name: this.name }
       );
 
