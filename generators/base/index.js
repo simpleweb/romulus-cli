@@ -276,7 +276,6 @@ module.exports = class extends Generator {
     ]);
 
     this.yarnInstall([
-      'flow-bin@0.105.1',
       'eslint',
       'babel-eslint',
       'prettier@1.18.2',
