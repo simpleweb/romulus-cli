@@ -1,24 +1,15 @@
+import { AxiosResponse, AxiosRequestConfig } from "axios";
 import { success, warn, error } from "<%= name %>/App/Helpers/Log";
 
-interface Request {
-  method: string;
-  url: string;
-}
-
-interface Response {
-  status: number;
-  config: Request;
-}
-
-const logRequest = (config: Request) => {
-  warn(`${config.method.toUpperCase()} ${config.url}`, config);
+const logRequest = (config: AxiosRequestConfig) => {
+  warn(`${config.method?.toUpperCase()} ${config.url}`, config);
 };
 
-const logResponse = (response: Response) => {
+const logResponse = (response: AxiosResponse) => {
   success(`${response.status} ${response.config.url}`, response);
 };
 
-const logError = (response: Response) => {
+const logError = (response: AxiosResponse) => {
   error(`${response.status} ${response.config.url}`, response);
 };
 
