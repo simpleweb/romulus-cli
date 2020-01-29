@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
 
 const getAlign = (alignment: string): string => {
   switch (alignment) {

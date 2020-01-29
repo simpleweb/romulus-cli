@@ -284,6 +284,7 @@ module.exports = class extends Generator {
       '@types/react',
       '@types/react-native',
       '@types/react-test-renderer',
+      '@types/styled-components',
     ];
 
     this.yarnInstall([

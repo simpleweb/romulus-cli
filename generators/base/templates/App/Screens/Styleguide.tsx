@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Alert } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import Button from "<%= name %>/App/Components/Button";
 import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
 import { isIphoneX } from "react-native-iphone-x-helper";
 import Text from "<%= name %>/App/Components/Text";
 
