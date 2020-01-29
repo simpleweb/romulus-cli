@@ -1,7 +1,7 @@
-import { APP_INSTALLED, type AppInstalled } from '<%= name %>/App/Actions/App';
+import { APP_INSTALLED, AppInstalled } from '<%= name %>/App/Actions/App';
 
 type State = {
-  +installed: bool,
+  installed: boolean,
 };
 
 type Action = AppInstalled;
