@@ -1,24 +1,24 @@
 # <%= name %>
 
-* [Installation](#installation)
-  * [Setup your environment](#setup-your-environment)
-  * [Setup iOS certificates](#setup-ios-certificates)
-    * [Development](#development)
-    * [Production](#production)
-  * [Install dependencies](#install-dependencies)
-  * [Start the development server](#start-the-development-server)
-  * [Running the app using React Native CLI](#running-the-app-using-react-native-cli)
-* [Tests](#tests)
-* [Flow](#flow)
-* [Deep Linking](#deep-linking)
-* [App Icons](#app-icons)
-* [Release and deployment](#release-and-deployment)
-  * [Building for testing](#building-for-testing)
-    * [iOS](#ios)
-    * [Android](#android)
-  * [Versioning](#versioning)
-  * [iOS](#ios-1)
-  * [Post-release](#post-release)
+- [Installation](#installation)
+  - [Setup your environment](#setup-your-environment)
+  - [Setup iOS certificates](#setup-ios-certificates)
+    - [Development](#development)
+    - [Production](#production)
+  - [Install dependencies](#install-dependencies)
+  - [Start the development server](#start-the-development-server)
+  - [Running the app using React Native CLI](#running-the-app-using-react-native-cli)
+- [Tests](#tests)
+- [TypeScript](#typescript)
+- [Deep Linking](#deep-linking)
+- [App Icons](#app-icons)
+- [Release and deployment](#release-and-deployment)
+  - [Building for testing](#building-for-testing)
+    - [iOS](#ios)
+    - [Android](#android)
+  - [Versioning](#versioning)
+  - [iOS](#ios-1)
+  - [Post-release](#post-release)
 
 <hr/>
 
@@ -29,10 +29,11 @@ Before installation, please make sure you have the latest version of [Yarn](http
 ### Setup iOS certificates
 
 Please note,
-* You should have your own development certificate.
-* Save any certificates, p12 files etc... to [our developer repo](https://github.com/simpleweb/developer.apple.com).
-* "<%= name %> - iOS Development" provisioning can and should be edited.
-* For release, we use a shared distribution certificate "<%= name %>", this should not be edited, deleted or regenerated.
+
+- You should have your own development certificate.
+- Save any certificates, p12 files etc... to [our developer repo](https://github.com/simpleweb/developer.apple.com).
+- "<%= name %> - iOS Development" provisioning can and should be edited.
+- For release, we use a shared distribution certificate "<%= name %>", this should not be edited, deleted or regenerated.
 
 #### Development
 
@@ -44,7 +45,7 @@ Once your certificate is all setup, head back to the Apple developer portal and 
 
 Make sure you clone down [our developer repo](https://github.com/simpleweb/developer.apple.com) and double click the `Certificates.p12` from the `<%= nameLower %>/certificates/production/simpleweb` folder.
 
-This is a shared certificate, you __do not__ need to generate a new one each time.
+This is a shared certificate, you **do not** need to generate a new one each time.
 
 After this is installed, please download the "<%= name %> - iOS Distribution" provisioning profile from the Apple developer site.
 
@@ -93,15 +94,11 @@ $ yarn run coverage
 
 With Jest, tests can live anywhere within the codebase, the majority however live in the `__tests__` folder at the root of the project. Any folder with the same name or files ending in `.test.js` will also be included when running Jest.
 
-## Flow
+## TypeScript
 
-<%= name %> uses [Flow](https://flowtype.org/) to type check the app. If there are missing definitions for external libraries (AKA, you receive lots of Flow errors when using 3rd party code) you can use [`flow-typed`](https://flowtype.org/docs/third-party.html) to fill in any missing gaps.
-
-It’s worth running the update command every so often to keep things in check.
-
-```
-$ flow-typed update
-```
+<%= name %> uses [TypeScript](https://www.typescriptlang.org/) to type check the
+app. It is run by `eslint` as a pre-commit hook to make sure no errors get into
+commits.
 
 ## Deep Linking
 
