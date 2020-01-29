@@ -1,11 +1,10 @@
 import React from "react";
 import { Text as StyledText } from "./styles";
 
-type Props = {
-  children: React.Node,
-  paragraph?: boolean,
-};
+export interface Props {
+  paragraph?: boolean;
+}
 
-const Text = (props: Props): React.Node => <StyledText {...props} />;
+const Text: React.FC<Props> = props => <StyledText {...props} />;
 
 export default Text;
