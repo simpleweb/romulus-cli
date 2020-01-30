@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { Full, Scroll } from "./index";
+import { Full } from "./index";
 
 const getAlign = (alignment: string): string => {
   switch (alignment) {
@@ -14,8 +14,6 @@ export const View = styled.View``;
 
 export const FullView = styled.View<Full>`
   flex: 1;
-  margin-top: ${props => (props.header ? props.theme.headerHeight : 0)};
-  margin-bottom: ${props => (props.footer ? props.theme.footerHeight : 0)};
   ${props =>
     props.align &&
     css`
@@ -33,10 +31,7 @@ export const CenterVerticallyView = styled(FullView)`
   justify-content: center;
 `;
 
-export const ScrollView = styled.ScrollView<Scroll>`
-  margin-top: ${props => (props.header ? props.theme.headerHeight : 0)};
-  margin-bottom: ${props => (props.footer ? props.theme.footerHeight : 0)};
-`;
+export const ScrollView = styled.ScrollView``;
 
 export const PaddedView = styled.View`
   padding: ${props => props.theme.spacing}px;

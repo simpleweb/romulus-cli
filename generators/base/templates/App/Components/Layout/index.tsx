@@ -10,19 +10,12 @@ import {
 
 export interface Full {
   align?: "top" | "bottom";
-  header?: boolean;
-  footer?: boolean;
-}
-
-export interface Scroll {
-  header?: boolean;
-  footer?: boolean;
 }
 
 interface LayoutComposition {
   Full: React.FC<Full>;
   Center: React.FC;
-  Scroll: React.FC<Scroll>;
+  Scroll: React.FC;
   Padded: React.FC;
   CenterVertically: React.FC;
 }
