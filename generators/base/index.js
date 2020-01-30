@@ -266,7 +266,6 @@ module.exports = class extends Generator {
       '@react-native-community/async-storage',
       'axios',
       'https://github.com/luggit/react-native-config#master',
-      'react-native-iphone-x-helper',
       ...(this.i18nSupport ? ['react-native-i18n'] : []),
       'react-redux',
       'redux',
