@@ -31,11 +31,11 @@ export const Badge = styled.View<Props>`
     `};
   justify-content: center;
   align-items: center;
-  border-radius: 4;
+  border-radius: 4px;
 `;
 
 export const EnvText = styled(Text)`
-  font-size: 12;
+  font-size: 12px;
   font-family: "System";
   font-weight: bold;
   color: ${props => props.theme.colors.white};
