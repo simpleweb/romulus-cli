@@ -7,11 +7,11 @@ export interface Props {
 }
 
 const Environment: React.FC<Props> = ({ env }) => {
+  const insets = useSafeArea();
+
   if (env === "production") {
     return null;
   }
-
-  const insets = useSafeArea();
 
   return (
     <Badge env={env} insets={insets}>
