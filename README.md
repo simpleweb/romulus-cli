@@ -11,13 +11,14 @@ React Native; it’s purely a collection of commonly used modules and some sensi
 architecture to get you or your team off the ground.
 
 ## What does it do?
+
 - [Features](#features) - adds a set of commonly required features (e.g. Redux setup,
-offline storage, environment variables and more) by taking advantage of great
-community driven packages
+  offline storage, environment variables and more) by taking advantage of great
+  community driven packages
 - [Structure](#structure) - provides a sensible structure for your applications that helps bring
-consistency within your team or just between your own applications
+  consistency within your team or just between your own applications
 - [Scaffolding](#documentation) - makes it easy to scaffold new components, reducers
-and scenes that follow the same style and structure
+  and scenes that follow the same style and structure
 
 ## Example application
 
@@ -61,6 +62,7 @@ romulus init
 ## Features
 
 - A sensible `README` providing consistent instructions between projects
+- TypeScript support
 - Router using `react-navigation`
 - Redux setup
   - Store is persisted using `redux-persist`
@@ -85,7 +87,6 @@ romulus init
   debugger provided
 - Automatic versioning of iOS and Android versions based on the `package.json`
   version
-- Pattern to manage Flow types across the app
 - Generic app icon that can be processed through a separate generator to handle
   all your iOS and Android icons
 
@@ -96,61 +97,62 @@ will then receive this structure.
 
 ```
 App/
+├── @types/
+│   └── index.d.ts
 ├── Actions/
-│   ├── App.js
-│   └── index.js
+│   ├── App.ts
+│   └── index.ts
 ├── Assets/
 │   └── AppIcon.png
 ├── Components/
 │   ├── App/
-│   │   └── index.js
+│   │   └── index.tsx
 │   ├── Button/
-│   │   ├── index.js
-│   │   └── styles.js
+│   │   ├── index.tsx
+│   │   └── styles.ts
 │   ├── Layout/
-│   │   ├── index.js
-│   │   └── styles.js
+│   │   ├── index.tsx
+│   │   └── styles.ts
 │   ├── Text/
-│   │   ├── index.js
-│   │   └── styles.js
+│   │   ├── index.tsx
+│   │   └── styles.ts
 │   └── Utilities/
 │       └── Environment/
-│           ├── index.js
-│           └── styles.js
+│           ├── index.tsx
+│           └── styles.ts
 ├── Config/
 │   ├── Locales/
 │   │   └── en.json
-│   └── index.js
+│   └── index.ts
 ├── Helpers/
-│   ├── Translations.js
-│   └── Log.js
+│   ├── Translations.ts
+│   └── Log.ts
 ├── Reducers/
-│   ├── App.js
-│   └── index.js
+│   ├── App.ts
+│   └── index.ts
 ├── Sagas/
-│   ├── index.js
-│   └── RequestExample.js
+│   ├── index.ts
+│   └── RequestExample.ts
 ├── Screens/
-│   ├── index.js
-│   ├── Main.js
-│   └── Styleguide.js
+│   ├── index.ts
+│   ├── Main.tsx
+│   └── Styleguide.tsx
 ├── Services/
 │   └── API/
-│       ├── index.js
-│       └── logging.js
+│       ├── index.ts
+│       └── logging.ts
 ├── Store/
 │   ├── Middleware/
-│   │   ├── Buffer.js
-│   │   ├── index.js
-│   │   ├── Logger.js
-│   │   └── Saga.js
-│   └── index.js
+│   │   ├── Buffer.ts
+│   │   ├── index.ts
+│   │   ├── Logger.ts
+│   │   └── Saga.ts
+│   └── index.ts
 ├── Theme/
 │   └── index.js
-├── Types/
-│   └── index.js
-├── index.js
-└── Router.js
+├── index.tsx
+├── Router.ts
+└── Theme.ts
 ```
 
 ## Documentation
@@ -172,4 +174,4 @@ Follow the Android version of these instructions to add automatic build numbers.
 - [Introduction to Sagas](https://redux-saga.github.io/redux-saga/docs/introduction/BeginnerTutorial.html)
 - [A great simple intro to Redux Sagas](https://www.youtube.com/watch?v=msx0Qiu8NxQ&list=PLw7fHewFA6OTyUnLiZ1HQvYdzjp9ARMQw)
 - [Intro to Redux](http://redux.js.org/docs/basics/Reducers.html)
-- [Flow](https://flowtype.org/)
+- [TypeScript](https://www.typescriptlang.org/)
