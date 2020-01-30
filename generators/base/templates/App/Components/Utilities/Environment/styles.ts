@@ -1,9 +1,6 @@
-import styled, { css } from "styled-components/native";
-import { isIphoneX } from "react-native-iphone-x-helper";
+import styled from "styled-components/native";
 import Text from "<%= name %>/App/Components/Text";
 import { Props } from "./index";
-
-const SAFE_AREA_BOTTOM = 34;
 
 const envCheck = ({ env }: Props) => {
   switch (env) {
@@ -18,17 +15,22 @@ const envCheck = ({ env }: Props) => {
   }
 };
 
-export const Badge = styled.View<Props>`
+interface InsetProps {
+  insets: {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  };
+}
+
+export const Badge = styled.View<Props & InsetProps>`
   width: 16px;
   height: 18px;
   background-color: ${props => envCheck({ env: props.env })};
   position: absolute;
   right: 8px;
-  bottom: 8px;
-  ${isIphoneX() &&
-    css`
-      bottom: ${SAFE_AREA_BOTTOM + 8}px;
-    `};
+  bottom: ${props => props.insets.bottom + 8}px;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
