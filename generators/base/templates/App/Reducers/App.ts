@@ -8,7 +8,10 @@ const initialState: State = {
   installed: false,
 };
 
-const reducer = (state = initialState, action: AppActions): State => {
+const reducer = (
+  state = initialState,
+  action: AppActions | ReducerAction,
+): State => {
   switch (action.type) {
     case APP_INSTALLED:
       return {
