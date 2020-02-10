@@ -9,7 +9,7 @@ it("should render an initial state", () => {
 });
 
 it("should handle APP_INSTALLED", () => {
-  const actionType = "TestingApp/APP_INSTALLED";
+  const actionType = "<%= name %>/APP_INSTALLED";
   const initialState = {
     installed: false,
   };
