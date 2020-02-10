@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({ onPress, children }) => (
-  <TouchableOpacity onPress={onPress}>
+  <TouchableOpacity onPress={onPress} testID="touchable">
     <Container>
       <ButtonText>{children}</ButtonText>
     </Container>
