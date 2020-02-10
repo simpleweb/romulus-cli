@@ -1,3 +1,3 @@
-type ExampleType = {
-  title: string;
-};
+interface ReducerAction {
+  type: string;
+}

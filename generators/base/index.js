@@ -56,6 +56,9 @@ module.exports = class extends Generator {
 
     // remove Flow configuration
     this.fs.delete('.flowconfig');
+    
+    // remove default test
+    this.fs.delete('__tests__/App-test.js');
 
     // copy root app file that the entry points use
     this.fs.copyTpl(
