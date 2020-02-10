@@ -255,7 +255,6 @@ module.exports = class extends Generator {
           "test": "jest --verbose",
           "coverage": "jest --coverage",
           "test:watch": "npm test -- --watch",
-          "pretest": "yarn run lint"
         },
         "lint-staged": {
           "App/**/*.{ts,tsx,js}": ["prettier --config .prettierrc.js --write", "eslint --plugin tsc --rule 'tsc/config: [2, {configFile: \"./tsconfig.json\"}]'"]
