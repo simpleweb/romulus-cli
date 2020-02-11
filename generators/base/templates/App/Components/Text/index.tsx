@@ -5,6 +5,8 @@ export interface Props {
   paragraph?: boolean;
 }
 
-const Text: React.FC<Props> = props => <StyledText {...props} />;
+const Text: React.FC<Props> = props => (
+  <StyledText {...props} testID="styled-text" />
+);
 
 export default Text;

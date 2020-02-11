@@ -320,6 +320,7 @@ module.exports = class extends Generator {
       'eslint-plugin-react-native',
       'eslint-plugin-tsc',
       'jest',
+      'jest-styled-components',
       ...typeScript,
     ], {
       'dev': true
