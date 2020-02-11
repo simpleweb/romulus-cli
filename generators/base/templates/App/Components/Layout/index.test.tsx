@@ -5,12 +5,11 @@ import Layout from "./index";
 
 describe("<Layout>", () => {
   it("renders the children passed to it", () => {
-    const { getByText, debug } = render(
+    const { getByText } = render(
       <Layout>
         <Text>Layout</Text>
       </Layout>,
     );
-    debug();
     expect(getByText("Layout")).toBeDefined();
   });
 });
