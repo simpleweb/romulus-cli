@@ -1,4 +1,5 @@
 import React from "react";
+import { runSaga } from "redux-saga";
 import { render } from "@testing-library/react-native";
 import { ThemeProvider } from "styled-components/native";
 import Theme from "../App/Theme";
