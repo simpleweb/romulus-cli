@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "<%= name %>/*": ["./*"]
+      "<%= name %>/*": ["./*"],
+      "test-utilities": ["./utilities/test-utilities"]
     },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
