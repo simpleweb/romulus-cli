@@ -122,19 +122,15 @@ describe('Romulus Test', () => {
       });
   });
 
-  it('creates a screen with a given name with index.js as container', () => {
+  it('creates a screen', () => {
     return helpers
       .run(path.join(__dirname, '../generators/screen'))
       .cd(path.join(__dirname, appName))
       .withOptions({ skipInstall: false })
       .withArguments([screenIndexContainerName])
-      .withPrompts({
-        appName,
-        type: "index.js as container"
-      }).then(() => {
+      .then(() => {
         assert.file([
-          `App/Screens/${screenIndexContainerName}/${screenIndexContainerName}.js`,
-          `App/Screens/${screenIndexContainerName}/index.js`
+          `App/Screens/${screenIndexContainerName}.tsx`
         ]);
       });
   });
