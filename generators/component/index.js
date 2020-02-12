@@ -13,19 +13,25 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    var template = (this.options.stateful) ? 'stateful.js' : 'stateless.js';
+    var template = (this.options.stateful) ? 'stateful.tsx' : 'stateless.tsx';
     var component = this.options.component;
 
     // create entry points for Android and iOS
     this.fs.copyTpl(
       this.templatePath(template),
-      this.destinationPath(`App/Components/${component}/index.js`),
+      this.destinationPath(`App/Components/${component}/index.tsx`),
       { name: this.name, component: component, }
     );
 
     this.fs.copyTpl(
-      this.templatePath('styles.js'),
-      this.destinationPath(`App/Components/${component}/styles.js`),
+      this.templatePath('styles.ts'),
+      this.destinationPath(`App/Components/${component}/styles.ts`),
+      { name: this.name, component: component, }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('test.tsx'),
+      this.destinationPath(`App/Components/${component}/index.test.tsx`),
       { name: this.name, component: component, }
     );
   }

@@ -11,25 +11,27 @@ romulus component MyComponent
 romulus component MyComponent --stateful
 ```
 
-This will generate two files:
+This will generate three files:
 
-- `App/Components/MyComponent/index.js`
-- `App/Components/MyComponent/styles.js`
+- `App/Components/MyComponent/index.tsx`
+- `App/Components/MyComponent/index.test.tsx`
+- `App/Components/MyComponent/styles.ts`
 
 By default this stateless component will be generated.
 
 ```js
-// @flow
-import * as React from "react";
+import React from "react";
 import { View, Text } from "./styles";
 
-type Props = {};
+interface Props {}
 
-const MyComponent = (props: Props): React.Node => (
-  <View>
-    <Text>MyComponent</Text>
-  </View>
-);
+const MyComponent: React.FC<Props> = () => {
+  return (
+    <View>
+      <Text>MyComponent</Text>
+    </View>
+  );
+};
 
 export default MyComponent;
 ```
@@ -63,12 +65,24 @@ export default MyComponent;
 Both types of components get the same accompanying styles.
 
 ```js
-// @flow
-import styled from "styled-components";
+import styled from "styled-components/native";
 
 export const View = styled.View``;
 
 export const Text = styled.Text``;
+```
+
+And a test is generated for you as well.
+
+```js
+import React from "react";
+import { render } from "test-utilities";
+import MyComponent from "./index";
+
+it("renders the text passed as children", () => {
+  const { getByText } = render(<MyComponent />);
+  expect(getByText("MyComponent")).toBeDefined();
+});
 ```
 
 ## Reducer
