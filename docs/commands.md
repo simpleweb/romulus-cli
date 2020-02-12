@@ -82,46 +82,47 @@ it("renders the text passed as children", () => {
 
 ## Reducer
 
-Creates a new reducer and associated actions.
+Creates a new reducer, actions and tests.
 
 ```
-romulus reducer MyReducer
+romulus reducer Settings
 ```
 
-This will generate two files:
+This will generate four files:
 
-- `App/Reducers/MyReducer.js`
-- `App/Actions/MyReducer.js`
+- `App/Reducers/Settings.ts`
+- `App/Reducers/Settings.test.ts`
+- `App/Actions/Settings.ts`
+- `App/Actions/Settings.test.ts`
 
-You will then have to manuall add your reducer the `persistCombineReducers`
-function in `App/Reducers/index.js`.
+You will then have to manually add your reducer the `persistCombineReducers`
+function in `App/Reducers/index.ts`.
 
 > It’s also good practice to export all of your actions into the main action
-> creator in `App/Actions/index.js`
+> creator in `App/Actions/index.ts`
 
-The reducer comes with some example state (that you should change) and guides
-for adding Flow types.
+The reducer comes with some example state and guides for managing types.
 
 ```js
-// @flow
 import {
-  MYREDUCER_EXAMPLE,
-  type MyReducerExample,
-} from "MyApp/App/Actions/MyReducer";
+  SETTINGS_EXAMPLE,
+  SettingsActions,
+} from "Remulus/App/Actions/Settings";
 
-type State = {
-  +value: boolean,
-};
-
-type Action = MyReducerExample;
+interface State {
+  value: boolean;
+}
 
 const initialState: State = {
   value: false,
 };
 
-const reducer = (state: State = initialState, action: Action): State => {
+const reducer = (
+  state = initialState,
+  action: SettingsActions | ReducerAction
+): State => {
   switch (action.type) {
-    case MYREDUCER_EXAMPLE:
+    case SETTINGS_EXAMPLE:
       return {
         ...state,
         value: true,
@@ -139,16 +140,15 @@ The actions come with a constant, action creator and a type expected from the
 action creator.
 
 ```js
-// @flow
-export const MYREDUCER_EXAMPLE = "MyApp/MYREDUCER_EXAMPLE";
+export const SETTINGS_EXAMPLE = "MyApp/SETTINGS_EXAMPLE";
 
-export type MyReducerExample = {
-  type: "MyApp/MYREDUCER_EXAMPLE",
-};
-
-export const myreducerExample = (): MyReducerExample => ({
-  type: MYREDUCER_EXAMPLE,
+export const settingsExample = () => ({
+  type: SETTINGS_EXAMPLE as typeof SETTINGS_EXAMPLE,
 });
+
+type SettingsExample = ReturnType<typeof settingsExample>;
+
+export type SettingsActions = SettingsExample;
 ```
 
 ## Screen
