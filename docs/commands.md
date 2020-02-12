@@ -159,12 +159,12 @@ Creates a new screen.
 romulus screen Home
 ```
 
-This will generate two files:
+This will generate this file:
 
 - `App/Screens/Home/index.tsx`
 
-You should then import this screen into `App/Screens/index.ts` so it can be easily
-added to the router.
+You should then import this screen into `App/Screens/index.ts` so it can be
+easily added to the router.
 
 ```js
 import React from "react";
