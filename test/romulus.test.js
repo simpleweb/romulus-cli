@@ -186,8 +186,10 @@ describe('Romulus Test', () => {
         appName
       }).then(() => {
         assert.file([
-          `App/Reducers/${reducerName}.js`,
-          `App/Actions/${reducerName}.js`
+          `App/Reducers/${reducerName}.ts`,
+          `App/Reducers/${reducerName}.test.ts`,
+          `App/Actions/${reducerName}.ts`,
+          `App/Actions/${reducerName}.test.ts`,
         ]);
       });;
   });
