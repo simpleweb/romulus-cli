@@ -12,7 +12,7 @@ const CLEAN_TIMEOUT = 10000;
 const appName = 'SimpleTest';
 const screenIndexComponentName = 'IndexComponent';
 const screenIndexContainerName = 'IndexContainer';
-const componentStatefulName = 'ComponentStateful';
+const componentClassName = 'ComponentClass';
 const componentStatelessName = 'ComponentStateless';
 const reducerName = 'SimpleReducer';
 
@@ -139,21 +139,22 @@ describe('Romulus Test', () => {
       });
   });
 
-  it('creates a stateful component with a given name', () => {
+  it('creates a class based component with a given name', () => {
     return helpers
       .run(path.join(__dirname, '../generators/component'))
       .cd(path.join(__dirname, appName))
       .withOptions({
         skipInstall: false,
-        stateful: true
+        classComponent: true
       })
-      .withArguments([componentStatefulName])
+      .withArguments([componentClassName])
       .withPrompts({
         appName
       }).then(() => {
         assert.file([
-          `App/Components/${componentStatefulName}/index.js`,
-          `App/Components/${componentStatefulName}/styles.js`
+          `App/Components/${componentClassName}/index.tsx`,
+          `App/Components/${componentClassName}/index.test.tsx`,
+          `App/Components/${componentClassName}/styles.ts`
         ]);
       });
   });
@@ -168,8 +169,9 @@ describe('Romulus Test', () => {
         appName
       }).then(() => {
         assert.file([
-          `App/Components/${componentStatelessName}/index.js`,
-          `App/Components/${componentStatelessName}/styles.js`
+          `App/Components/${componentStatelessName}/index.tsx`,
+          `App/Components/${componentStatelessName}/index.test.tsx`,
+          `App/Components/${componentStatelessName}/styles.ts`
         ]);
       });;
   });
