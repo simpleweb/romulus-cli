@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import API from '<%= name %>/App/Services/API';
 
-const RequestExample = function*() {
+export const RequestExample = function*() {
   try {
 
     const url = 'https://reqres.in/api/users';
