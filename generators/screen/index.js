@@ -11,91 +11,32 @@ module.exports = class extends Generator {
     this.argument('screen', { type: String, required: true });
   }
 
-  prompting() {
-    return this.prompt([
-      {
-        type: 'list',
-        name: 'type',
-        message: 'How do you want the container to be structured?',
-        choices: ["index.js as component", "index.js as container"],
-      },
-    ]).then((answers) => {
-      this.type = answers.type;
-    });
-  }
-
   writing() {
     var screen = this.options.screen;
 
-    // create entry points for Android and iOS
-    if (this.type === "index.js as component") {
-      this.fs.copyTpl(
-        this.templatePath('index.js'),
-        this.destinationPath(`App/Screens/${screen}/index.js`),
-        {
-          screen: screen,
-          name: this.name,
-          type: this.type,
-        }
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('Container.js'),
-        this.destinationPath(`App/Screens/${screen}/Container.js`),
-        {
-          screen: screen,
-          name: this.name,
-          type: this.type,
-        }
-      );
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('index.js'),
-        this.destinationPath(`App/Screens/${screen}/${screen}.js`),
-        {
-          screen: screen,
-          name: this.name,
-          type: this.type,
-        }
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('Container.js'),
-        this.destinationPath(`App/Screens/${screen}/index.js`),
-        {
-          screen: screen,
-          name: this.name,
-          type: this.type,
-        }
-      );
-    }
-
+    this.fs.copyTpl(
+      this.templatePath('index.tsx'),
+      this.destinationPath(`App/Screens/${screen}.tsx`),
+      {
+        screen: screen,
+        name: this.name,
+        type: this.type,
+      }
+    );
   }
 
   end() {
     var screen = this.options.screen;
 
     this.log('Please make sure to add this to your screens export.');
-    this.log('App/Screens/index.js');
+    this.log('App/Screens/index.ts');
+    this.log(`
+      import ${screen} from "${this.name}/App/Screens/${screen}";
 
-    if (this.type === "index.js as component") {
-      this.log(`
-        import ${screen} from "${this.name}/App/Screens/${screen}/Container";
-
-        export default {
-          // ...other screens
-          ${screen}: ${screen},
-        };
-      `);
-    } else {
-      this.log(`
-        import ${screen} from "${this.name}/App/Screens/${screen}";
-
-        export default {
-          // ...other screens
-          ${screen}: ${screen},
-        };
-      `);
-    }
+      export default {
+        // ...other screens
+        ${screen}: ${screen},
+      };
+    `);
   }
 };
