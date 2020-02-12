@@ -4,11 +4,11 @@ These commands rely on the original structure created by `romulus init`.
 
 ## Component
 
-Creates a new _stateless_ or _stateful_ component.
+Creates a new component or class based component.
 
 ```
 romulus component MyComponent
-romulus component MyComponent --stateful
+romulus component MyComponent --classComponent
 ```
 
 This will generate three files:
@@ -17,7 +17,7 @@ This will generate three files:
 - `App/Components/MyComponent/index.test.tsx`
 - `App/Components/MyComponent/styles.ts`
 
-By default this stateless component will be generated.
+By default this component will be generated.
 
 ```js
 import React from "react";
@@ -36,21 +36,16 @@ const MyComponent: React.FC<Props> = () => {
 export default MyComponent;
 ```
 
-If you pass the `--stateful` flag this stateful component will be generated.
+If you pass the `--classComponent` flag this stateful component will be generated.
 
 ```js
-// @flow
-import * as React from "react";
+import React from "react";
 import { View, Text } from "./styles";
 
-type State = {};
+interface Props {}
 
-type Props = {};
-
-class MyComponent extends React.Component<Props, State> {
-  state = {};
-
-  render(): React.Node {
+class MyComponent extends React.Component<Props, {}> {
+  render() {
     return (
       <View>
         <Text>MyComponent</Text>
@@ -111,17 +106,17 @@ for adding Flow types.
 // @flow
 import {
   MYREDUCER_EXAMPLE,
-  type MyReducerExample
+  type MyReducerExample,
 } from "MyApp/App/Actions/MyReducer";
 
 type State = {
-  +value: boolean
+  +value: boolean,
 };
 
 type Action = MyReducerExample;
 
 const initialState: State = {
-  value: false
+  value: false,
 };
 
 const reducer = (state: State = initialState, action: Action): State => {
@@ -129,7 +124,7 @@ const reducer = (state: State = initialState, action: Action): State => {
     case MYREDUCER_EXAMPLE:
       return {
         ...state,
-        value: true
+        value: true,
       };
 
     default:
@@ -148,11 +143,11 @@ action creator.
 export const MYREDUCER_EXAMPLE = "MyApp/MYREDUCER_EXAMPLE";
 
 export type MyReducerExample = {
-  type: "MyApp/MYREDUCER_EXAMPLE"
+  type: "MyApp/MYREDUCER_EXAMPLE",
 };
 
 export const myreducerExample = (): MyReducerExample => ({
-  type: MYREDUCER_EXAMPLE
+  type: MYREDUCER_EXAMPLE,
 });
 ```
 
@@ -211,8 +206,5 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyScreenContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MyScreenContainer);
 ```

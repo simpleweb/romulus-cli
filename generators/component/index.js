@@ -9,11 +9,11 @@ module.exports = class extends Generator {
     this.name = process.cwd().split(path.sep).pop();
 
     this.argument('component', { type: String, required: true });
-    this.option('stateful');
+    this.option('classComponent');
   }
 
   writing() {
-    var template = (this.options.stateful) ? 'stateful.tsx' : 'stateless.tsx';
+    var template = (this.options.classComponent) ? 'class.tsx' : 'stateless.tsx';
     var component = this.options.component;
 
     // create entry points for Android and iOS
