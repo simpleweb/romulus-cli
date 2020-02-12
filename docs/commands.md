@@ -153,58 +153,32 @@ export type SettingsActions = SettingsExample;
 
 ## Screen
 
-Creates a new screen that is connected to the Redux store following the container
-pattern.
+Creates a new screen.
 
 ```
-romulus screen MyScreen
+romulus screen Home
 ```
 
 This will generate two files:
 
-- `App/Screens/MyScreen/index.js`
-- `App/Screens/MyScreen/Container.js`
+- `App/Screens/Home/index.tsx`
 
-You should then import this screen into `App/Screens/index.js` so it can be easily
+You should then import this screen into `App/Screens/index.ts` so it can be easily
 added to the router.
 
-The `index.js` file contains a presentational view of the screen.
-
 ```js
-// @flow
-import * as React from "react";
-import Layout from "MyApp/App/Components/Layout";
-import Text from "MyApp/App/Components/Text";
+import React from "react";
+import { NavigationStackScreenComponent } from "react-navigation-stack";
+import Layout from "Remulus/App/Components/Layout";
+import Text from "Remulus/App/Components/Text";
 
-type Props = {};
+const Home: NavigationStackScreenComponent = ({ navigation }) => {
+  return (
+    <Layout.Center>
+      <Text>Home</Text>
+    </Layout.Center>
+  );
+};
 
-const MyScreen = (props: Props): React.Node => (
-  <Layout.Center>
-    <Text>MyScreen</Text>
-  </Layout.Center>
-);
-
-export default MyScreen;
-```
-
-The `Container.js` file connects to the Redux store and provides data to the
-presentational component.
-
-```js
-// @flow
-import * as React from "react";
-import { connect } from "react-redux";
-import MyScreen from "MyApp/App/Screens/MyScreen";
-
-class MyScreenContainer extends React.Component<{}> {
-  render(): React.Node {
-    return <MyScreen />;
-  }
-}
-
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyScreenContainer);
+export default Home;
 ```
