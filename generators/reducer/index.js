@@ -16,10 +16,9 @@ module.exports = class extends Generator {
     var reducerConst = reducer.toUpperCase();
     var reducerSlug = reducer.toLowerCase();
 
-    // create entry points for Android and iOS
     this.fs.copyTpl(
-      this.templatePath('reducer.js'),
-      this.destinationPath(`App/Reducers/${reducer}.js`),
+      this.templatePath("reducer.ts"),
+      this.destinationPath(`App/Reducers/${reducer}.ts`),
       {
         name: this.name,
         reducer: reducer,
@@ -29,8 +28,30 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('actions.js'),
-      this.destinationPath(`App/Actions/${reducer}.js`),
+      this.templatePath("reducer.test.ts"),
+      this.destinationPath(`App/Reducers/${reducer}.test.ts`),
+      {
+        name: this.name,
+        reducer: reducer,
+        reducerConst: reducerConst,
+        reducerSlug: reducerSlug,
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath("actions.ts"),
+      this.destinationPath(`App/Actions/${reducer}.ts`),
+      {
+        name: this.name,
+        reducer: reducer,
+        reducerConst: reducerConst,
+        reducerSlug: reducerSlug,
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath("actions.test.ts"),
+      this.destinationPath(`App/Actions/${reducer}.test.ts`),
       {
         name: this.name,
         reducer: reducer,

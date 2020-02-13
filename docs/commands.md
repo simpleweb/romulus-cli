@@ -4,51 +4,48 @@ These commands rely on the original structure created by `romulus init`.
 
 ## Component
 
-Creates a new _stateless_ or _stateful_ component.
+Creates a new component or class based component.
 
 ```
 romulus component MyComponent
-romulus component MyComponent --stateful
+romulus component MyComponent --classComponent
 ```
 
-This will generate two files:
+This will generate three files:
 
-- `App/Components/MyComponent/index.js`
-- `App/Components/MyComponent/styles.js`
+- `App/Components/MyComponent/index.tsx`
+- `App/Components/MyComponent/index.test.tsx`
+- `App/Components/MyComponent/styles.ts`
 
-By default this stateless component will be generated.
+By default this component will be generated.
 
 ```js
-// @flow
-import * as React from "react";
+import React from "react";
 import { View, Text } from "./styles";
 
-type Props = {};
+interface Props {}
 
-const MyComponent = (props: Props): React.Node => (
-  <View>
-    <Text>MyComponent</Text>
-  </View>
-);
+const MyComponent: React.FC<Props> = () => {
+  return (
+    <View>
+      <Text>MyComponent</Text>
+    </View>
+  );
+};
 
 export default MyComponent;
 ```
 
-If you pass the `--stateful` flag this stateful component will be generated.
+If you pass the `--classComponent` flag this stateful component will be generated.
 
 ```js
-// @flow
-import * as React from "react";
+import React from "react";
 import { View, Text } from "./styles";
 
-type State = {};
+interface Props {}
 
-type Props = {};
-
-class MyComponent extends React.Component<Props, State> {
-  state = {};
-
-  render(): React.Node {
+class MyComponent extends React.Component<Props, {}> {
+  render() {
     return (
       <View>
         <Text>MyComponent</Text>
@@ -63,59 +60,72 @@ export default MyComponent;
 Both types of components get the same accompanying styles.
 
 ```js
-// @flow
-import styled from "styled-components";
+import styled from "styled-components/native";
 
 export const View = styled.View``;
 
 export const Text = styled.Text``;
 ```
 
-## Reducer
-
-Creates a new reducer and associated actions.
-
-```
-romulus reducer MyReducer
-```
-
-This will generate two files:
-
-- `App/Reducers/MyReducer.js`
-- `App/Actions/MyReducer.js`
-
-You will then have to manuall add your reducer the `persistCombineReducers`
-function in `App/Reducers/index.js`.
-
-> It’s also good practice to export all of your actions into the main action
-> creator in `App/Actions/index.js`
-
-The reducer comes with some example state (that you should change) and guides
-for adding Flow types.
+And a test is generated for you as well.
 
 ```js
-// @flow
+import React from "react";
+import { render } from "test-utilities";
+import MyComponent from "./index";
+
+it("renders the text passed as children", () => {
+  const { getByText } = render(<MyComponent />);
+  expect(getByText("MyComponent")).toBeDefined();
+});
+```
+
+## Reducer
+
+Creates a new reducer, actions and tests.
+
+```
+romulus reducer Settings
+```
+
+This will generate four files:
+
+- `App/Reducers/Settings.ts`
+- `App/Reducers/Settings.test.ts`
+- `App/Actions/Settings.ts`
+- `App/Actions/Settings.test.ts`
+
+You will then have to manually add your reducer the `persistCombineReducers`
+function in `App/Reducers/index.ts`.
+
+> It’s also good practice to export all of your actions into the main action
+> creator in `App/Actions/index.ts`
+
+The reducer comes with some example state and guides for managing types.
+
+```js
 import {
-  MYREDUCER_EXAMPLE,
-  type MyReducerExample
-} from "MyApp/App/Actions/MyReducer";
+  SETTINGS_EXAMPLE,
+  SettingsActions,
+} from "Remulus/App/Actions/Settings";
 
-type State = {
-  +value: boolean
-};
-
-type Action = MyReducerExample;
+interface State {
+  value: boolean;
+}
 
 const initialState: State = {
-  value: false
+  value: false,
 };
 
-const reducer = (state: State = initialState, action: Action): State => {
+const reducer = (
+  state = initialState,
+  action: SettingsActions | ReducerAction
+): State => {
   switch (action.type) {
-    case MYREDUCER_EXAMPLE:
+    case SETTINGS_EXAMPLE:
       return {
         ...state,
-        value: true
+        value: true,
       };
 
     default:
@@ -130,75 +140,45 @@ The actions come with a constant, action creator and a type expected from the
 action creator.
 
 ```js
-// @flow
-export const MYREDUCER_EXAMPLE = "MyApp/MYREDUCER_EXAMPLE";
+export const SETTINGS_EXAMPLE = "MyApp/SETTINGS_EXAMPLE";
 
-export type MyReducerExample = {
-  type: "MyApp/MYREDUCER_EXAMPLE"
-};
-
-export const myreducerExample = (): MyReducerExample => ({
-  type: MYREDUCER_EXAMPLE
+export const settingsExample = () => ({
+  type: SETTINGS_EXAMPLE as typeof SETTINGS_EXAMPLE,
 });
+
+type SettingsExample = ReturnType<typeof settingsExample>;
+
+export type SettingsActions = SettingsExample;
 ```
 
 ## Screen
 
-Creates a new screen that is connected to the Redux store following the container
-pattern.
+Creates a new screen.
 
 ```
-romulus screen MyScreen
+romulus screen Home
 ```
 
-This will generate two files:
+This will generate this file:
 
-- `App/Screens/MyScreen/index.js`
-- `App/Screens/MyScreen/Container.js`
+- `App/Screens/Home/index.tsx`
 
-You should then import this screen into `App/Screens/index.js` so it can be easily
-added to the router.
-
-The `index.js` file contains a presentational view of the screen.
+You should then import this screen into `App/Screens/index.ts` so it can be
+easily added to the router.
 
 ```js
-// @flow
-import * as React from "react";
-import Layout from "MyApp/App/Components/Layout";
-import Text from "MyApp/App/Components/Text";
+import React from "react";
+import { NavigationStackScreenComponent } from "react-navigation-stack";
+import Layout from "Remulus/App/Components/Layout";
+import Text from "Remulus/App/Components/Text";
 
-type Props = {};
+const Home: NavigationStackScreenComponent = ({ navigation }) => {
+  return (
+    <Layout.Center>
+      <Text>Home</Text>
+    </Layout.Center>
+  );
+};
 
-const MyScreen = (props: Props): React.Node => (
-  <Layout.Center>
-    <Text>MyScreen</Text>
-  </Layout.Center>
-);
-
-export default MyScreen;
-```
-
-The `Container.js` file connects to the Redux store and provides data to the
-presentational component.
-
-```js
-// @flow
-import * as React from "react";
-import { connect } from "react-redux";
-import MyScreen from "MyApp/App/Screens/MyScreen";
-
-class MyScreenContainer extends React.Component<{}> {
-  render(): React.Node {
-    return <MyScreen />;
-  }
-}
-
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyScreenContainer);
+export default Home;
 ```

@@ -28,8 +28,8 @@ program
 
 program
   .command("component [name]")
-  .description("Creates a new stateless component")
-  .option("--stateful", "Create a stateful component")
+  .description("Creates a new class based component")
+  .option("--classComponent", "Create a class based component")
   .action((component, cmd) => {
     if (!component) {
       program.help(() =>
@@ -37,7 +37,7 @@ program
       );
     }
     env.run(`react-native:component ${component}`, {
-      stateful: cmd.stateful
+      classComponent: cmd.classComponent
     });
   });
 
