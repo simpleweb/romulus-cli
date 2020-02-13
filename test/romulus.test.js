@@ -112,7 +112,7 @@ describe('Romulus Test', () => {
       .withArguments([screenIndexComponentName])
       .then(() => {
         assert.file([
-          `App/Screens/${screenIndexComponentName}.js`
+          `App/Screens/${screenIndexComponentName}.tsx`
         ]);
       });
   });
