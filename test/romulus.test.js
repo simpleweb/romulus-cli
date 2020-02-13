@@ -11,7 +11,6 @@ const CLEAN_TIMEOUT = 10000;
 
 const appName = 'SimpleTest';
 const screenIndexComponentName = 'IndexComponent';
-const screenIndexContainerName = 'IndexContainer';
 const componentClassName = 'ComponentClass';
 const componentStatelessName = 'ComponentStateless';
 const reducerName = 'SimpleReducer';
@@ -105,32 +104,15 @@ describe('Romulus Test', () => {
       });
   });
 
-  it('creates a screen with a given name with index.js as component', () => {
-    return helpers
-      .run(path.join(__dirname, '../generators/screen'))
-      .cd(path.join(__dirname, appName))
-      .withOptions({ skipInstall: false })
-      .withArguments([screenIndexComponentName])
-      .withPrompts({
-        appName,
-        type: "index.js as component"
-      }).then(() => {
-        assert.file([
-          `App/Screens/${screenIndexComponentName}/Container.js`,
-          `App/Screens/${screenIndexComponentName}/index.js`
-        ]);
-      });
-  });
-
   it('creates a screen', () => {
     return helpers
       .run(path.join(__dirname, '../generators/screen'))
       .cd(path.join(__dirname, appName))
       .withOptions({ skipInstall: false })
-      .withArguments([screenIndexContainerName])
+      .withArguments([screenIndexComponentName])
       .then(() => {
         assert.file([
-          `App/Screens/${screenIndexContainerName}.tsx`
+          `App/Screens/${screenIndexComponentName}/index.js`
         ]);
       });
   });
