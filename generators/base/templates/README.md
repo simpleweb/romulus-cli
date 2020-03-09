@@ -122,17 +122,15 @@ $ yo rn-toolbox:assets --icon App/Assets/AppIcon.png
 
 Testing builds should be configured to point towards staging and released using Fabric.
 
-To configure the build for staging, please place staging configuration into `.env.production`. While this is confusing, unfortunately the plugin we are using to populate the environment looks for this file when the app is built in release mode, rather than being environment specific.
+To configure the build for staging, please place staging configuration into `.env.staging`.
 
 #### iOS
 
-For iOS, you will need to produce a release build using the `<%= name %> - iOS Development` provisioning profile. Please make sure everyone’s UUID in the profile you wish to test with. Please refer to [this guide](https://docs.fabric.io/apple/beta/beta-walkthrough.html) for releasing on Fabric.
+For iOS, you will need to switch to the "<%= name %> Staging" scheme. This should use the `<%= name %> - iOS Development` provisioning profile. Please make sure everyone’s UUID in the profile you wish to test with. Please refer to [this guide](https://firebase.google.com/docs/app-distribution/ios/distribute-console) for releasing on Firebase App Distribution.
 
 #### Android
 
-For Android, simply build the project using the instructions below and then follow the [Beta Process Walkthrough](https://docs.fabric.io/android/beta/beta-walkthrough.html) guide.
-
-You will need to make sure Crashlytics is installed in Android Studio, [follow these instructions](https://www.fabric.io/downloads/android) if you don’t have it setup.
+For Android, simply build the project using the instructions below and then follow the [Beta Process Walkthrough](https://firebase.google.com/docs/app-distribution/android/distribute-console) guide.
 
 ### Versioning
 
