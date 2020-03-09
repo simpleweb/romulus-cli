@@ -20,7 +20,7 @@ function <%= name %>() {
               onBeforeLift={runSagaMiddleware}
               persistor={persistor}
             >
-              <Router uriPrefix="<%= name %>://" />
+              <Router />
             </PersistGate>
           </Provider>
         </App>
