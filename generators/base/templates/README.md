@@ -130,7 +130,7 @@ For iOS, you will need to switch to the "<%= name %> Staging" scheme. This shoul
 
 #### Android
 
-For Android, simply build the project using the instructions below and then follow the [Beta Process Walkthrough](https://firebase.google.com/docs/app-distribution/android/distribute-console) guide.
+For Android, simply build the project using the instructions below and then follow [this guide](https://firebase.google.com/docs/app-distribution/android/distribute-console) for releasing on Firebase App Distribution.
 
 ### Versioning
 
