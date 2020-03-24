@@ -1,9 +1,18 @@
 import React from "react";
-import { NavigationStackScreenComponent } from "react-navigation-stack";
+import { StackNavigationProp } from "@react-navigation/stack";
 import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";
 
-const <%= screen %>: NavigationStackScreenComponent = ({ navigation }) => {
+type <%= screen %>ScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "<%= screen %>"
+>;
+
+type Props = {
+  navigation: <%= screen %>ScreenNavigationProp;
+};
+
+const <%= screen %>: React.FC<Props> = ({ navigation }) => {
   return (
     <Layout.Center>
       <Text><%= screen %></Text>
