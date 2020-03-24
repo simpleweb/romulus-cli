@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import { StackNavigationProp } from "@react-navigation/stack";
 import styled from "styled-components/native";
 import Button from "<%= name %>/App/Components/Button";
 import Layout from "<%= name %>/App/Components/Layout";
@@ -12,7 +13,16 @@ interface RootState {
   };
 }
 
-const Styleguide: React.FC = () => {
+type StyleguideScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "Styleguide"
+>;
+
+type Props = {
+  navigation: StyleguideScreenNavigationProp;
+};
+
+const Styleguide: React.FC<Props> = () => {
   const dispatch = useDispatch();
   const installed = useSelector((state: RootState) => state.app.installed);
   const requestExample = React.useCallback(

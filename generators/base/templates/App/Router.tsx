@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import Screens from "<%= name %>/App/Screens";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 function RootStack() {
   return (

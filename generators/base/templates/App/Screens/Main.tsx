@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationStackScreenComponent } from "react-navigation-stack";
+import { StackNavigationProp } from '@react-navigation/stack';
 <% if (i18nSupport) { -%>
 import { t } from "<%= name %>/App/Helpers/Translations";
 <% } -%>
@@ -7,7 +7,13 @@ import Layout from '<%= name %>/App/Components/Layout';
 import Button from '<%= name %>/App/Components/Button';
 import Text from '<%= name %>/App/Components/Text';
 
-const Main: NavigationStackScreenComponent = ({ navigation }) => {
+type MainScreenNavigationProp = StackNavigationProp<RootStackParamList, "Main">;
+
+type Props = {
+  navigation: MainScreenNavigationProp;
+};
+
+const Main: React.FC<Props> = ({ navigation }) => {
   return (
     <Layout.Center>
       <% if (i18nSupport) { -%>
