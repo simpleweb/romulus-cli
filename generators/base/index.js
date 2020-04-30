@@ -19,8 +19,21 @@ module.exports = class extends Generator {
         message: "Do you want i18n support?",
         default: true,
       },
-    ]).then(answers => {
+    ]).then((answers) => {
       this.i18nSupport = answers.i18nSupport;
+    });
+  }
+
+  prompting() {
+    return this.prompt([
+      {
+        type: "confirm",
+        name: "fastlane",
+        message: "Do you want add Fastlane to this project?",
+        default: true,
+      },
+    ]).then((answers) => {
+      this.fastlane = answers.fastlane;
     });
   }
 
@@ -376,6 +389,13 @@ module.exports = class extends Generator {
         cwd: this.destinationPath(),
       }
     );
+
+    if (this.fastlane) {
+      this.log("Installing Fastlane...");
+      this.spawnCommandSync("sh", [`${this.templatePath("bin")}/fastlane.sh`], {
+        cwd: this.destinationPath(),
+      });
+    }
 
     this.log("Setup complete!");
     this.log("Please refer to the post-install notes");
