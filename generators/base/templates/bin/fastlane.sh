@@ -7,8 +7,6 @@ fastlaneInit(){
   cd $current && cd ios && fastlane init
   echo "Adding Fastlane to Android..."
   cd .. && cd android && fastlane init
-  cd ..
-  cd bin && rm fastlane.sh
 }
 
 # check if fastlane is installed
