@@ -19,13 +19,6 @@ module.exports = class extends Generator {
         message: "Do you want i18n support?",
         default: true,
       },
-    ]).then((answers) => {
-      this.i18nSupport = answers.i18nSupport;
-    });
-  }
-
-  prompting() {
-    return this.prompt([
       {
         type: "confirm",
         name: "fastlane",
@@ -33,6 +26,7 @@ module.exports = class extends Generator {
         default: true,
       },
     ]).then((answers) => {
+      this.i18nSupport = answers.i18nSupport;
       this.fastlane = answers.fastlane;
     });
   }
