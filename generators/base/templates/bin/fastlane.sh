@@ -1,18 +1,7 @@
-# current path
-current=$PWD
-
-#fastlane init
-fastlaneInit(){
-  echo "Adding Fastlane to iOS..."
-  cd $current && cd ios && fastlane init
-  echo "Adding Fastlane to Android..."
-  cd .. && cd android && fastlane init
-}
-
 # check if fastlane is installed
 isInstalled() {
 if hash fastlane 2>/dev/null; then
-    fastlaneInit
+    echo "Fastlane already installed!"
 else
     echo "How do you want to install Fastlane?"
 select yn in "RubyGems" "Homebrew"; do
@@ -21,9 +10,7 @@ select yn in "RubyGems" "Homebrew"; do
         Homebrew ) echo "Installing Fastlane via Homebrew..."; brew install fastlane ; break;;
     esac
     done
-    fastlaneInit
 fi
 };
 
-echo "Installing fastlane..."
 isInstalled;

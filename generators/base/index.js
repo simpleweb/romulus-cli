@@ -25,7 +25,7 @@ module.exports = class extends Generator {
         message: "Do you want add Fastlane to this project?",
         default: true,
       },
-    ]).then((answers) => {
+    ]).then(answers => {
       this.i18nSupport = answers.i18nSupport;
       this.fastlane = answers.fastlane;
     });
@@ -219,6 +219,19 @@ module.exports = class extends Generator {
       this.destinationPath("__mocks__")
     );
 
+    // Add fastlane folder
+    if (this.fastlane) {
+      this.fs.copy(
+        this.templatePath("fastlane"),
+        this.destinationPath("fastlane")
+      );
+
+      this.fs.copy(
+        this.templatePath("fastlane/.env.example"),
+        this.destinationPath("fastlane/.env.example")
+      );
+    }
+
     // copy TypeScript types
     this.fs.copyTpl(
       this.templatePath("@types"),
@@ -258,6 +271,12 @@ module.exports = class extends Generator {
           pretty: "prettier --config .prettierrc.js --write '**/*.{ts,tsx,js}'",
           lint: "eslint --fix './App/**/*.{ts,tsx,js}'",
           bump: "./bin/bump-ios.sh",
+          "version:bump":
+            "npm version patch && cd fastlane && bundle exec fastlane version_bump",
+          "github:release":
+            "cd fastlane && bundle exec fastlane github_release",
+          "firebase:release":
+            "cd fastlane && bundle exec fastlane firebase_release",
           test: "jest --verbose",
           coverage: "jest --coverage",
           "test:watch": "npm test -- --watch",
@@ -385,7 +404,7 @@ module.exports = class extends Generator {
     );
 
     if (this.fastlane) {
-      this.log("Installing Fastlane...");
+      this.log("Checking if Fastlane is installed on your machine...");
       this.spawnCommandSync("sh", [`${this.templatePath("bin")}/fastlane.sh`], {
         cwd: this.destinationPath(),
       });

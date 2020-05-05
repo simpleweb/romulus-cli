@@ -1,0 +1,127 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.28.3"
+
+# Check that there is nothing to commit and pull the latest repo.
+before_all do
+  ensure_git_branch
+  ensure_git_status_clean
+  git_pull
+end
+
+package = load_json(json_path: "./package.json")
+appname = package["name"]
+version = package["version"]
+
+####################
+###   TEST LANE  ###
+####################
+lane :test_setup do
+  puts('FASTLANE CORRECTLY SETUP 🔥') 
+end
+
+####################
+### VERSION BUMP ###
+####################
+lane :version_bump do
+  increment_version_number(version_number: package["version"], xcodeproj: "ios/#{appname}.xcodeproj")
+  commit_version_bump(message: "Release v#{version} :rocket:", xcodeproj: "ios/#{appname}.xcodeproj")
+  push_to_git_remote(
+    remote: "origin",
+    tags: false,
+    no_verify: true
+  )    
+end
+
+######################
+### GITHUB RELEASE ###
+######################
+lane :github_release do
+  ensure_env_vars(
+    env_vars: ['CODESIGNING_IDENTITY', 'GITHUB_TOKEN']
+  )
+
+  ## BUILD IOS
+  build_ios_app(
+    workspace: "ios/#{appname}.xcworkspace",
+    output_directory: "builds/v#{version}",
+    export_options: { method: "app-store" },
+    codesigning_identity: ENV['CODESIGNING_IDENTITY']
+  )
+
+  ## BUILD ANDROID
+  gradle(task: 'clean', project_dir: 'android/')
+  gradle(task: 'bundle', build_type: 'Release', project_dir: 'android/')
+
+  ## ADD TO GITHUB
+  set_github_release(
+    repository_name: "simpleweb/#{ENV['REPO_NAME']}",
+    api_token: ENV['GITHUB_TOKEN'],
+    name: "#{version}",
+    tag_name: "v#{version}",
+    description: "Add release notes here...",
+    commitish: "master",
+    is_prerelease: true,
+    upload_assets: ["builds/v#{version}/#{appname}.ipa", "android/app/build/outputs/bundle/release/app.aab"]
+  )
+end
+
+#############################
+### FIREBASE BETA RELEASE ###
+#############################
+lane :firebase_release do
+  ensure_env_vars(
+    env_vars: ['IOS_APP_ID', 'ANDROID_APP_ID', 'TESTERS']
+  )
+
+  ## SEND SLACK NOTIFICATION
+  if ENV['SLACK_URL']
+    slack(
+      slack_url: ENV['SLACK_URL'],
+      message: "A beta release of #{appname}(v#{version}) is being uploaded to Firebase..."
+    )
+  end
+
+  ## UPLOAD IPA 
+  puts "-------------------------------------------------------"
+  puts "--- Uploading #{appname}(v#{version}) IPA to Firebase ---"
+  puts "-------------------------------------------------------"
+  firebase_app_distribution(
+    app: ENV['IOS_APP_ID'],
+    ipa_path: "builds/v#{version}/#{appname}.ipa",
+    testers: ENV['TESTERS'],
+    release_notes: "Add release notes here...",
+    firebase_cli_path: "/usr/local/bin/firebase"
+  )
+
+  ## UPLOAD APK
+  puts "-------------------------------------------------------"
+  puts "--- Uploading #{appname}(v#{version}) APK to Firebase ---"
+  puts "-------------------------------------------------------"
+  firebase_app_distribution(
+    app: ENV['ANDROID_APP_ID'],
+    apk_path: "android/app/build/outputs/apk/debug/app-debug.apk",
+    testers: ENV['TESTERS'],
+    release_notes: "Add release notes here...",
+    firebase_cli_path: "/usr/local/bin/firebase"
+  )
+
+  ## SEND SLACK NOTIFICATION
+  if ENV['SLACK_URL']
+    slack(
+    slack_url: ENV['SLACK_URL'],
+    message: "A beta release of #{appname}(v#{version}) is now available for testing on Firebase"
+    )
+  end
+end
