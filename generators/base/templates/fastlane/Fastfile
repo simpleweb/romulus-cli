@@ -93,39 +93,48 @@ lane :firebase_release do |options|
     )
   end
 
-  ## BUILD IOS unless skip_build:true
-  unless options[:skip_build]
-    build_ios_app(
-      workspace: "ios/#{appname}.xcworkspace",
-      output_directory: "builds/v#{version}",
-      export_options: { method: "app-store" },
-      codesigning_identity: ENV['CODESIGNING_IDENTITY']
+
+  ## BUILD & UPLOAD IPA 
+  unless options[:android_only]
+    unless options[:skip_build]
+      build_ios_app(
+        workspace: "ios/#{appname}.xcworkspace",
+        output_directory: "builds/v#{version}",
+        export_options: { method: "app-store" },
+        codesigning_identity: ENV['CODESIGNING_IDENTITY']
+      ) 
+    end
+
+    puts "-------------------------------------------------------"
+    puts "--- Uploading #{appname}(v#{version}) IPA to Firebase ---"
+    puts "-------------------------------------------------------"
+    firebase_app_distribution(
+      app: ENV['IOS_APP_ID'],
+      ipa_path: "builds/v#{version}/#{appname}.ipa",
+      testers: ENV['TESTERS'],
+      release_notes: "Add release notes here...",
+      firebase_cli_path: "/usr/local/bin/firebase"
     )
   end
 
-  ## UPLOAD IPA 
-  puts "-------------------------------------------------------"
-  puts "--- Uploading #{appname}(v#{version}) IPA to Firebase ---"
-  puts "-------------------------------------------------------"
-  firebase_app_distribution(
-    app: ENV['IOS_APP_ID'],
-    ipa_path: "builds/v#{version}/#{appname}.ipa",
-    testers: ENV['TESTERS'],
-    release_notes: "Add release notes here...",
-    firebase_cli_path: "/usr/local/bin/firebase"
-  )
+  ## BUILD & UPLOAD APK
+  unless options[:ios_only]
+    unless options[:skip_build]
+      gradle(task: 'clean', project_dir: 'android/')
+      gradle(task: 'bundle', build_type: 'Release', project_dir: 'android/')
+    end
 
-  ## UPLOAD APK
-  puts "-------------------------------------------------------"
-  puts "--- Uploading #{appname}(v#{version}) APK to Firebase ---"
-  puts "-------------------------------------------------------"
-  firebase_app_distribution(
-    app: ENV['ANDROID_APP_ID'],
-    apk_path: "android/app/build/outputs/apk/debug/app-debug.apk",
-    testers: ENV['TESTERS'],
-    release_notes: "Add release notes here...",
-    firebase_cli_path: "/usr/local/bin/firebase"
-  )
+    puts "-------------------------------------------------------"
+    puts "--- Uploading #{appname}(v#{version}) APK to Firebase ---"
+    puts "-------------------------------------------------------"
+    firebase_app_distribution(
+      app: ENV['ANDROID_APP_ID'],
+      apk_path: "android/app/build/outputs/apk/debug/app-debug.apk",
+      testers: ENV['TESTERS'],
+      release_notes: "Add release notes here...",
+      firebase_cli_path: "/usr/local/bin/firebase"
+    )
+  end
 
   ## SEND SLACK NOTIFICATION
   if ENV['SLACK_URL']
