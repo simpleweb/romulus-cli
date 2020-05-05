@@ -80,7 +80,7 @@ end
 #############################
 ### FIREBASE BETA RELEASE ###
 #############################
-lane :firebase_release do
+lane :firebase_release do |options|
   ensure_env_vars(
     env_vars: ['IOS_APP_ID', 'ANDROID_APP_ID', 'TESTERS']
   )
@@ -90,6 +90,16 @@ lane :firebase_release do
     slack(
       slack_url: ENV['SLACK_URL'],
       message: "A beta release of #{appname}(v#{version}) is being uploaded to Firebase..."
+    )
+  end
+
+  ## BUILD IOS unless skip_build:true
+  unless options[:skip_build]
+    build_ios_app(
+      workspace: "ios/#{appname}.xcworkspace",
+      output_directory: "builds/v#{version}",
+      export_options: { method: "app-store" },
+      codesigning_identity: ENV['CODESIGNING_IDENTITY']
     )
   end
 
