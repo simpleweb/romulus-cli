@@ -81,9 +81,7 @@ end
 ### FIREBASE BETA RELEASE ###
 #############################
 lane :firebase_release do |options|
-  ensure_env_vars(
-    env_vars: ['IOS_APP_ID', 'ANDROID_APP_ID', 'TESTERS']
-  )
+
 
   ## SEND SLACK NOTIFICATION
   if ENV['SLACK_URL']
@@ -97,6 +95,9 @@ lane :firebase_release do |options|
   ## BUILD & UPLOAD IPA 
   unless options[:android_only]
     unless options[:skip_build]
+      ensure_env_vars(
+        env_vars: ['CODESIGNING_IDENTITY']
+      )
       build_ios_app(
         workspace: "ios/#{appname}.xcworkspace",
         output_directory: "builds/v#{version}",
@@ -105,6 +106,9 @@ lane :firebase_release do |options|
       ) 
     end
 
+    ensure_env_vars(
+      env_vars: ['IOS_APP_ID', 'TESTERS']
+    )
     puts "-------------------------------------------------------"
     puts "--- Uploading #{appname}(v#{version}) IPA to Firebase ---"
     puts "-------------------------------------------------------"
@@ -124,6 +128,9 @@ lane :firebase_release do |options|
       gradle(task: 'bundle', build_type: 'Release', project_dir: 'android/')
     end
 
+    ensure_env_vars(
+      env_vars: ['ANDROID_APP_ID', 'TESTERS']
+    )
     puts "-------------------------------------------------------"
     puts "--- Uploading #{appname}(v#{version}) APK to Firebase ---"
     puts "-------------------------------------------------------"
