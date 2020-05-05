@@ -129,7 +129,7 @@ lane :firebase_release do |options|
     puts "-------------------------------------------------------"
     firebase_app_distribution(
       app: ENV['ANDROID_APP_ID'],
-      apk_path: "android/app/build/outputs/apk/debug/app-debug.apk",
+      apk_path: "android/app/build/outputs/apk/release/app-release.apk",
       testers: ENV['TESTERS'],
       release_notes: "Add release notes here...",
       firebase_cli_path: "/usr/local/bin/firebase"
