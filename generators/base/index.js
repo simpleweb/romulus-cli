@@ -96,6 +96,7 @@ module.exports = class extends Generator {
       {
         name: this.name,
         i18nSupport: this.i18nSupport,
+        usingReactQuery: this.usingReactQuery,
       }
     );
 
