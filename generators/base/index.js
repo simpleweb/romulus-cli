@@ -327,6 +327,7 @@ module.exports = class extends Generator {
     this.yarnInstall(
       [
         ...types,
+        "@bam.tech/react-native-make",
         "@testing-library/react-native",
         "eslint",
         "babel-eslint",
