@@ -10,7 +10,7 @@ const initialState: State = {
 
 const reducer = (
   state = initialState,
-  action: <%= reducer %>Actions | ReducerAction
+  action: <%= reducer %>Actions,
 ): State => {
   switch(action.type) {
     case <%= reducerConst %>_EXAMPLE:

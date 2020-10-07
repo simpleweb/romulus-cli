@@ -22,7 +22,7 @@ function createProject() {
   );
   console.log("");
 
-  spawn.sync("react-native", ["init", appName], {
+  spawn.sync("npx", ["react-native", "init", appName], {
     cwd: __dirname,
     stdio: "inherit",
   });
@@ -59,6 +59,7 @@ describe("Romulus Test", () => {
       .withPrompts({
         appName,
         i18nSupport: false,
+        httpLayer: 'redux-saga',
       })
       .then(() => {
         assert.file([
@@ -98,7 +99,6 @@ describe("Romulus Test", () => {
           "App/Config/index.ts",
           "App/Theme.ts",
           "App/Assets/AppIcon.png",
-          "@types/index.d.ts",
         ]);
       });
   });

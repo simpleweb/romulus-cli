@@ -14,5 +14,6 @@ lines[targetLine] = """/ios/Pods/
 
 # Env
 .env*
+!.env.example
 """
 open(filename, "w").write(''.join(lines))

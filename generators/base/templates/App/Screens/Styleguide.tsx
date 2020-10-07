@@ -1,17 +1,15 @@
 import React from "react";
 import { Alert } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
 import { StackNavigationProp } from "@react-navigation/stack";
 import styled from "styled-components/native";
+<% if (usingReactQuery) { -%>
+import { useQuery } from "react-query";
+import API from "Romuless/App/Services/API";
+<% } -%>
 import Button from "<%= name %>/App/Components/Button";
 import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";
-
-interface RootState {
-  app: {
-    installed: boolean;
-  };
-}
+import { RootStackParamList } from "<%= name %>/App/Router";
 
 type StyleguideScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -23,13 +21,6 @@ type Props = {
 };
 
 const Styleguide: React.FC<Props> = () => {
-  const dispatch = useDispatch();
-  const installed = useSelector((state: RootState) => state.app.installed);
-  const requestExample = React.useCallback(
-    () => dispatch({ type: "REQUEST_EXAMPLE" }),
-    [dispatch],
-  );
-
   return (
     <Layout.Scroll>
       <Layout.Padded>
@@ -37,16 +28,38 @@ const Styleguide: React.FC<Props> = () => {
 
         <Heading>Button</Heading>
         <Button onPress={() => Alert.alert("Button pressed")}>Button</Button>
+        <% if (usingReactQuery) { -%>
 
-        <Heading>Request Example (check console)</Heading>
-        <Button onPress={requestExample}>Request Example</Button>
-
-        <Heading>Map props example</Heading>
-        <Text>Is app installed? {installed ? "Yes" : "No"}</Text>
+        <Heading>React Query</Heading>
+        <GetExample />
+        <% } -%>
       </Layout.Padded>
     </Layout.Scroll>
   );
 };
+
+<% if (usingReactQuery) { -%>
+function GetExample() {
+  const { isLoading, isError, data, error } = useQuery<any, any>("todos", () =>
+    API.get("https://jsonplaceholder.typicode.com/todos"),
+  );
+
+  if (isLoading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (isError) {
+    return <Text>Error: {error?.message}</Text>;
+  }
+  return (
+    <React.Fragment>
+      {data?.data?.slice(0, 3).map((todo: any, index: number) => (
+        <Text key={index}>{todo.title}</Text>
+      ))}
+    </React.Fragment>
+  );
+}
+<% } -%>
 
 const Heading = styled(Text)`
   font-weight: bold;
