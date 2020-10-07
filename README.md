@@ -64,11 +64,14 @@ romulus init
 
 - A sensible `README` providing consistent instructions between projects
 - TypeScript support
-- Router using `react-navigation`
-- Redux setup
+- Router using `react-navigation` (v5)
+- Redux setup (optional)
   - Store is persisted using `redux-persist`
   - Helpful state changes logged in the debugger using `redux-logger`
   - Actions are prevented from being dispatched before the cache is restored
+- `react-query` setup (optional)
+  - Makes it easy to get setup with `react-query`
+  - Replaces Saga and Redux architecture
 - UI niceities
   - CSS-in-JS support for `styled-components`
   - Start to a styleguide to list your components
@@ -82,7 +85,7 @@ romulus init
 - Optional support for different locales using `react-native-i18n`
 - Environment variables available in JavaScript, Objective C and Java using
   `react-native-config`
-- Sagas (to handle async tasks like HTTP requests) using `redux-saga`
+- Sagas (to handle async tasks like HTTP requests) using `redux-saga` (optional, not available with `react-query`)
 - Initial setup for deep linking
 - Requests are set up to be handled with `axios` with clear logging in the
   debugger provided
