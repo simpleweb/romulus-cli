@@ -14,6 +14,13 @@ module.exports = class extends Generator {
   prompting() {
     return this.prompt([
       {
+        type: "list",
+        name: "httpLayer",
+        message: "Which HTTP layer do you want to use?",
+        choices: ["react-query", "redux-saga"],
+        default: "react-query",
+      },
+      {
         type: "confirm",
         name: "i18nSupport",
         message: "Do you want i18n support?",
@@ -21,6 +28,8 @@ module.exports = class extends Generator {
       },
     ]).then((answers) => {
       this.i18nSupport = answers.i18nSupport;
+      this.usingReactQuery = answers.httpLayer === "react-query";
+      this.usingReduxSaga = answers.httpLayer === "redux-saga";
     });
   }
 
@@ -59,7 +68,11 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("App/index.tsx"),
       this.destinationPath("App/index.tsx"),
-      { name: this.name }
+      {
+        name: this.name,
+        usingReduxSaga: this.usingReduxSaga,
+        usingReactQuery: this.usingReactQuery,
+      }
     );
 
     // copy router
@@ -86,40 +99,42 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    // copy store
-    this.fs.copyTpl(
-      this.templatePath("App/Store/index.ts"),
-      this.destinationPath("App/Store/index.ts"),
-      { name: this.name }
-    );
+    if (this.usingReduxSaga) {
+      // copy store
+      this.fs.copyTpl(
+        this.templatePath("App/Store/index.ts"),
+        this.destinationPath("App/Store/index.ts"),
+        { name: this.name }
+      );
 
-    // copy store middleware
-    this.fs.copyTpl(
-      this.templatePath("App/Store/Middleware"),
-      this.destinationPath("App/Store/Middleware"),
-      { name: this.name }
-    );
+      // copy store middleware
+      this.fs.copyTpl(
+        this.templatePath("App/Store/Middleware"),
+        this.destinationPath("App/Store/Middleware"),
+        { name: this.name }
+      );
 
-    // copy reducers
-    this.fs.copyTpl(
-      this.templatePath("App/Reducers"),
-      this.destinationPath("App/Reducers"),
-      { name: this.name, reducers: ["App"] }
-    );
+      // copy reducers
+      this.fs.copyTpl(
+        this.templatePath("App/Reducers"),
+        this.destinationPath("App/Reducers"),
+        { name: this.name, reducers: ["App"] }
+      );
 
-    // copy actions
-    this.fs.copyTpl(
-      this.templatePath("App/Actions"),
-      this.destinationPath("App/Actions"),
-      { name: this.name }
-    );
+      // copy actions
+      this.fs.copyTpl(
+        this.templatePath("App/Actions"),
+        this.destinationPath("App/Actions"),
+        { name: this.name }
+      );
 
-    // copy sagas
-    this.fs.copyTpl(
-      this.templatePath("App/Sagas"),
-      this.destinationPath("App/Sagas"),
-      { name: this.name }
-    );
+      // copy sagas
+      this.fs.copyTpl(
+        this.templatePath("App/Sagas"),
+        this.destinationPath("App/Sagas"),
+        { name: this.name }
+      );
+    }
 
     // copy services
     this.fs.copyTpl(
@@ -272,22 +287,28 @@ module.exports = class extends Generator {
       "@react-native-community/masked-view",
     ];
 
-    this.yarnInstall([
-      "@react-native-community/async-storage",
-      "axios",
-      "https://github.com/luggit/react-native-config#master",
-      ...(this.i18nSupport ? ["react-native-i18n"] : []),
+    const reduxSagaModules = [
       "react-redux",
       "redux",
       "redux-action-buffer",
       "redux-logger",
       "redux-persist",
       "redux-saga",
+    ];
+
+    const reactQueryModules = ["react-query"];
 
     const types = ["@types/styled-components"];
 
+    this.yarnInstall([
+      "@react-native-community/async-storage",
+      "axios",
+      "react-native-config",
       "styled-components",
       ...reactNavigation,
+      ...(this.i18nSupport ? ["react-native-i18n"] : []),
+      ...(this.usingReduxSaga ? reduxSagaModules : []),
+      ...(this.usingReactQuery ? reactQueryModules : []),
     ]);
 
     this.yarnInstall(
