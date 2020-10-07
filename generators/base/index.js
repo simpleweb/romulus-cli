@@ -225,15 +225,6 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
-    //  copy android files
-    this.fs.copyTpl(
-      this.templatePath("android/MainActivity.java"),
-      this.destinationPath(
-        `android/app/src/main/java/com/${this.name.toLowerCase()}/MainActivity.java`
-      ),
-      { name: this.name, nameLower: this.name.toLowerCase() }
-    );
-
     // merge the two package json files
     const currentPackage = readPkg.sync();
 
