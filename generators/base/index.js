@@ -38,7 +38,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("index.js"),
       this.destinationPath("index.js"),
-      { name: this.name }
+      { name: this.name, usingReactQuery: this.usingReactQuery }
     );
 
     // copy Prettier config
