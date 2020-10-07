@@ -107,6 +107,18 @@ module.exports = class extends Generator {
     );
 
     if (this.usingReduxSaga) {
+      this.fs.copyTpl(
+        this.templatePath("@types/react-redux.d.ts"),
+        this.destinationPath("@types/react-redux.d.ts"),
+        { name: this.name }
+      );
+
+      this.fs.copyTpl(
+        this.templatePath("@types/redux-action-buffer.d.ts"),
+        this.destinationPath("@types/redux-action-buffer.d.ts"),
+        { name: this.name }
+      );
+
       // copy store
       this.fs.copyTpl(
         this.templatePath("App/Store/index.ts"),
@@ -231,13 +243,6 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath("__mocks__"),
       this.destinationPath("__mocks__")
-    );
-
-    // copy TypeScript types
-    this.fs.copyTpl(
-      this.templatePath("@types"),
-      this.destinationPath("@types"),
-      { name: this.name }
     );
 
     this.fs.copyTpl(

@@ -10,7 +10,7 @@ const initialState: State = {
 
 const reducer = (
   state = initialState,
-  action: AppActions | ReducerAction,
+  action: AppActions,
 ): State => {
   switch (action.type) {
     case APP_INSTALLED:
