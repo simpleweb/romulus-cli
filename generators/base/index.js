@@ -312,9 +312,7 @@ module.exports = class extends Generator {
 
   end() {
     this.log("Installing Pods...");
-    this.spawnCommandSync("pod", ["install"], {
-      cwd: this.destinationPath("ios"),
-    });
+    this.spawnCommandSync("npx", ["pod-install"]);
 
     this.log("Running Prettier...");
     this.spawnCommandSync("yarn", ["run", "pretty"]);
