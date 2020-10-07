@@ -47,7 +47,7 @@ module.exports = class extends Generator {
       this.destinationPath(".prettierrc.js")
     );
 
-    // copy Estlint config
+    // copy ESLint config
     this.fs.copyTpl(
       this.templatePath(".eslintrc.js"),
       this.destinationPath(".eslintrc.js")
