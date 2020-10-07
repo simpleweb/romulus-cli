@@ -283,12 +283,16 @@ module.exports = class extends Generator {
       "redux-logger",
       "redux-persist",
       "redux-saga",
+
+    const types = ["@types/styled-components"];
+
       "styled-components",
       ...reactNavigation,
     ]);
 
     this.yarnInstall(
       [
+        ...types,
         "@testing-library/react-native",
         "eslint",
         "babel-eslint",
