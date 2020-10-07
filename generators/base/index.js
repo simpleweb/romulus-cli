@@ -267,8 +267,8 @@ module.exports = class extends Generator {
     const reactNavigation = [
       "@react-navigation/native",
       "@react-navigation/stack",
-      "react-native-gesture-handler",
       "react-native-reanimated",
+      "react-native-gesture-handler",
       "react-native-screens",
       "react-native-safe-area-context",
       "@react-native-community/masked-view",
@@ -334,15 +334,6 @@ module.exports = class extends Generator {
     this.spawnCommandSync(
       "python",
       [`${this.templatePath("bin")}/react-native-config.py`],
-      {
-        cwd: this.destinationPath(),
-      }
-    );
-
-    this.log("Configuring React Navigation");
-    this.spawnCommandSync(
-      "python",
-      [`${this.templatePath("bin")}/react-navigation.py`],
       {
         cwd: this.destinationPath(),
       }
