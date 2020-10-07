@@ -238,7 +238,8 @@ module.exports = class extends Generator {
       deepExtend(currentPackage, {
         private: true,
         scripts: {
-          pretty: "prettier --config .prettierrc.js --write '**/*.{ts,tsx,js}'",
+          pretty:
+            "prettier --config .prettierrc.js --write 'App/**/*.{ts,tsx,js}'",
           lint: "eslint --fix './App/**/*.{ts,tsx,js}'",
           bump: "./bin/bump-ios.sh",
           test: "jest --verbose",
