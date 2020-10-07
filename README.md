@@ -48,7 +48,8 @@ npx romulus-cli init
 Create a new React Native project using their CLI tool.
 
 ```
-react-native init MyApp && cd MyApp
+npx react-native init MyApp --template react-native-template-typescript
+cd MyApp
 ```
 
 Once this is complete, simply run the main generator command. This will rework

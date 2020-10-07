@@ -19,7 +19,7 @@ module.exports = class extends Generator {
         message: "Do you want i18n support?",
         default: true,
       },
-    ]).then(answers => {
+    ]).then((answers) => {
       this.i18nSupport = answers.i18nSupport;
     });
   }
@@ -42,13 +42,6 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath(".eslintrc.js"),
       this.destinationPath(".eslintrc.js")
-    );
-
-    // copy TypeSCript config
-    this.fs.copyTpl(
-      this.templatePath("tsconfig.json"),
-      this.destinationPath("tsconfig.json"),
-      { name: this.name }
     );
 
     this.fs.copyTpl(
@@ -296,18 +289,6 @@ module.exports = class extends Generator {
       ...reactNavigation,
     ]);
 
-    const typeScript = [
-      "typescript",
-      "@types/jest",
-      "@types/react",
-      "@types/react-native",
-      "@types/react-test-renderer",
-      "@types/styled-components",
-      "@types/react-redux",
-      "@types/redux-logger",
-      "@types/node",
-    ];
-
     this.yarnInstall(
       [
         "@testing-library/react-native",
@@ -324,7 +305,6 @@ module.exports = class extends Generator {
         "eslint-plugin-tsc",
         "jest",
         "jest-styled-components",
-        ...typeScript,
       ],
       {
         dev: true,
