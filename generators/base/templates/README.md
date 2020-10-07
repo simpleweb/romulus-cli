@@ -67,20 +67,12 @@ $ yarn run start
 
 ### Running the app using React Native CLI
 
-You can use the [React Native CLI](https://www.npmjs.com/package/react-native-cli) to easily run the app onto the iOS and Android simulators.
-
-```
-$ yarn global add react-native-cli
-```
-
 Once installed you can then run the app onto each platform’s respective simulator.
 
 ```
-$ react-native run-ios
-$ react-native run-android
+$ yarn run ios
+$ yarn run android
 ```
-
-The iOS version (may) use Pods, and requires to be run via it's Xcode Workspace. If you have build errors with the iOS command above, please open `<%= name %>.xcworkspace` and run your builds from there.
 
 ## Tests
 
