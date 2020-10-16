@@ -1,6 +1,6 @@
-# Contributing to Genny
+# Contributing to romulus-cli
 
-We are open to, and grateful for, any contributions made by the community. By contributing to Genny, you agree to abide by the [code of conduct](/CODE_OF_CONDUCT.md).
+We are open to, and grateful for, any contributions made by the community. By contributing to romulus-cli, you agree to abide by the [code of conduct](/CODE_OF_CONDUCT.md).
 
 ## Reporting Issues and Asking Questions
 
@@ -8,7 +8,7 @@ Before opening an issue, please search the [issue tracker](https://github.com/si
 
 ### Bugs and Improvements
 
-We use the issue tracker to keep track of bugs and improvements to Genny itself, its examples, and the documentation. We encourage you to open issues to discuss improvements, architecture, theory, internal implementation, etc. If a topic has been discussed before, we will ask you to join the previous discussion.
+We use the issue tracker to keep track of bugs and improvements to romulus-cli itself, its examples, and the documentation. We encourage you to open issues to discuss improvements, architecture, theory, internal implementation, etc. If a topic has been discussed before, we will ask you to join the previous discussion.
 
 ### Sending a Pull Request
 
