@@ -65,22 +65,14 @@ React Native uses a development server to bundle up your code, you'll need this 
 $ yarn run start
 ```
 
-### Running the app using React Native CLI
-
-You can use the [React Native CLI](https://www.npmjs.com/package/react-native-cli) to easily run the app onto the iOS and Android simulators.
-
-```
-$ yarn global add react-native-cli
-```
+### Running the app
 
 Once installed you can then run the app onto each platform’s respective simulator.
 
 ```
-$ react-native run-ios
-$ react-native run-android
+$ yarn run ios
+$ yarn run android
 ```
-
-The iOS version (may) use Pods, and requires to be run via it's Xcode Workspace. If you have build errors with the iOS command above, please open `<%= name %>.xcworkspace` and run your builds from there.
 
 ## Tests
 
@@ -106,12 +98,11 @@ To get Deep Linking working, it requires a few additional steps for iOS and Andr
 
 ## App Icons
 
-The source app icons is located in `App/Assets/AppIcon.png`. The icons for Android and iOS are generated with [`rn-toolbox`](https://github.com/bamlab/generator-rn-toolbox). Please refer to their [documentation](https://github.com/bamlab/generator-rn-toolbox/blob/master/generators/assets/README.md) to generate new icons.
-
-Typically though the command should be something along these lines.
+The source app icons is located in `App/Assets/AppIcon.png`. You can generate
+all the app specific icons using `react-native-make`.
 
 ```
-$ yo rn-toolbox:assets --icon App/Assets/AppIcon.png
+$ react-native set-icon --path App/Assets/AppIcon.png
 ```
 
 ![<%= name %> App Icon](/App/Assets/AppIcon.png)

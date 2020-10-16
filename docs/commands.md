@@ -119,7 +119,7 @@ const initialState: State = {
 
 const reducer = (
   state = initialState,
-  action: SettingsActions | ReducerAction
+  action: SettingsActions,
 ): State => {
   switch (action.type) {
     case SETTINGS_EXAMPLE:

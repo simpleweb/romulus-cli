@@ -3,7 +3,7 @@ import { useSafeArea } from "react-native-safe-area-context";
 import { Badge, EnvText } from "./styles";
 
 export interface Props {
-  env: "development" | "staging" | "edge" | "production" | "live";
+  env: string;
 }
 
 const Environment: React.FC<Props> = ({ env }) => {
