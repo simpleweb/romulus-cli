@@ -89,8 +89,6 @@ describe("Romulus Test", () => {
           "App/Store/Middleware/Logger.ts",
           "App/Reducers/App.ts",
           "App/Reducers/index.ts",
-          "App/Actions/App.ts",
-          "App/Actions/index.ts",
           "App/Sagas/index.ts",
           "App/Sagas/RequestExample.ts",
           "App/Services/API/index.ts",
