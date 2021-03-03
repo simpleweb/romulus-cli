@@ -109,12 +109,6 @@ module.exports = class extends Generator {
 
     if (this.usingReduxSaga) {
       this.fs.copyTpl(
-        this.templatePath("@types/react-redux.d.ts"),
-        this.destinationPath("@types/react-redux.d.ts"),
-        { name: this.name }
-      );
-
-      this.fs.copyTpl(
         this.templatePath("@types/redux-action-buffer.d.ts"),
         this.destinationPath("@types/redux-action-buffer.d.ts"),
         { name: this.name }
