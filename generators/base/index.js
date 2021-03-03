@@ -135,13 +135,6 @@ module.exports = class extends Generator {
         { name: this.name, reducers: ["App"] }
       );
 
-      // copy actions
-      this.fs.copyTpl(
-        this.templatePath("App/Actions"),
-        this.destinationPath("App/Actions"),
-        { name: this.name }
-      );
-
       // copy sagas
       this.fs.copyTpl(
         this.templatePath("App/Sagas"),

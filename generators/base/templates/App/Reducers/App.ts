@@ -1,27 +1,18 @@
-import { APP_INSTALLED, AppActions } from "<%= name %>/App/Actions/App";
+import { createSlice } from "@reduxjs/toolkit";
 
-interface State {
-  installed: boolean;
-}
-
-const initialState: State = {
+const initialState = {
   installed: false,
 };
 
-const reducer = (
-  state = initialState,
-  action: AppActions,
-): State => {
-  switch (action.type) {
-    case APP_INSTALLED:
-      return {
-        ...state,
-        installed: true,
-      };
+const appSlice = createSlice({
+  name: "app",
+  initialState,
+  reducers: {
+    install(state) {
+      state.installed = true;
+    },
+  },
+});
 
-    default:
-      return state;
-  }
-};
-
-export default reducer;
+export const { install } = appSlice.actions;
+export default appSlice.reducer;
