@@ -327,6 +327,7 @@ module.exports = class extends Generator {
       [
         ...types,
         "@bam.tech/react-native-make",
+        "@testing-library/jest-native",
         "@testing-library/react-native",
         "eslint",
         "babel-eslint",
