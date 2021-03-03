@@ -1,27 +1,18 @@
-import { <%= reducerConst %>_EXAMPLE, <%= reducer %>Actions } from "<%= name %>/App/Actions/<%= reducer %>";
+import { createSlice } from "@reduxjs/toolkit";
 
-interface State {
-  value: boolean;
-};
-
-const initialState: State = {
+const initialState = {
   value: false,
 };
 
-const reducer = (
-  state = initialState,
-  action: <%= reducer %>Actions,
-): State => {
-  switch(action.type) {
-    case <%= reducerConst %>_EXAMPLE:
-      return {
-        ...state,
-        value: true,
-      };
+const <%= reducerSlug %>Slice = createSlice({
+  name: "<%= reducerSlug %>",
+  initialState,
+  reducers: {
+    example(state) {
+      state.value = true;
+    },
+  },
+});
 
-    default:
-      return state;
-  }
-};
-
-export default reducer;
+export const { example } = <%= reducerSlug %>Slice.actions;
+export default <%= reducerSlug %>Slice.reducer;
