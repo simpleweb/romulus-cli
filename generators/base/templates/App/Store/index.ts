@@ -1,7 +1,15 @@
-import { createStore, compose } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import reducer from "<%= name %>/App/Reducers";
+import middleware from "<%= name %>/App/Store/Middleware";
 import { persistStore } from "redux-persist";
-import Reducers from "<%= name %>/App/Reducers";
-import Middleware from "<%= name %>/App/Store/Middleware";
 
-export const store = createStore(Reducers, compose(Middleware));
+export const store = configureStore({
+  reducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: false,
+      serializableCheck: false,
+    }).concat(middleware),
+});
+
 export const persistor = persistStore(store);
