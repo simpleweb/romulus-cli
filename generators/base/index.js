@@ -311,7 +311,10 @@ module.exports = class extends Generator {
 
     const reactQueryModules = ["react-query"];
 
-    const types = ["@types/styled-components"];
+    const types = [
+      "@types/styled-components",
+      "@types/styled-components-react-native",
+    ];
 
     this.yarnInstall([
       "@react-native-community/async-storage",
