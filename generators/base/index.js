@@ -308,7 +308,7 @@ module.exports = class extends Generator {
       "redux-persist",
       "redux-saga",
     ];
-    const reduxSagaTypes = ["@types/react-redux"];
+    const reduxSagaTypes = ["@types/react-redux", "@types/redux-logger"];
 
     const reactQueryModules = ["react-query"];
 
