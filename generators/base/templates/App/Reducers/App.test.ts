@@ -5,7 +5,9 @@ it("should render an initial state", () => {
     installed: false,
   };
 
-  expect(reducer(undefined, { type: "" })).toEqual(expectedState);
+  expect(reducer(undefined, { type: "MyApp/APP_INSTALLED" })).toEqual(
+    expectedState,
+  );
 });
 
 it("should handle APP_INSTALLED", () => {
