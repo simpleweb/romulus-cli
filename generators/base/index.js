@@ -295,6 +295,7 @@ module.exports = class extends Generator {
     ];
 
     const reduxSagaModules = [
+      "@reduxjs/toolkit",
       "react-redux",
       "redux",
       "redux-action-buffer",

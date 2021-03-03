@@ -1,9 +1,8 @@
 import { createLogger } from "redux-logger";
 
-const blacklist: [string?] = [];
+const blacklist: string[] = [];
 
-const Logger = createLogger({
+export default createLogger({
   predicate: (getState, action) => !blacklist.includes(action.type),
+  collapsed: true,
 });
-
-module.exports = Logger;
