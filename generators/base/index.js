@@ -308,6 +308,7 @@ module.exports = class extends Generator {
       "redux-persist",
       "redux-saga",
     ];
+    const reduxSagaTypes = ["@types/react-redux"];
 
     const reactQueryModules = ["react-query"];
 
@@ -345,6 +346,7 @@ module.exports = class extends Generator {
         "eslint-plugin-tsc",
         "jest",
         "jest-styled-components",
+        ...(this.usingReduxSaga ? reduxSagaTypes : []),
       ],
       {
         dev: true,
