@@ -109,12 +109,6 @@ module.exports = class extends Generator {
 
     if (this.usingReduxSaga) {
       this.fs.copyTpl(
-        this.templatePath("@types/react-redux.d.ts"),
-        this.destinationPath("@types/react-redux.d.ts"),
-        { name: this.name }
-      );
-
-      this.fs.copyTpl(
         this.templatePath("@types/redux-action-buffer.d.ts"),
         this.destinationPath("@types/redux-action-buffer.d.ts"),
         { name: this.name }
@@ -308,10 +302,14 @@ module.exports = class extends Generator {
       "redux-persist",
       "redux-saga",
     ];
+    const reduxSagaTypes = ["@types/react-redux", "@types/redux-logger"];
 
     const reactQueryModules = ["react-query"];
 
-    const types = ["@types/styled-components"];
+    const types = [
+      "@types/styled-components",
+      "@types/styled-components-react-native",
+    ];
 
     this.yarnInstall([
       "@react-native-community/async-storage",
@@ -342,6 +340,7 @@ module.exports = class extends Generator {
         "eslint-plugin-tsc",
         "jest",
         "jest-styled-components",
+        ...(this.usingReduxSaga ? reduxSagaTypes : []),
       ],
       {
         dev: true,
