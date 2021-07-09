@@ -303,6 +303,7 @@ module.exports = class extends Generator {
     const types = [
       "@types/styled-components",
       "@types/styled-components-react-native",
+      "@types/lodash.merge",
     ];
 
     this.yarnInstall([
