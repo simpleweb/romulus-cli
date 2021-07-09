@@ -4,7 +4,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import styled from "styled-components/native";
 <% if (usingReactQuery) { -%>
 import { useQuery } from "react-query";
-import API from "Romuless/App/Services/API";
+import API from "<%= name %>/App/Services/API";
 <% } -%>
 import Button from "<%= name %>/App/Components/Button";
 import Layout from "<%= name %>/App/Components/Layout";
