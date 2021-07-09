@@ -10,7 +10,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 <% } -%>
 import { ThemeProvider } from "styled-components";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Theme from "<%= name %>/App/Theme";
+import { useColorScheme } from "react-native";
+import theme from "<%= name %>/App/Theme";
 import Router from "<%= name %>/App/Router";
 import App from "<%= name %>/App/Components/App";
 
@@ -19,8 +20,11 @@ const queryClient = new QueryClient();
 <% } -%>
 
 function <%= name %>() {
+  const mode = useColorScheme();
+  const dynamicTheme = mode ? theme[mode] : theme.light;
+
   return (
-    <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={dynamicTheme}>
       <SafeAreaProvider>
         <App>
           <% if (usingReduxSaga) { -%>

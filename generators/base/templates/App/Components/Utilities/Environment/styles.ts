@@ -40,5 +40,5 @@ export const EnvText = styled(Text)`
   font-size: 12px;
   font-family: "System";
   font-weight: bold;
-  color: ${props => props.theme.colors.white};
+  color: #fff;
 `;

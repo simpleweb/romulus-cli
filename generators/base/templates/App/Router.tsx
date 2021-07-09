@@ -1,6 +1,11 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import { useColorScheme } from "react-native";
 import Screens from "<%= name %>/App/Screens";
 
 export type RootStackParamList = {
@@ -20,8 +25,14 @@ function RootStack() {
 }
 
 function Router() {
+  const mode = useColorScheme();
+  const baseTheme = mode === "dark" ? DarkTheme : DefaultTheme;
+  const theme = {
+    ...baseTheme,
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <RootStack />
     </NavigationContainer>
   );

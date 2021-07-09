@@ -303,6 +303,7 @@ module.exports = class extends Generator {
     const types = [
       "@types/styled-components",
       "@types/styled-components-react-native",
+      "@types/lodash.merge",
     ];
 
     this.yarnInstall([
@@ -310,6 +311,7 @@ module.exports = class extends Generator {
       "axios",
       "react-native-config",
       "styled-components",
+      "lodash.merge",
       ...reactNavigation,
       ...(this.i18nSupport ? ["react-native-i18n"] : []),
       ...(this.usingReduxSaga ? reduxSagaModules : []),
