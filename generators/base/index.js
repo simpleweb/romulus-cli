@@ -308,6 +308,7 @@ module.exports = class extends Generator {
 
     this.yarnInstall([
       "@react-native-community/async-storage",
+      "react-native-keychain",
       "axios",
       "react-native-config",
       "styled-components",

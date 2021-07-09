@@ -14,6 +14,7 @@ import { useColorScheme } from "react-native";
 import theme from "<%= name %>/App/Theme";
 import Router from "<%= name %>/App/Router";
 import App from "<%= name %>/App/Components/App";
+import { AuthenticationProvider } from "<%= name %>/App/Components/Authentication";
 
 <% if (usingReactQuery) { -%>
 const queryClient = new QueryClient();
@@ -26,24 +27,26 @@ function <%= name %>() {
   return (
     <ThemeProvider theme={dynamicTheme}>
       <SafeAreaProvider>
-        <App>
-          <% if (usingReduxSaga) { -%>
-          <Provider store={store}>
-            <PersistGate
-              loading={null}
-              onBeforeLift={runSagaMiddleware}
-              persistor={persistor}
-            >
+        <AuthenticationProvider>
+          <App>
+            <% if (usingReduxSaga) { -%>
+            <Provider store={store}>
+              <PersistGate
+                loading={null}
+                onBeforeLift={runSagaMiddleware}
+                persistor={persistor}
+              >
+                <Router />
+              </PersistGate>
+            </Provider>
+            <% } -%>
+            <% if (usingReactQuery) { -%>
+            <QueryClientProvider client={queryClient}>
               <Router />
-            </PersistGate>
-          </Provider>
-          <% } -%>
-          <% if (usingReactQuery) { -%>
-          <QueryClientProvider client={queryClient}>
-            <Router />
-          </QueryClientProvider>
-          <% } -%>
-        </App>
+            </QueryClientProvider>
+            <% } -%>
+          </App>
+        </AuthenticationProvider>
       </SafeAreaProvider>
     </ThemeProvider>
   );
