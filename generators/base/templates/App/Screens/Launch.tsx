@@ -1,13 +1,12 @@
 import React from "react";
-import { Text, View } from "react-native";
+import Layout from "<%= name %>/App/Components/Layout";
+import Text from "<%= name %>/App/Components/Text";
 
-interface LaunchProps {}
-
-function Launch({}: LaunchProps) {
+function Launch() {
   return (
-    <View>
+    <Layout.Center>
       <Text>Launch</Text>
-    </View>
+    </Layout.Center>
   );
 }
 
