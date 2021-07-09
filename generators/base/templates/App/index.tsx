@@ -6,7 +6,7 @@ import { store, persistor } from "<%= name %>/App/Store";
 import { runSagaMiddleware } from "<%= name %>/App/Store/Middleware/Saga";
 <% } -%>
 <% if (usingReactQuery) { -%>
-import { QueryCache, ReactQueryCacheProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 <% } -%>
 import { ThemeProvider } from "styled-components";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -15,13 +15,7 @@ import Router from "<%= name %>/App/Router";
 import App from "<%= name %>/App/Components/App";
 
 <% if (usingReactQuery) { -%>
-const queryCache = new QueryCache({
-  defaultConfig: {
-    queries: {
-      retry: 0,
-    },
-  },
-});
+const queryClient = new QueryClient();
 <% } -%>
 
 function <%= name %>() {
@@ -41,9 +35,9 @@ function <%= name %>() {
           </Provider>
           <% } -%>
           <% if (usingReactQuery) { -%>
-          <ReactQueryCacheProvider queryCache={queryCache}>
+          <QueryClientProvider client={queryClient}>
             <Router />
-          </ReactQueryCacheProvider>
+          </QueryClientProvider>
           <% } -%>
         </App>
       </SafeAreaProvider>
