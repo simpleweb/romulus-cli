@@ -36,7 +36,7 @@ createProject();
 
 describe("Romulus Test", () => {
   // No fat arrows here, as we want to override the timeout
-  after(function(done) {
+  after(function (done) {
     this.timeout(CLEAN_TIMEOUT);
 
     rimraf(path.join(__dirname, appName), () => {
@@ -49,7 +49,7 @@ describe("Romulus Test", () => {
   });
 
   // No fat arrows here, as we want to override the timeout
-  it("installs the base project files", function() {
+  it("installs the base project files", function () {
     this.timeout(CREATE_TIMEOUT);
 
     return helpers
@@ -59,7 +59,7 @@ describe("Romulus Test", () => {
       .withPrompts({
         appName,
         i18nSupport: false,
-        httpLayer: 'redux-saga',
+        httpLayer: "redux-saga",
       })
       .then(() => {
         assert.file([
@@ -89,8 +89,6 @@ describe("Romulus Test", () => {
           "App/Store/Middleware/Logger.ts",
           "App/Reducers/App.ts",
           "App/Reducers/index.ts",
-          "App/Actions/App.ts",
-          "App/Actions/index.ts",
           "App/Sagas/index.ts",
           "App/Sagas/RequestExample.ts",
           "App/Services/API/index.ts",
@@ -166,8 +164,6 @@ describe("Romulus Test", () => {
         assert.file([
           `App/Reducers/${reducerName}.ts`,
           `App/Reducers/${reducerName}.test.ts`,
-          `App/Actions/${reducerName}.ts`,
-          `App/Actions/${reducerName}.test.ts`,
         ]);
       });
   });

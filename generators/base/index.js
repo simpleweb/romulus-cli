@@ -135,13 +135,6 @@ module.exports = class extends Generator {
         { name: this.name, reducers: ["App"] }
       );
 
-      // copy actions
-      this.fs.copyTpl(
-        this.templatePath("App/Actions"),
-        this.destinationPath("App/Actions"),
-        { name: this.name }
-      );
-
       // copy sagas
       this.fs.copyTpl(
         this.templatePath("App/Sagas"),
@@ -295,6 +288,7 @@ module.exports = class extends Generator {
     ];
 
     const reduxSagaModules = [
+      "@reduxjs/toolkit",
       "react-redux",
       "redux",
       "redux-action-buffer",
@@ -326,6 +320,7 @@ module.exports = class extends Generator {
       [
         ...types,
         "@bam.tech/react-native-make",
+        "@testing-library/jest-native",
         "@testing-library/react-native",
         "eslint",
         "babel-eslint",

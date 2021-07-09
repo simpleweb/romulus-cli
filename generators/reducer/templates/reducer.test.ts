@@ -1,24 +1,20 @@
-import reducer from "./<%= reducer %>";
+import reducer, { example } from "./<%= reducer %>";
 
 it("should render an initial state", () => {
-  const expectedState = {
+  expect(reducer(undefined, { type: undefined })).toEqual({
     value: false,
-  };
-
-  expect(reducer(undefined, { type: "" })).toEqual(expectedState);
+  });
 });
 
-it("should handle <%= reducerConst %>_EXAMPLE", () => {
-  const actionType = "<%= name %>/<%= reducerConst %>_EXAMPLE";
-  const initialState = {
-    value: false,
-  };
-  const action: { type: typeof actionType } = {
-    type: actionType,
-  };
-  const expectedState = {
+it("should handle example()", () => {
+  expect(
+    reducer(
+      {
+        value: false,
+      },
+      example()
+    )
+  ).toEqual({
     value: true,
-  };
-
-  expect(reducer(initialState, action)).toEqual(expectedState);
+  });
 });
