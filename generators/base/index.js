@@ -310,6 +310,7 @@ module.exports = class extends Generator {
       "axios",
       "react-native-config",
       "styled-components",
+      "lodash.merge",
       ...reactNavigation,
       ...(this.i18nSupport ? ["react-native-i18n"] : []),
       ...(this.usingReduxSaga ? reduxSagaModules : []),
