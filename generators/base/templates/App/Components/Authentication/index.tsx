@@ -71,7 +71,7 @@ type LoginFunction = (fields: {
 }) => Promise<void>;
 
 type RegisterFunction = (fields: {
-  email: string;
+  username: string;
   password: string;
 }) => Promise<void>;
 
