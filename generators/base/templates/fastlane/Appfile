@@ -1,0 +1,11 @@
+#IOS config
+# app_identifier "com.app.identifier" # The bundle identifier of your app
+# apple_id "apple@id.co.uk"# Your Apple email address
+# team_name "TEAM NAME"# Team name for your itunes connect account
+# team_id "TEAMID" # Team ID for your itunes connect account - found at https://developer.apple.com/account/#/membership/S7R8RC82YA
+# itc_team_name "TEAM NAME"# Team name for your itunes connect account
+# itc_team_id "TEAM ID"# Team ID for your itunes connect account
+
+# Android config
+# json_key_file "./path-to-json-key.json"# JSON key generated for the android play store account instructions for creating at: https://docs.fastlane.tools/getting-started/android/setup/#collect-your-google-credentials
+# package_name "com.android.package.id" # Application id for the android app found in build.gradle fil#
