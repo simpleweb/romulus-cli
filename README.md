@@ -174,8 +174,6 @@ App/
 
 ### After `romulus init`
 
-The default `react-native init` now comes with tvOS targets... These add un-needed cruft to the project. Best plan is to open the XCode project, remove the tvOS targets and then delete the files in the project themselves.
-
 Follow the Android version of these instructions to add automatic build numbers.
 
 [https://medium.com/@andr3wjack/versioning-react-native-apps-407469707661#.quhgn05gf](https://medium.com/@andr3wjack/versioning-react-native-apps-407469707661#.quhgn05gf)
