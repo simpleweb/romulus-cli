@@ -157,6 +157,12 @@ module.exports = class extends Generator {
       { name: this.name }
     );
 
+    this.fs.copyTpl(
+      this.templatePath("App/Helpers/Keychain.ts"),
+      this.destinationPath("App/Helpers/Keychain.ts"),
+      { name: this.name }
+    );
+
     // copy theme
     this.fs.copyTpl(
       this.templatePath("App/Theme.ts"),
