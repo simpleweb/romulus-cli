@@ -234,6 +234,11 @@ module.exports = class extends Generator {
       this.destinationPath("utilities")
     );
 
+    this.fs.copyTpl(
+      this.templatePath(".husky"),
+      this.destinationPath(".husky")
+    );
+
     this.fs.copy(
       this.templatePath("__mocks__"),
       this.destinationPath("__mocks__")
@@ -272,11 +277,6 @@ module.exports = class extends Generator {
             "prettier --config .prettierrc.js --write",
             "eslint --plugin tsc --rule 'tsc/config: [2, {configFile: \"./tsconfig.json\"}]'",
           ],
-        },
-        husky: {
-          hooks: {
-            "pre-commit": "lint-staged",
-          },
         },
       })
     );
@@ -353,6 +353,9 @@ module.exports = class extends Generator {
   }
 
   end() {
+    this.log("Configuring Husky...");
+    this.spawnCommandSync("npx", ["husky-init"]);
+
     this.log("Installing Pods...");
     this.spawnCommandSync("npx", ["pod-install"]);
 
