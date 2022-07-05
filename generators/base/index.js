@@ -273,11 +273,6 @@ module.exports = class extends Generator {
             "eslint --plugin tsc --rule 'tsc/config: [2, {configFile: \"./tsconfig.json\"}]'",
           ],
         },
-        husky: {
-          hooks: {
-            "pre-commit": "lint-staged",
-          },
-        },
       })
     );
   }
@@ -353,6 +348,15 @@ module.exports = class extends Generator {
   }
 
   end() {
+    this.log("Configuring Husky...");
+    this.spawnCommandSync("npx", ["husky-init"]);
+    this.spawnCommandSync("npx", [
+      "husky",
+      "set",
+      ".husky/pre-commit",
+      "yarn run lint-staged",
+    ]);
+
     this.log("Installing Pods...");
     this.spawnCommandSync("npx", ["pod-install"]);
 
