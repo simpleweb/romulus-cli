@@ -11,6 +11,7 @@ fixes #...”).
 - [ ] Read the [contributing](.github/CONTRIBUTING.md) guidelines
 - [ ] Update the `README.md` if you think it’s necessary
 - [ ] Make sure the documentation reflects the changes you’ve made
+- [ ] Ensure you have created a changeset if your changes need to be released.
 
 ## Notes
 
