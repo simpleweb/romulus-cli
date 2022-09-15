@@ -98,8 +98,7 @@ To get Deep Linking working, it requires a few additional steps for iOS and Andr
 
 ## App Icons
 
-The source app icons is located in `App/Assets/AppIcon.png`. You can generate
-all the app specific icons using `react-native-make`.
+The source app icons is located in `App/Assets/AppIcon.png`.
 
 ```
 $ react-native set-icon --path App/Assets/AppIcon.png
