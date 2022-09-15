@@ -12,6 +12,12 @@ We use the issue tracker to keep track of bugs and improvements to romulus-cli i
 
 ### Sending a Pull Request
 
+Do what you need to do code wise and then add a new `changeset` (we use [Changesets](https://github.com/changesets/changesets) to help version the package consistently).
+
+```shell
+yarn changegset
+```
+
 For non-trivial changes, please open an issue with a proposal for a new feature or refactoring before starting on the work. We don't want you to waste your efforts on a pull request that we won't want to accept.
 
 On the other hand, sometimes the best way to start a conversation _is_ to send a pull request. Use your best judgement!
