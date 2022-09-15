@@ -1,0 +1,16 @@
+name: Tests
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Install react-native-cli
+        run: npm install -g react-native-cli
+      - name: Run tests
+        run: yarn run test
