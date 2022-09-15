@@ -1,3 +1,4 @@
+import { EdgeInsets } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 import Text from "<%= name %>/App/Components/Text";
 import { Props } from "./index";
@@ -15,22 +16,17 @@ const envCheck = ({ env }: Props) => {
   }
 };
 
-interface InsetProps {
-  insets: {
-    top: number;
-    bottom: number;
-    left: number;
-    right: number;
-  };
-}
-
-export const Badge = styled.View<Props & InsetProps>`
+export const Badge = styled.View<
+  Props & {
+    insets: EdgeInsets;
+  }
+>`
   width: 16px;
   height: 18px;
-  background-color: ${props => envCheck({ env: props.env })};
+  background-color: ${(props) => envCheck({ env: props.env })};
   position: absolute;
   right: 8px;
-  bottom: ${props => props.insets.bottom + 8}px;
+  bottom: ${(props) => props.insets.bottom + 8}px;
   justify-content: center;
   align-items: center;
   border-radius: 4px;

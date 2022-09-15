@@ -3,15 +3,17 @@ import { TouchableOpacity } from "react-native";
 import { Container, ButtonText } from "./styles";
 
 interface Props {
+  children: string;
   onPress: () => any;
 }
 
-const Button: React.FC<Props> = ({ onPress, children }) => (
-  <TouchableOpacity onPress={onPress} testID="touchable">
-    <Container>
-      <ButtonText>{children}</ButtonText>
-    </Container>
-  </TouchableOpacity>
-);
-
+function Button({ children, onPress }: Props) {
+  return (
+    <TouchableOpacity onPress={onPress} testID="touchable">
+      <Container>
+        <ButtonText>{children}</ButtonText>
+      </Container>
+    </TouchableOpacity>
+  );
+}
 export default Button;
