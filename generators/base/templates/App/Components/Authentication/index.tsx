@@ -16,6 +16,7 @@ export function AuthenticationProvider({
     isLoggedIn: false,
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const login: LoginFunction = async (fields) => {
     // @TODO replace this hard coded token from an API
     const token: AuthenticationToken = {
@@ -27,6 +28,7 @@ export function AuthenticationProvider({
     dispatch({ type: "LOGIN" });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const register: RegisterFunction = async (fields) => {
     // @TODO register your user
   };

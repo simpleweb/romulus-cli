@@ -305,6 +305,8 @@ module.exports = class extends Generator {
     ];
     const reduxSagaTypes = ["@types/react-redux", "@types/redux-logger"];
 
+    const i18nTypes = ["@types/react-native-i18n"];
+
     const reactQueryModules = ["react-query"];
 
     const types = [
@@ -345,6 +347,7 @@ module.exports = class extends Generator {
         "eslint-plugin-tsc",
         "jest",
         "jest-styled-components",
+        ...(this.i18nSupport ? i18nTypes : []),
         ...(this.usingReduxSaga ? reduxSagaTypes : []),
       ],
       {

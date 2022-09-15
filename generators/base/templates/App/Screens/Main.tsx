@@ -14,7 +14,7 @@ type Props = {
   navigation: MainScreenNavigationProp;
 };
 
-const Main: React.FC<Props> = ({ navigation }) => {
+function Main({ navigation }: Props) {
   return (
     <Box flex="fluid" alignY="center" alignX="center">
       <% if (i18nSupport) { -%>
@@ -31,6 +31,6 @@ const Main: React.FC<Props> = ({ navigation }) => {
       </Button>
     </Box>
   );
-};
+}
 
 export default Main;

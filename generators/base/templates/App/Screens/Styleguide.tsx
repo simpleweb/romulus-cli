@@ -1,7 +1,6 @@
 import { Box } from "@mobily/stacks";
 import React from "react";
 import { Alert } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
 import { ScrollView } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 <% if (usingReactQuery) { -%>
@@ -10,18 +9,8 @@ import API from "<%= name %>/App/Services/API";
 <% } -%>
 import Button from "<%= name %>/App/Components/Button";
 import Text from "<%= name %>/App/Components/Text";
-import { RootStackParamList } from "<%= name %>/App/Router";
 
-type StyleguideScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  "Styleguide"
->;
-
-type Props = {
-  navigation: StyleguideScreenNavigationProp;
-};
-
-const Styleguide: React.FC<Props> = () => {
+function Styleguide() {
   return (
     <ScrollView>
       <Box flex="fluid" padding={3}>
@@ -37,7 +26,7 @@ const Styleguide: React.FC<Props> = () => {
       </Box>
     </ScrollView>
   );
-};
+}
 
 <% if (usingReactQuery) { -%>
 function GetExample() {
