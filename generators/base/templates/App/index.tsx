@@ -13,7 +13,7 @@ import { ThemeProvider } from "styled-components";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useColorScheme } from "react-native";
 import theme from "<%= name %>/App/Theme";
-import Router from "<%= name %>/App/Router";
+import Router from "<%= name %>/App/Components/Router";
 import App from "<%= name %>/App/Components/App";
 import { AuthenticationProvider } from "<%= name %>/App/Components/Authentication";
 

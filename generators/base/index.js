@@ -88,13 +88,6 @@ module.exports = class extends Generator {
       }
     );
 
-    // copy router
-    this.fs.copyTpl(
-      this.templatePath("App/Router.tsx"),
-      this.destinationPath("App/Router.tsx"),
-      { name: this.name }
-    );
-
     // copy screens
     this.fs.copyTpl(
       this.templatePath("App/Screens"),
