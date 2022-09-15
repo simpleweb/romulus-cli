@@ -1,13 +1,14 @@
+import { Box } from "@mobily/stacks";
 import React from "react";
 import { Alert } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { ScrollView } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 <% if (usingReactQuery) { -%>
 import { useQuery } from "react-query";
 import API from "<%= name %>/App/Services/API";
 <% } -%>
 import Button from "<%= name %>/App/Components/Button";
-import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";
 import { RootStackParamList } from "<%= name %>/App/Router";
 
@@ -22,8 +23,8 @@ type Props = {
 
 const Styleguide: React.FC<Props> = () => {
   return (
-    <Layout.Scroll>
-      <Layout.Padded>
+    <ScrollView>
+      <Box flex="fluid" padding={3}>
         <Text>Styleguide</Text>
 
         <Heading>Button</Heading>
@@ -33,8 +34,8 @@ const Styleguide: React.FC<Props> = () => {
         <Heading>React Query</Heading>
         <GetExample />
         <% } -%>
-      </Layout.Padded>
-    </Layout.Scroll>
+      </Box>
+    </ScrollView>
   );
 };
 

@@ -29,7 +29,11 @@ function Router() {
           gestureEnabled: false,
         }}>
         {isLoading ? (
-          <Root.Screen name="Launch" component={Screens.Launch} />
+          <Root.Screen
+            name="Launch"
+            component={Screens.Launch}
+            options={{ headerShown: false }}
+          />
         ) : (
           <>
             {isLoggedIn ? (

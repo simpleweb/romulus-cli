@@ -1,15 +1,15 @@
+import { Box } from "@mobily/stacks";
+import React from "react";
 import { useAuthentication } from "<%= name %>/App/Components/Authentication";
 import Button from "<%= name %>/App/Components/Button";
-import Layout from "<%= name %>/App/Components/Layout";
-import React from "react";
 
 function Login() {
   const { login } = useAuthentication();
 
   return (
-    <Layout.Center>
+    <Box flex="fluid" alignY="center" alignX="center">
       <Button onPress={login}>Login</Button>
-    </Layout.Center>
+    </Box>
   );
 }
 

@@ -1,9 +1,9 @@
+import { Box } from "@mobily/stacks";
 import React from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
 <% if (i18nSupport) { -%>
 import { t } from "<%= name %>/App/Helpers/Translations";
 <% } -%>
-import Layout from '<%= name %>/App/Components/Layout';
 import Button from '<%= name %>/App/Components/Button';
 import Text from '<%= name %>/App/Components/Text';
 import { RootStackParamList } from "<%= name %>/App/Router";
@@ -16,7 +16,7 @@ type Props = {
 
 const Main: React.FC<Props> = ({ navigation }) => {
   return (
-    <Layout.Center>
+    <Box flex="fluid" alignY="center" alignX="center">
       <% if (i18nSupport) { -%>
       <Text paragraph>{t("screens.main.title")}</Text>
       <% } else { -%>
@@ -29,7 +29,7 @@ const Main: React.FC<Props> = ({ navigation }) => {
         View the Styleguide
         <% } -%>
       </Button>
-    </Layout.Center>
+    </Box>
   );
 };
 

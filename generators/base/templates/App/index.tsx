@@ -1,3 +1,4 @@
+import { StacksProvider } from "@mobily/stacks";
 import React from "react";
 <% if (usingReduxSaga) { -%>
 import { Provider } from "react-redux";
@@ -26,28 +27,30 @@ function <%= name %>() {
 
   return (
     <ThemeProvider theme={dynamicTheme}>
-      <SafeAreaProvider>
-        <AuthenticationProvider>
-          <App>
-            <% if (usingReduxSaga) { -%>
-            <Provider store={store}>
-              <PersistGate
-                loading={null}
-                onBeforeLift={runSagaMiddleware}
-                persistor={persistor}
-              >
+      <StacksProvider spacing={6}>
+        <SafeAreaProvider>
+          <AuthenticationProvider>
+            <App>
+              <% if (usingReduxSaga) { -%>
+              <Provider store={store}>
+                <PersistGate
+                  loading={null}
+                  onBeforeLift={runSagaMiddleware}
+                  persistor={persistor}
+                >
+                  <Router />
+                </PersistGate>
+              </Provider>
+              <% } -%>
+              <% if (usingReactQuery) { -%>
+              <QueryClientProvider client={queryClient}>
                 <Router />
-              </PersistGate>
-            </Provider>
-            <% } -%>
-            <% if (usingReactQuery) { -%>
-            <QueryClientProvider client={queryClient}>
-              <Router />
-            </QueryClientProvider>
-            <% } -%>
-          </App>
-        </AuthenticationProvider>
-      </SafeAreaProvider>
+              </QueryClientProvider>
+              <% } -%>
+            </App>
+          </AuthenticationProvider>
+        </SafeAreaProvider>
+      </StacksProvider>
     </ThemeProvider>
   );
 }

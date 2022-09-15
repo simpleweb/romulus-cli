@@ -76,8 +76,6 @@ describe("Romulus Test", () => {
           "App/Components/App/index.tsx",
           "App/Components/Button/index.tsx",
           "App/Components/Button/styles.ts",
-          "App/Components/Layout/index.tsx",
-          "App/Components/Layout/styles.ts",
           "App/Components/Text/index.tsx",
           "App/Components/Text/styles.ts",
           "App/Components/Utilities/Environment/index.tsx",
