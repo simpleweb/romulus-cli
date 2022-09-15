@@ -314,6 +314,7 @@ module.exports = class extends Generator {
     ];
 
     this.yarnInstall([
+      "@mobily/stacks",
       "@react-native-community/async-storage",
       "react-native-keychain",
       "axios",

@@ -1,12 +1,12 @@
+import { Box } from "@mobily/stacks";
 import React from "react";
-import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";
 
 function Launch() {
   return (
-    <Layout.Center>
+    <Box flex="fluid" alignX="center" alignY="center">
       <Text>Launch</Text>
-    </Layout.Center>
+    </Box>
   );
 }
 
