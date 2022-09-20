@@ -127,10 +127,11 @@ App/
 │   ├── Text/
 │   │   ├── index.tsx
 │   │   └── styles.ts
-│   └── Utilities/
-│       └── Environment/
-│           ├── index.tsx
-│           └── styles.ts
+│   ├── Utilities/
+│   │   └── Environment/
+│   │       ├── index.tsx
+│   │       └── styles.ts
+│   └── Router.tsx
 ├── Config/
 │   ├── Locales/
 │   │   └── en.json
@@ -162,7 +163,6 @@ App/
 ├── Theme/
 │   └── index.js
 ├── index.tsx
-├── Router.ts
 └── Theme.ts
 ```
 
