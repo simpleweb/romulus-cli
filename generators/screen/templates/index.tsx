@@ -1,6 +1,6 @@
+import { Box } from "@mobily/stacks";
 import React from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
-import Layout from "<%= name %>/App/Components/Layout";
 import Text from "<%= name %>/App/Components/Text";
 
 type <%= screen %>ScreenNavigationProp = StackNavigationProp<
@@ -12,11 +12,11 @@ type Props = {
   navigation: <%= screen %>ScreenNavigationProp;
 };
 
-const <%= screen %>: React.FC<Props> = ({ navigation }) => {
+function <%= screen %>({ navigation }: Props) {
   return (
-    <Layout.Center>
+    <Box flex="fluid" alignX="center" alignY="center">
       <Text><%= screen %></Text>
-    </Layout.Center>
+    </Box>
   );
 }
 
