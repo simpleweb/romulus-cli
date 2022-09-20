@@ -167,16 +167,25 @@ You should then import this screen into `App/Screens/index.ts` so it can be
 easily added to the router.
 
 ```js
+import { Box } from "@mobily/stacks";
 import React from "react";
-import { NavigationStackScreenComponent } from "react-navigation-stack";
-import Layout from "Remulus/App/Components/Layout";
-import Text from "Remulus/App/Components/Text";
+import { StackNavigationProp } from "@react-navigation/stack";
+import Text from "MyApp/App/Components/Text";
 
-const Home: NavigationStackScreenComponent = ({ navigation }) => {
+type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "Home"
+>;
+
+type Props = {
+  navigation: HomeScreenNavigationProp;
+};
+
+function Home({ navigation }: Props) {
   return (
-    <Layout.Center>
+    <Box flex="fluid" alignX="center" alignY="center">
       <Text>Home</Text>
-    </Layout.Center>
+    </Box>
   );
 };
 
