@@ -4,11 +4,10 @@ These commands rely on the original structure created by `romulus init`.
 
 ## Component
 
-Creates a new component or class based component.
+Creates a new component.
 
 ```
 romulus component MyComponent
-romulus component MyComponent --classComponent
 ```
 
 This will generate three files:
@@ -25,7 +24,7 @@ import { View, Text } from "./styles";
 
 interface Props {}
 
-const MyComponent: React.FC<Props> = () => {
+function MyComponent() {
   return (
     <View>
       <Text>MyComponent</Text>
@@ -36,28 +35,7 @@ const MyComponent: React.FC<Props> = () => {
 export default MyComponent;
 ```
 
-If you pass the `--classComponent` flag this stateful component will be generated.
-
-```js
-import React from "react";
-import { View, Text } from "./styles";
-
-interface Props {}
-
-class MyComponent extends React.Component<Props, {}> {
-  render() {
-    return (
-      <View>
-        <Text>MyComponent</Text>
-      </View>
-    );
-  }
-}
-
-export default MyComponent;
-```
-
-Both types of components get the same accompanying styles.
+Components get accompanying styles.
 
 ```js
 import styled from "styled-components/native";

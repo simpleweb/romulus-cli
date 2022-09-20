@@ -3,7 +3,7 @@ import { View, Text } from "./styles";
 
 interface Props {}
 
-const <%= component %>: React.FC<Props> = () => {
+function <%= component %>() {
   return (
     <View>
       <Text><%= component %></Text>
