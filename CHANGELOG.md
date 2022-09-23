@@ -1,5 +1,11 @@
 All notable changes are described on the [Releases](https://github.com/simpleweb/romulus-cli/releases) page.
 
+## 2.8.1
+
+### Patch Changes
+
+- 200f7ec: Switch to the correct async-storage package
+
 ## 2.8.0
 
 ### Minor Changes
