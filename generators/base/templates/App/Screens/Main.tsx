@@ -6,7 +6,7 @@ import { t } from "<%= name %>/App/Helpers/Translations";
 <% } -%>
 import Button from '<%= name %>/App/Components/Button';
 import Text from '<%= name %>/App/Components/Text';
-import { RootStackParamList } from "<%= name %>/App/Router";
+import { RootStackParamList } from "<%= name %>/App/Components/Router";
 
 type MainScreenNavigationProp = StackNavigationProp<RootStackParamList, "Main">;
 
