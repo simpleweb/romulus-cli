@@ -1,5 +1,12 @@
 All notable changes are described on the [Releases](https://github.com/simpleweb/romulus-cli/releases) page.
 
+## 2.8.2
+
+### Patch Changes
+
+- a824ff2: Fix the import for the Router in the Main screen
+  Imports the `RootStackParamList` in the screen command
+
 ## 2.8.1
 
 ### Patch Changes
