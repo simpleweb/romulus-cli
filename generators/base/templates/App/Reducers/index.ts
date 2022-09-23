@@ -1,5 +1,5 @@
 import { persistCombineReducers } from "redux-persist";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ENV, STORAGE_PREFIX } from "<%= name %>/App/Config";
 <% reducers.forEach(function(reducer) { -%>
 import <%= reducer %> from "<%= name %>/App/Reducers/<%= reducer %>";
