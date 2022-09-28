@@ -1,4 +1,4 @@
-# ⚛️ romulus-cli &middot; [![npm version](https://img.shields.io/npm/v/romulus-cli.svg)](https://www.npmjs.com/package/romulus-cli) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/simpleweb/romulus-cli/Tests) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md#sending-a-pull-request) ![Node.js Package](https://github.com/simpleweb/romulus-cli/workflows/Node.js%20Package/badge.svg?branch=main&event=release)
+# ⚛️ romulus-cli &middot; [![npm version](https://img.shields.io/npm/v/romulus-cli.svg)](https://www.npmjs.com/package/romulus-cli) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/simpleweb/romulus-cli/Tests) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md#sending-a-pull-request)
 
 `romulus` is a tool designed to **provide structure** and a **set of patterns**
 for React Native applications.
